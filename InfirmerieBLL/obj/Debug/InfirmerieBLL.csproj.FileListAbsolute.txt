@@ -1,0 +1,6 @@
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\bin\Debug\InfirmerieBLL.dll
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\bin\Debug\InfirmerieBLL.pdb
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.dll
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.pdb

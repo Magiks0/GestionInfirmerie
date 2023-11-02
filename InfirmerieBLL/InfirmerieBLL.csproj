@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>3c024993-2d0c-4c7e-8a32-55f3f23fb7a8</ProjectGuid>
+    <ProjectGuid>f6fbea19-0712-4620-8ab9-c66034964733</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>InfirmerieBLL</RootNamespace>

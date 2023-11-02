@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace InfirmerieGUI
 {
-    public partial class Login : Form
+    public partial class Form1 : Form
     {
-        public Login()
+        public Form1()
         {
             InitializeComponent();
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
