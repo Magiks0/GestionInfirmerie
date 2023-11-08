@@ -42,9 +42,9 @@ namespace InfirmerieGUI
             // 
             this.pageTitle.AutoSize = true;
             this.pageTitle.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageTitle.Location = new System.Drawing.Point(488, 138);
+            this.pageTitle.Location = new System.Drawing.Point(502, 139);
             this.pageTitle.Name = "pageTitle";
-            this.pageTitle.Size = new System.Drawing.Size(178, 45);
+            this.pageTitle.Size = new System.Drawing.Size(139, 36);
             this.pageTitle.TabIndex = 0;
             this.pageTitle.Text = "Connexion";
             this.pageTitle.Click += new System.EventHandler(this.label1_Click);
@@ -53,9 +53,9 @@ namespace InfirmerieGUI
             // 
             this.labelId.AutoSize = true;
             this.labelId.Font = new System.Drawing.Font("Calibri Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelId.Location = new System.Drawing.Point(336, 232);
+            this.labelId.Location = new System.Drawing.Point(369, 235);
             this.labelId.Name = "labelId";
-            this.labelId.Size = new System.Drawing.Size(122, 29);
+            this.labelId.Size = new System.Drawing.Size(98, 23);
             this.labelId.TabIndex = 1;
             this.labelId.Text = "Identifiant :";
             // 
@@ -63,14 +63,14 @@ namespace InfirmerieGUI
             // 
             this.loginId.Location = new System.Drawing.Point(473, 237);
             this.loginId.Name = "loginId";
-            this.loginId.Size = new System.Drawing.Size(204, 24);
+            this.loginId.Size = new System.Drawing.Size(204, 21);
             this.loginId.TabIndex = 2;
             // 
             // loginPassword
             // 
             this.loginPassword.Location = new System.Drawing.Point(473, 284);
             this.loginPassword.Name = "loginPassword";
-            this.loginPassword.Size = new System.Drawing.Size(204, 24);
+            this.loginPassword.Size = new System.Drawing.Size(204, 21);
             this.loginPassword.TabIndex = 4;
             this.loginPassword.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -78,9 +78,9 @@ namespace InfirmerieGUI
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.Font = new System.Drawing.Font("Calibri Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassword.Location = new System.Drawing.Point(307, 279);
+            this.labelPassword.Location = new System.Drawing.Point(347, 279);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(151, 29);
+            this.labelPassword.Size = new System.Drawing.Size(120, 23);
             this.labelPassword.TabIndex = 3;
             this.labelPassword.Text = "Mot de Passe :";
             this.labelPassword.Click += new System.EventHandler(this.label3_Click);
@@ -92,7 +92,7 @@ namespace InfirmerieGUI
             this.connectButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.connectButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.connectButton.Font = new System.Drawing.Font("Calibri Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.connectButton.Location = new System.Drawing.Point(496, 347);
+            this.connectButton.Location = new System.Drawing.Point(496, 346);
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(145, 40);
             this.connectButton.TabIndex = 5;
@@ -102,7 +102,7 @@ namespace InfirmerieGUI
             // 
             // GestionInfirmerie
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 529);
             this.Controls.Add(this.connectButton);
