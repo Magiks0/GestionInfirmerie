@@ -7,3 +7,4 @@ C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\Infirmerie
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.csproj.CoreCompileInputs.cache
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.exe
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.pdb
+C:\Users\admin\Source\Repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.GestionInfirmerie.resources
