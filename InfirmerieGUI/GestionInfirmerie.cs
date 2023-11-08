@@ -36,5 +36,10 @@ namespace InfirmerieGUI
         {
 
         }
+
+        private void connectButton_Click(object sender, EventArgs e)
+        {
+            dteryctguvhibjonkp
+        }
     }
 }
