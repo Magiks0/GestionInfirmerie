@@ -25,11 +25,11 @@ namespace InfirmerieDAL
             {
                 string verifLogin = monReader["nom_utilisateur"].ToString();
 
-                if (monReader["nom_Utilisateur"] == verifLogin)
+                if (verifLogin == login)
                 {
                     string verifmdp = monReader["mot_de_passe_utilisateur"].ToString();
 
-                    if (monReader["mot_de_passe_utilisateur"] == mdp)
+                    if (verifmdp == mdp)
                     {
                         return true;
                     }
