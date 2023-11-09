@@ -1,7 +1,7 @@
 ﻿
 namespace InfirmerieGUI
 {
-    partial class GestionInfirmerie
+    partial class GestionInfirmerie 
     {
         /// <summary>
         /// Variable nécessaire au concepteur.

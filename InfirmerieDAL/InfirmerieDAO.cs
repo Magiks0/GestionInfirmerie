@@ -8,42 +8,44 @@ using InfirmerieBO;
 
 namespace InfirmerieDAL
 {
-    class InfirmerieDAO
+    public class InfirmerieDAO
     {
-        public static bool Authentification(string login,string mdp)
+        public static bool Authentification(string login, string mdp)
         {
-            //connexion BDD
+            // Obtenir une connexion à la base de données en utilisant votre classe DbConnection
             SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion();
 
-
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT * FROM Utilisateur";
-            SqlDataReader monReader = cmd.ExecuteReader();
-
-            while (monReader.Read())
+            try
             {
-                string verifLogin = monReader["nom_utilisateur"].ToString();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = maConnexion;
+                cmd.CommandText = "SELECT * FROM Utilisateur WHERE nom_utilisateur = @login AND mot_de_passe_utilisateur = @mdp";
+                cmd.Parameters.AddWithValue("@login", login);
+                cmd.Parameters.AddWithValue("@mdp", mdp);
 
-                if (verifLogin == login)
+                SqlDataReader monReader = cmd.ExecuteReader();
+
+                // Vérifier si une ligne correspondante a été trouvée
+                if (monReader.Read())
                 {
-                    string verifmdp = monReader["mot_de_passe_utilisateur"].ToString();
-
-                    if (verifmdp == mdp)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
+            }
+            catch (Exception ex)
+            {
+                // Gérer les exceptions en conséquence (journalisation, gestion des erreurs, etc.)
+                Console.WriteLine("Erreur lors de l'authentification : " + ex.Message);
+            }
+            finally
+            {
+                // Fermer la connexion dans le bloc finally pour s'assurer qu'elle est toujours fermée, même en cas d'exception
+                maConnexion.Close();
             }
 
             return false;
-
-            // Fermeture de la connexion
-            maConnexion.Close();
-
         }
 
-        //-- Autres methodes --
+        //-- Autres méthodes --
 
     }
 }
