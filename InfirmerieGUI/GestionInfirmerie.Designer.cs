@@ -70,6 +70,7 @@ namespace InfirmerieGUI
             // 
             this.loginPassword.Location = new System.Drawing.Point(473, 284);
             this.loginPassword.Name = "loginPassword";
+            this.loginPassword.PasswordChar = '*';
             this.loginPassword.Size = new System.Drawing.Size(204, 21);
             this.loginPassword.TabIndex = 4;
             this.loginPassword.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
