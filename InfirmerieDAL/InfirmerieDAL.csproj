@@ -41,8 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="InfirmerieDAO.cs" />
+    <Compile Include="DbConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InfirmerieBO\InfirmerieBO.csproj">
+      <Project>{de2a0af5-2949-4aa7-82b2-e31f5a116c2d}</Project>
+      <Name>InfirmerieBO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
