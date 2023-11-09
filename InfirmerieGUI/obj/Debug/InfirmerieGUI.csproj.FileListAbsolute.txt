@@ -1,10 +1,10 @@
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieGUI.exe.config
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieGUI.exe
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieGUI.pdb
-C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.GestionInfirmerie.resources
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.Properties.Resources.resources
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.csproj.GenerateResource.cache
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.csproj.CoreCompileInputs.cache
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.exe
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.pdb
-C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.GestionInfirmerie.resources
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.csproj.AssemblyReference.cache
