@@ -13,16 +13,15 @@ namespace InfirmerieBO
         private string Mdp_Utilisateur;
 
         // Constructeur de la classe Utilisateur
-        public Utilisateur(int id_Utilisateur, string nom_Utilisateur, string mdp_Utilisateur)
+        public Utilisateur(string nom_Utilisateur, string mdp_Utilisateur)
         {
-            Id_Utilisateur1 = id_Utilisateur;
-            Nom_Utilisateur1 = nom_Utilisateur;
-            Mdp_Utilisateur1 = mdp_Utilisateur;
+            Nom_Utilisateur = nom_Utilisateur;
+            Mdp_Utilisateur = mdp_Utilisateur;
         }
 
         // Getter + Setter
-        public int Id_Utilisateur1 { get => Id_Utilisateur; set => Id_Utilisateur = value; }
-        public string Nom_Utilisateur1 { get => Nom_Utilisateur; set => Nom_Utilisateur = value; }
-        public string Mdp_Utilisateur1 { get => Mdp_Utilisateur; set => Mdp_Utilisateur = value; }
+        public int idUtilisateur { get => Id_Utilisateur; set => Id_Utilisateur = value; }
+        public string nomUtilisateur { get => Nom_Utilisateur; set => Nom_Utilisateur = value; }
+        public string mdpUtilisateur { get => Mdp_Utilisateur; set => Mdp_Utilisateur = value; }
     }
 }

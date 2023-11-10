@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using InfirmerieBLL;
+using InfirmerieBO;
 using System.Configuration;
 
 namespace InfirmerieGUI
@@ -22,31 +23,15 @@ namespace InfirmerieGUI
             // Initialisation de la chaîne de connexion
             GestionInfirmerieBL.SetchaineConnexion(ConfigurationManager.ConnectionStrings["Infirmerie"]);
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
         // Click du bouton "Connexion"
         private void connectButton_Click(object sender, EventArgs e)
         {
             string login = loginId.Text;
             string mdp = loginPassword.Text;
+            Utilisateur user = new Utilisateur(login, mdp);
 
-            bool authentifie = GestionInfirmerieBL.AuthentifierInfirmerie(login, mdp);
+
+            bool authentifie = GestionInfirmerieBL.AuthentifierInfirmerie(user);
 
             if (authentifie)
             {

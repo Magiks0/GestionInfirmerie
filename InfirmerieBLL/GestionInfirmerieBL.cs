@@ -14,9 +14,9 @@ namespace InfirmerieBLL
         private static GestionInfirmerieBL uneGestionInfirmerie;
 
         // retourne la méthode d'authentification
-        public static bool AuthentifierInfirmerie(string login, string mdp)
+        public static bool AuthentifierInfirmerie(Utilisateur unUtilisateur)
         {
-            return InfirmerieDAO.Authentification(login, mdp);
+            return InfirmerieDAO.Authentification(unUtilisateur.nomUtilisateur, unUtilisateur.mdpUtilisateur);
         }
 
         // retourne une instande de GestionInfirmerieBL
