@@ -35,10 +35,6 @@ namespace InfirmerieGUI
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void connectButton_Click(object sender, EventArgs e)
         {
@@ -49,11 +45,30 @@ namespace InfirmerieGUI
 
             if (authentifie)
             {
+
                 MessageBox.Show("Authentification réussie !");
             }
             else
             {
+                labelId.ForeColor = Color.Red;
+                labelPassword.ForeColor = Color.Red;
                 MessageBox.Show("Authentification échouée. Vérifiez vos identifiants.");
+            }
+        }
+
+        private void loginId_TextChanged(object sender, EventArgs e)
+        {
+            if(loginId.TextLength == 0)
+            {
+                labelId.ForeColor = Color.Black;
+            }
+        }
+
+        private void loginPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (loginPassword.TextLength == 0)
+            {
+                labelPassword.ForeColor = Color.Black;
             }
         }
     }
