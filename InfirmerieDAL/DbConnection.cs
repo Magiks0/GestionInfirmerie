@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace InfirmerieDAL
 {
@@ -37,11 +38,13 @@ namespace InfirmerieDAL
             }
             public SqlConnection GetSqlConnexion()
             {
-                if (maConnexion == null)
-                {
-                    maConnexion = new SqlConnection();
-                }
-                maConnexion.ConnectionString = chaineConnexion;
+            if (maConnexion == null)
+            {
+                maConnexion = new SqlConnection();
+            }
+
+        
+            maConnexion.ConnectionString = chaineConnexion;
                 // Si la connexion est fermée, on l’ouvre
                 if (maConnexion.State == System.Data.ConnectionState.Closed)
                 {

@@ -23,3 +23,8 @@ C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.c
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.csproj.CopyComplete
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.exe
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.pdb
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieBLL.dll
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieDAL.dll
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieBLL.pdb
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieDAL.pdb
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.csproj.CopyComplete

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using InfirmerieBLL;
+using System.Configuration;
 
 namespace InfirmerieGUI
 {
@@ -16,6 +17,7 @@ namespace InfirmerieGUI
         public GestionInfirmerie()
         {
             InitializeComponent();
+            GestionInfirmerieBL.SetchaineConnexion(ConfigurationManager.ConnectionStrings["Infirmerie"]);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -43,7 +45,7 @@ namespace InfirmerieGUI
             string login = loginId.Text;
             string mdp = loginPassword.Text;
 
-            bool authentifie = GestionInfirmerieBL.AuthentifierUtilisateur(login, mdp);
+            bool authentifie = GestionInfirmerieBL.AuthentifierInfirmerie(login, mdp);
 
             if (authentifie)
             {

@@ -12,3 +12,7 @@ C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieDAL\obj\Debug\InfirmerieDAL.c
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieDAL\obj\Debug\InfirmerieDAL.csproj.CopyComplete
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieDAL\obj\Debug\InfirmerieDAL.dll
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieDAL\obj\Debug\InfirmerieDAL.pdb
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieDAL\bin\Debug\InfirmerieBO.dll
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieDAL\bin\Debug\InfirmerieBO.pdb
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieDAL\obj\Debug\InfirmerieDAL.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieDAL\obj\Debug\InfirmerieDAL.csproj.CopyComplete
