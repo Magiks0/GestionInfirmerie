@@ -28,3 +28,4 @@ C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\bin\Debug\Infirmerie
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieDAL.pdb
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.csproj.CopyComplete
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.GstionInfirmerie.resources
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.FrmAccueil.resources
