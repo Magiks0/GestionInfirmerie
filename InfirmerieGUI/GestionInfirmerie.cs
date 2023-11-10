@@ -45,7 +45,6 @@ namespace InfirmerieGUI
 
             if (authentifie)
             {
-
                 MessageBox.Show("Authentification réussie !");
             }
             else
