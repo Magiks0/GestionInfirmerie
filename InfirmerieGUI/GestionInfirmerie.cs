@@ -16,7 +16,10 @@ namespace InfirmerieGUI
     {
         public GstionInfirmerie()
         {
+            //Initialisation du Formulaire
             InitializeComponent();
+
+            // Initialisation de la chaîne de connexion
             GestionInfirmerieBL.SetchaineConnexion(ConfigurationManager.ConnectionStrings["Infirmerie"]);
         }
 
@@ -36,6 +39,8 @@ namespace InfirmerieGUI
         }
 
 
+
+        // Click du bouton "Connexion"
         private void connectButton_Click(object sender, EventArgs e)
         {
             string login = loginId.Text;
@@ -45,10 +50,12 @@ namespace InfirmerieGUI
 
             if (authentifie)
             {
+                // Créer un nouveau formulaire SI l'authentification réussi
                 MessageBox.Show("Authentification réussie !");
             }
             else
             {
+                // L'authentification n'est pas réussi, on renvoie un message d'erreur
                 labelId.ForeColor = Color.Red;
                 labelPassword.ForeColor = Color.Red;
                 MessageBox.Show("Authentification échouée. Vérifiez vos identifiants.");

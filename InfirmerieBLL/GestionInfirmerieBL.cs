@@ -12,11 +12,14 @@ namespace InfirmerieBLL
     public class GestionInfirmerieBL
     {
         private static GestionInfirmerieBL uneGestionInfirmerie;
+
+        // retourne la méthode d'authentification
         public static bool AuthentifierInfirmerie(string login, string mdp)
         {
             return InfirmerieDAO.Authentification(login, mdp);
         }
 
+        // retourne une instande de GestionInfirmerieBL
         public static GestionInfirmerieBL GetGestionInfirmeries()
         {
             if (uneGestionInfirmerie == null)

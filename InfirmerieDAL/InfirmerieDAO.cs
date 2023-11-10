@@ -10,6 +10,8 @@ namespace InfirmerieDAL
 {
     public class InfirmerieDAO
     {
+
+        //Méthode d'authentification qui vérifie la conformité des données et renvoie un booléen en fonctions
         public static bool Authentification(string login, string mdp)
         {
             // Obtenir une connexion à la base de données en utilisant votre classe DbConnection
@@ -44,8 +46,5 @@ namespace InfirmerieDAL
 
             return false;
         }
-
-        //-- Autres méthodes --
-
     }
 }

@@ -12,6 +12,7 @@ namespace InfirmerieBO
         private string Nom_Utilisateur;
         private string Mdp_Utilisateur;
 
+        // Constructeur de la classe Utilisateur
         public Utilisateur(int id_Utilisateur, string nom_Utilisateur, string mdp_Utilisateur)
         {
             Id_Utilisateur1 = id_Utilisateur;
@@ -19,6 +20,7 @@ namespace InfirmerieBO
             Mdp_Utilisateur1 = mdp_Utilisateur;
         }
 
+        // Getter + Setter
         public int Id_Utilisateur1 { get => Id_Utilisateur; set => Id_Utilisateur = value; }
         public string Nom_Utilisateur1 { get => Nom_Utilisateur; set => Nom_Utilisateur = value; }
         public string Mdp_Utilisateur1 { get => Mdp_Utilisateur; set => Mdp_Utilisateur = value; }
