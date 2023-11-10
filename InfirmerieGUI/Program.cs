@@ -16,7 +16,7 @@ namespace InfirmerieGUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GestionInfirmerie());
+            Application.Run(new GstionInfirmerie());
         }
     }
 }

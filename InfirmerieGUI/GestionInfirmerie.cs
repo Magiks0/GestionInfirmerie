@@ -12,9 +12,9 @@ using System.Configuration;
 
 namespace InfirmerieGUI
 {
-    public partial class GestionInfirmerie : Form
+    public partial class GstionInfirmerie : Form
     {
-        public GestionInfirmerie()
+        public GstionInfirmerie()
         {
             InitializeComponent();
             GestionInfirmerieBL.SetchaineConnexion(ConfigurationManager.ConnectionStrings["Infirmerie"]);

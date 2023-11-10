@@ -1,7 +1,7 @@
 ﻿
 namespace InfirmerieGUI
 {
-    partial class GestionInfirmerie 
+    partial class GstionInfirmerie 
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -29,7 +29,7 @@ namespace InfirmerieGUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionInfirmerie));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GstionInfirmerie));
             this.pageTitle = new System.Windows.Forms.Label();
             this.labelId = new System.Windows.Forms.Label();
             this.loginId = new System.Windows.Forms.TextBox();
@@ -102,7 +102,7 @@ namespace InfirmerieGUI
             this.connectButton.UseVisualStyleBackColor = false;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
-            // GestionInfirmerie
+            // GstionInfirmerie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -115,8 +115,8 @@ namespace InfirmerieGUI
             this.Controls.Add(this.pageTitle);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "GestionInfirmerie";
-            this.Text = "GestionInfirmerie";
+            this.Name = "GstionInfirmerie";
+            this.Text = "Gestion Infirmerie | Connexion";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
