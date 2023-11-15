@@ -13,19 +13,19 @@ namespace InfirmerieBO
         private string firstname;
         private DateTime birthdate;
         private int phone;
-        private int classNumber;
+        private Classe classNumber;
         private int parentsPhone;
         private bool extraTime;
         private string comment;
 
         // Constructeur sans l'id
-        public Eleve(string lastname, string firstname, DateTime birthdate, int phone, int classNumber, int parentsPhone, bool extraTime, string comment)
+        public Eleve(string lastname, string firstname, DateTime birthdate, int phone, Classe classNumber, int parentsPhone, bool extraTime, string comment)
         {
             this.Lastname = lastname;
             this.Firstname = firstname;
             this.Birthdate = birthdate;
             this.Phone = phone;
-            this.ClassNumber = classNumber;
+            this.classNumber = classNumber;
             this.ParentsPhone = parentsPhone;
             this.ExtraTime = extraTime;
             this.Comment = comment;
