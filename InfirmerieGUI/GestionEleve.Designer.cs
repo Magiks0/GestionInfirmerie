@@ -38,18 +38,19 @@ namespace InfirmerieGUI
             this.lblAccueil.AutoSize = true;
             this.lblAccueil.Location = new System.Drawing.Point(548, 242);
             this.lblAccueil.Name = "lblAccueil";
-            this.lblAccueil.Size = new System.Drawing.Size(82, 17);
+            this.lblAccueil.Size = new System.Drawing.Size(40, 17);
             this.lblAccueil.TabIndex = 0;
-            this.lblAccueil.Text = "Bienvenue !";
+            this.lblAccueil.Text = "Caca";
+            this.lblAccueil.Click += new System.EventHandler(this.lblAccueil_Click);
             // 
-            // FrmAccueil
+            // GestionEleve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 529);
             this.Controls.Add(this.lblAccueil);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmAccueil";
+            this.Name = "GestionEleve";
             this.Text = "Gestion Infirmerie | Accueil";
             this.ResumeLayout(false);
             this.PerformLayout();

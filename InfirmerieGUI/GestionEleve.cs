@@ -16,5 +16,10 @@ namespace InfirmerieGUI
         {
             InitializeComponent();
         }
+
+        private void lblAccueil_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
