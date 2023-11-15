@@ -34,5 +34,7 @@ namespace InfirmerieBLL
             string chaine = chset.ConnectionString;
             DbConnection.GetConnexionBD().SetchaineConnexion(chaine);
         }
+
+
     }
 }
