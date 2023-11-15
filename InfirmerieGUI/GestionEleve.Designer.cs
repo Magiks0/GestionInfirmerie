@@ -1,7 +1,7 @@
 ﻿
 namespace InfirmerieGUI
 {
-    partial class FrmAccueil
+    partial class GestionEleve
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace InfirmerieGUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAccueil));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionEleve));
             this.lblAccueil = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 

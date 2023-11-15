@@ -38,7 +38,7 @@ namespace InfirmerieGUI
                 // Créer un nouveau formulaire SI l'authentification réussi
                 MessageBox.Show("Authentification réussie !");
                 this.Hide();
-                FrmAccueil FrmHome = new FrmAccueil();
+                GestionEleve FrmHome = new GestionEleve();
                 FrmHome.ShowDialog();
                 this.Close();
             }

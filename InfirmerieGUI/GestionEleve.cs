@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InfirmerieGUI
 {
-    public partial class FrmAccueil : Form
+    public partial class GestionEleve : Form
     {
-        public FrmAccueil()
+        public GestionEleve()
         {
             InitializeComponent();
         }
