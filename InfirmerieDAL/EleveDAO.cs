@@ -29,9 +29,9 @@ namespace InfirmerieDAL
             string nom;
             string prenom;
             DateTime dateNaissance;
-            int telEleve;
+            string telEleve;
             Classe classe;
-            int telParent;
+            string telParent;
             bool tiersTemps;
             string commentaire;
             Eleve unEleve;
@@ -59,10 +59,10 @@ namespace InfirmerieDAL
                 prenom = monReader["prenom_eleve"].ToString();
                 // Use GetDateTime to retrieve the date_naissance_eleve as DateTime
                 dateNaissance = monReader.GetDateTime(monReader.GetOrdinal("date_naissance_eleve"));
-                telEleve = Int32.Parse(monReader["tel_portable_eleve"].ToString());
+                telEleve = monReader["tel_portable_eleve"].ToString();
                 // creation d'un objet classe à partir du numéro de classe dans eleve, et du libelle associé à ce dernier
                 classe = new Classe(Int32.Parse(monReader["id_classe_eleve"].ToString()), monReader["nom_classe"].ToString());
-                telParent = Int32.Parse(monReader["tel_parent_eleve"].ToString());
+                telParent = monReader["tel_parent_eleve"].ToString();
                 tiersTemps = bool.Parse(monReader["tiers_temps_eleve"].ToString());
                 commentaire = monReader["commentaire_sante_eleve"].ToString();
                 unEleve = new Eleve(id, nom, prenom, dateNaissance, telEleve, classe, telParent, tiersTemps, commentaire) ;

@@ -47,7 +47,6 @@ namespace InfirmerieGUI
             this.pageTitle.Size = new System.Drawing.Size(178, 45);
             this.pageTitle.TabIndex = 0;
             this.pageTitle.Text = "Connexion";
-
             // 
             // labelId
             // 
@@ -85,7 +84,6 @@ namespace InfirmerieGUI
             this.labelPassword.Size = new System.Drawing.Size(151, 29);
             this.labelPassword.TabIndex = 3;
             this.labelPassword.Text = "Mot de Passe :";
-
             // 
             // connectButton
             // 
@@ -117,6 +115,7 @@ namespace InfirmerieGUI
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GstionInfirmerie";
             this.Text = "Gestion Infirmerie | Connexion";
+            this.Load += new System.EventHandler(this.GstionInfirmerie_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

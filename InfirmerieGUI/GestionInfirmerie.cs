@@ -66,5 +66,10 @@ namespace InfirmerieGUI
                 labelPassword.ForeColor = Color.Black;
             }
         }
+
+        private void GstionInfirmerie_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

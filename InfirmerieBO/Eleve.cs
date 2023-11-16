@@ -12,14 +12,14 @@ namespace InfirmerieBO
         private string lastname;
         private string firstname;
         private DateTime birthdate;
-        private int phone;
+        private string phone;
         private Classe classNumber;
-        private int parentsPhone;
+        private string parentsPhone;
         private bool extraTime;
         private string comment;
 
         // Constructeur sans l'id
-        public Eleve(string lastname, string firstname, DateTime birthdate, int phone, Classe classNumber, int parentsPhone, bool extraTime, string comment)
+        public Eleve(string lastname, string firstname, DateTime birthdate, string phone, Classe classNumber, string parentsPhone, bool extraTime, string comment)
         {
             this.Lastname = lastname;
             this.Firstname = firstname;
@@ -32,7 +32,7 @@ namespace InfirmerieBO
         }
 
         // Constructeur avec l'id
-        public Eleve(int id, string lastname, string firstname, DateTime birthdate, int phone, Classe classNumber, int parentsPhone, bool extraTime, string comment)
+        public Eleve(int id, string lastname, string firstname, DateTime birthdate, string phone, Classe classNumber, string parentsPhone, bool extraTime, string comment)
         {
             this.Id = id;
             this.Lastname = lastname;
@@ -49,9 +49,9 @@ namespace InfirmerieBO
         public string Lastname { get => lastname; set => lastname = value; }
         public string Firstname { get => firstname; set => firstname = value; }
         public DateTime Birthdate { get => birthdate; set => birthdate = value; }
-        public int Phone { get => phone; set => phone = value; }
+        public string Phone { get => phone; set => phone = value; }
         public Classe ClassNumber { get => classNumber; set => classNumber = value; }
-        public int ParentsPhone { get => parentsPhone; set => parentsPhone = value; }
+        public string ParentsPhone { get => parentsPhone; set => parentsPhone = value; }
         public bool ExtraTime { get => extraTime; set => extraTime = value; }
         public string Comment { get => comment; set => comment = value; }
     }

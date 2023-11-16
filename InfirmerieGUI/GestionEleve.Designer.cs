@@ -38,15 +38,8 @@ namespace InfirmerieGUI
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.visitesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.médicamentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statistiquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.élèvesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prénom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classe = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.date_naissance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.num_parent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.num_eleve = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statistiquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -67,14 +60,6 @@ namespace InfirmerieGUI
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nom,
-            this.Prénom,
-            this.classe,
-            this.date_naissance,
-            this.sant,
-            this.num_parent,
-            this.num_eleve});
             this.dataGridView1.Location = new System.Drawing.Point(255, 88);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -150,13 +135,6 @@ namespace InfirmerieGUI
             this.médicamentsToolStripMenuItem.Size = new System.Drawing.Size(193, 24);
             this.médicamentsToolStripMenuItem.Text = "Médicaments";
             // 
-            // statistiquesToolStripMenuItem
-            // 
-            this.statistiquesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("statistiquesToolStripMenuItem.Image")));
-            this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
-            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(193, 24);
-            this.statistiquesToolStripMenuItem.Text = "Statistiques";
-            // 
             // élèvesToolStripMenuItem
             // 
             this.élèvesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("élèvesToolStripMenuItem.Image")));
@@ -164,56 +142,12 @@ namespace InfirmerieGUI
             this.élèvesToolStripMenuItem.Size = new System.Drawing.Size(193, 24);
             this.élèvesToolStripMenuItem.Text = "Élèves";
             // 
-            // Nom
+            // statistiquesToolStripMenuItem
             // 
-            this.Nom.HeaderText = "Nom";
-            this.Nom.MinimumWidth = 6;
-            this.Nom.Name = "Nom";
-            this.Nom.Width = 125;
-            // 
-            // Prénom
-            // 
-            this.Prénom.HeaderText = "Prénom";
-            this.Prénom.MinimumWidth = 6;
-            this.Prénom.Name = "Prénom";
-            this.Prénom.Width = 125;
-            // 
-            // classe
-            // 
-            this.classe.HeaderText = "Classe";
-            this.classe.MinimumWidth = 6;
-            this.classe.Name = "classe";
-            this.classe.Width = 125;
-            // 
-            // date_naissance
-            // 
-            this.date_naissance.HeaderText = "Date de naissance";
-            this.date_naissance.MinimumWidth = 6;
-            this.date_naissance.Name = "date_naissance";
-            this.date_naissance.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.date_naissance.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.date_naissance.Width = 125;
-            // 
-            // sant
-            // 
-            this.sant.HeaderText = "Santé de l\'élève";
-            this.sant.MinimumWidth = 6;
-            this.sant.Name = "sant";
-            this.sant.Width = 125;
-            // 
-            // num_parent
-            // 
-            this.num_parent.HeaderText = "Numéro de tél du Parent";
-            this.num_parent.MinimumWidth = 6;
-            this.num_parent.Name = "num_parent";
-            this.num_parent.Width = 125;
-            // 
-            // num_eleve
-            // 
-            this.num_eleve.HeaderText = "Numéro de tel de l\'élève";
-            this.num_eleve.MinimumWidth = 6;
-            this.num_eleve.Name = "num_eleve";
-            this.num_eleve.Width = 125;
+            this.statistiquesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("statistiquesToolStripMenuItem.Image")));
+            this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
+            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(193, 24);
+            this.statistiquesToolStripMenuItem.Text = "Statistiques";
             // 
             // GestionEleve
             // 
@@ -252,12 +186,5 @@ namespace InfirmerieGUI
         private System.Windows.Forms.ToolStripMenuItem médicamentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem statistiquesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem élèvesToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Prénom;
-        private System.Windows.Forms.DataGridViewComboBoxColumn classe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date_naissance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn num_parent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn num_eleve;
     }
 }

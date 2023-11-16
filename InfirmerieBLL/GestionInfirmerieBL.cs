@@ -40,7 +40,7 @@ namespace InfirmerieBLL
 
         #region Gestion Eleve
 
-        public List<Eleve> ToutLesEleves()
+        public static List<Eleve> ToutLesEleves()
         {
             return EleveDAO.GetEleves();
         }
