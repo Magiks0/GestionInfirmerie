@@ -13,6 +13,7 @@ namespace InfirmerieBLL
     {
         private static GestionInfirmerieBL uneGestionInfirmerie;
 
+        #region Authentification
         // retourne la méthode d'authentification
         public static bool AuthentifierInfirmerie(Utilisateur unUtilisateur)
         {
@@ -35,6 +36,9 @@ namespace InfirmerieBLL
             DbConnection.GetConnexionBD().SetchaineConnexion(chaine);
         }
 
+        #endregion
+        #region Gestion Eleve
 
+        #endregion
     }
 }
