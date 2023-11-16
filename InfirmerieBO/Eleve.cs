@@ -31,6 +31,20 @@ namespace InfirmerieBO
             this.Comment = comment;
         }
 
+        // Constructeur avec l'id
+        public Eleve(int id, string lastname, string firstname, DateTime birthdate, int phone, Classe classNumber, int parentsPhone, bool extraTime, string comment)
+        {
+            this.Id = id;
+            this.Lastname = lastname;
+            this.Firstname = firstname;
+            this.Birthdate = birthdate;
+            this.Phone = phone;
+            this.classNumber = classNumber;
+            this.ParentsPhone = parentsPhone;
+            this.ExtraTime = extraTime;
+            this.Comment = comment;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Lastname { get => lastname; set => lastname = value; }
         public string Firstname { get => firstname; set => firstname = value; }

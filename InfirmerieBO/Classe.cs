@@ -17,6 +17,17 @@ namespace InfirmerieBO
             this.name = nom;
         }
 
+        public Classe(int id)
+        {
+            this.id = id;
+        }
+        public Classe(int id, string nom)
+        {
+            this.id = id;
+            this.name = nom;
+        }
+
+
         public int GetId()
         {
             return this.id;
@@ -27,5 +38,14 @@ namespace InfirmerieBO
             return this.name;
         }
 
+        public void SetId(int id)
+        {
+            this.id = id;
+        }
+
+        public void SetName(string nom)
+        {
+            this.name = nom;
+        }
     }
 }

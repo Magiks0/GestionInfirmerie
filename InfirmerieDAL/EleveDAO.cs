@@ -27,6 +27,13 @@ namespace InfirmerieDAL
         {
             int id;
             string nom;
+            string prenom;
+            DateTime dateNaissance;
+            int telEleve;
+            Classe classe;
+            int telParent;
+            bool tiersTemps;
+            string commentaire;
             Eleve unEleve;
 
             // Connexion à la BD
@@ -37,25 +44,28 @@ namespace InfirmerieDAL
 
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT * FROM T_Identification";
+            // select pour avoir toute les informations d'Eleve ainsi que le nom de sa classe (pour la création d'objet classe)
+            cmd.CommandText = "SELECT * FROM Eleve E, Classe C WHERE E.id_classe_eleve = C.id_classe";
 
             SqlDataReader monReader = cmd.ExecuteReader();
+
+            
 
             // Remplissage de la liste
             while (monReader.Read())
             {
-                id = Int32.Parse(monReader["Id_Eleve"].ToString());
-
-                if (monReader["Nom_Eleve"] == DBNull.Value)
-                {
-                    nom = default(string);
-                }
-                else
-                {
-                    nom = monReader["Nom_utilisateur"].ToString();
-                }
-
-                unEleve = new Eleve(id, nom);
+                id = Int32.Parse(monReader["id_eleve"].ToString());
+                nom = monReader["nom_eleve"].ToString();
+                prenom = monReader["prenom_eleve"].ToString();
+                // Use GetDateTime to retrieve the date_naissance_eleve as DateTime
+                dateNaissance = monReader.GetDateTime(monReader.GetOrdinal("date_naissance_eleve"));
+                telEleve = Int32.Parse(monReader["tel_portable_eleve"].ToString());
+                // creation d'un objet classe à partir du numéro de classe dans eleve, et du libelle associé à ce dernier
+                classe = new Classe(Int32.Parse(monReader["id_classe_eleve"].ToString()), monReader["nom_classe"].ToString());
+                telParent = Int32.Parse(monReader["tel_parent_eleve"].ToString());
+                tiersTemps = bool.Parse(monReader["tiers_temps_eleve"].ToString());
+                commentaire = monReader["commentaire_sante_eleve"].ToString();
+                unEleve = new Eleve(id, nom, prenom, dateNaissance, telEleve, classe, telParent, tiersTemps, commentaire) ;
                 lesEleves.Add(unEleve);
             }
 
@@ -66,60 +76,83 @@ namespace InfirmerieDAL
         }
 
         // Cette méthode insère un nouvel Eleve passé en paramètre dans la BD
-        public static int AjoutEleve(Eleve unEleve)
+        public static int InsertEleve(Eleve unEleve)
         {
-            int nbEnr;
+            int nbLignes;
 
-            // Connexion à la BD
-            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = maConnexion;
+                cmd.CommandText = "INSERT INTO Eleve (nom_eleve, prenom_eleve, date_naissance_eleve, tel_portable_eleve, id_classe_eleve, tel_parent_eleve, tiers_temps_eleve, commentaire_sante_eleve) " +
+                                  "VALUES (@nom, @prenom, @dateNaissance, @telEleve, @idClasse, @telParent, @tiersTemps, @commentaire)";
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO T_Identification VALUES('" + unEleve.GetNom() + "')";
-            nbEnr = cmd.ExecuteNonQuery();
+                // Use parameters to avoid SQL injection
+                cmd.Parameters.AddWithValue("@nom", unEleve.Lastname);                    ;
+                cmd.Parameters.AddWithValue("@prenom", unEleve.Firstname);
+                cmd.Parameters.AddWithValue("@dateNaissance", unEleve.Birthdate);
+                cmd.Parameters.AddWithValue("@telEleve", unEleve.Phone);
+                // Bien prendre l'id de l'objet classe!
+                cmd.Parameters.AddWithValue("@idClasse", unEleve.ClassNumber.GetId());
+                cmd.Parameters.AddWithValue("@telParent", unEleve.ParentsPhone);
+                cmd.Parameters.AddWithValue("@tiersTemps", unEleve.ExtraTime);
+                cmd.Parameters.AddWithValue("@commentaire", unEleve.Comment);
 
-            // Fermeture de la connexion
-            maConnexion.Close();
+                nbLignes = cmd.ExecuteNonQuery();
+            }
 
-            return nbEnr;
+            return nbLignes;
         }
 
-        // Cette méthode modifie un Eleve passé en paramètre dans la BD
         public static int UpdateEleve(Eleve unEleve)
         {
-            int nbEnr;
+            int nbLignes;
 
-            // Connexion à la BD
-            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = maConnexion;
+                cmd.CommandText = "UPDATE Eleve SET nom_eleve = @nom, prenom_eleve = @prenom, date_naissance_eleve = @dateNaissance, " +
+                                  "tel_portable_eleve = @telEleve, id_classe_eleve = @idClasse, tel_parent_eleve = @telParent, " +
+                                  "tiers_temps_eleve = @tiersTemps, commentaire_sante_eleve = @commentaire " +
+                                  "WHERE id_eleve = @id";
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE T_Identification SET Nom_utilisateur = '" + unEleve.GetNom() + "' WHERE Id_utilisateur = " + unEleve.GetId();
-            nbEnr = cmd.ExecuteNonQuery();
+                // Use parameters to avoid SQL injection
+                cmd.Parameters.AddWithValue("@nom", unEleve.Lastname); ;
+                cmd.Parameters.AddWithValue("@prenom", unEleve.Firstname);
+                cmd.Parameters.AddWithValue("@dateNaissance", unEleve.Birthdate);
+                cmd.Parameters.AddWithValue("@telEleve", unEleve.Phone);
+                // Bien prendre l'id de l'objet classe!
+                cmd.Parameters.AddWithValue("@idClasse", unEleve.ClassNumber.GetId());
+                cmd.Parameters.AddWithValue("@telParent", unEleve.ParentsPhone);
+                cmd.Parameters.AddWithValue("@tiersTemps", unEleve.ExtraTime);
+                cmd.Parameters.AddWithValue("@commentaire", unEleve.Comment);
+                cmd.Parameters.AddWithValue("@id", unEleve.Id);
 
-            // Fermeture de la connexion
-            maConnexion.Close();
+                nbLignes = cmd.ExecuteNonQuery();
+            }
 
-            return nbEnr;
+            return nbLignes;
         }
 
-        // Cette méthode supprime de la BD un Eleve dont l'id est passé en paramètre
-        public static int DeleteEleve(int id)
+        public static int DeleteEleve(Eleve unEleve)
         {
-            int nbEnr;
+            int nbLignes;
 
-            // Connexion à la BD
-            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = maConnexion;
+                cmd.CommandText = "DELETE FROM Eleve WHERE id_eleve = @id";
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "DELETE FROM T_Identification WHERE Id_utilisateur = " + id;
-            nbEnr = cmd.ExecuteNonQuery();
+                // Use parameters to avoid SQL injection
+                cmd.Parameters.AddWithValue("@id", unEleve.Id);
 
-            // Fermeture de la connexion
-            maConnexion.Close();
+                nbLignes = cmd.ExecuteNonQuery();
+            }
 
-            return nbEnr;
+            return nbLignes;
         }
+
     }
 }
