@@ -13,6 +13,7 @@ namespace InfirmerieBLL
     {
         private static GestionInfirmerieBL uneGestionInfirmerie;
 
+        #region Authentification
         // retourne la méthode d'authentification
         public static bool AuthentifierInfirmerie(Utilisateur unUtilisateur)
         {
@@ -34,5 +35,26 @@ namespace InfirmerieBLL
             string chaine = chset.ConnectionString;
             DbConnection.GetConnexionBD().SetchaineConnexion(chaine);
         }
+
+        #endregion
+
+        #region Gestion Eleve
+
+        public List<Eleve> ToutLesEleves()
+        {
+            return EleveDAO.GetEleves();
+        }
+
+        public int AjouterEleve(Eleve unEleve)
+        {
+            return EleveDAO.InsertEleve(unEleve);
+        }
+
+        public int SupprimerEleve(Eleve unEleve)
+        {
+            return EleveDAO.DeleteEleve(unEleve);
+        }
+
+        #endregion
     }
 }
