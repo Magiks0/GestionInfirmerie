@@ -37,14 +37,13 @@ namespace InfirmerieGUI
             this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.visitesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.médicamentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.élèvesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statistiquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.élèvesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prénom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classe = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.date_naissance = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.date_naissance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.num_parent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.num_eleve = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,6 +81,7 @@ namespace InfirmerieGUI
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(872, 376);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button1
@@ -118,52 +118,51 @@ namespace InfirmerieGUI
             // 
             // menuStrip1
             // 
+            this.menuStrip1.AutoSize = false;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.visitesToolStripMenuItem,
             this.médicamentsToolStripMenuItem,
-            this.statistiquesToolStripMenuItem,
-            this.élèvesToolStripMenuItem});
+            this.élèvesToolStripMenuItem,
+            this.statistiquesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(118, 529);
+            this.menuStrip1.Size = new System.Drawing.Size(200, 529);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // visitesToolStripMenuItem
             // 
-            this.visitesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.visitesToolStripMenuItem.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.visitesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("visitesToolStripMenuItem.Image")));
             this.visitesToolStripMenuItem.Name = "visitesToolStripMenuItem";
-            this.visitesToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
+            this.visitesToolStripMenuItem.Size = new System.Drawing.Size(193, 24);
             this.visitesToolStripMenuItem.Text = "Visites";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(225, 26);
-            this.toolStripMenuItem1.Text = "toolStripMenuItem1";
             // 
             // médicamentsToolStripMenuItem
             // 
+            this.médicamentsToolStripMenuItem.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.médicamentsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("médicamentsToolStripMenuItem.Image")));
             this.médicamentsToolStripMenuItem.Name = "médicamentsToolStripMenuItem";
-            this.médicamentsToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
+            this.médicamentsToolStripMenuItem.Size = new System.Drawing.Size(193, 24);
             this.médicamentsToolStripMenuItem.Text = "Médicaments";
-            // 
-            // élèvesToolStripMenuItem
-            // 
-            this.élèvesToolStripMenuItem.Name = "élèvesToolStripMenuItem";
-            this.élèvesToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
-            this.élèvesToolStripMenuItem.Text = "Élèves";
             // 
             // statistiquesToolStripMenuItem
             // 
+            this.statistiquesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("statistiquesToolStripMenuItem.Image")));
             this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
-            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
+            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(193, 24);
             this.statistiquesToolStripMenuItem.Text = "Statistiques";
+            // 
+            // élèvesToolStripMenuItem
+            // 
+            this.élèvesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("élèvesToolStripMenuItem.Image")));
+            this.élèvesToolStripMenuItem.Name = "élèvesToolStripMenuItem";
+            this.élèvesToolStripMenuItem.Size = new System.Drawing.Size(193, 24);
+            this.élèvesToolStripMenuItem.Text = "Élèves";
             // 
             // Nom
             // 
@@ -191,6 +190,8 @@ namespace InfirmerieGUI
             this.date_naissance.HeaderText = "Date de naissance";
             this.date_naissance.MinimumWidth = 6;
             this.date_naissance.Name = "date_naissance";
+            this.date_naissance.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.date_naissance.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.date_naissance.Width = 125;
             // 
             // sant
@@ -248,14 +249,13 @@ namespace InfirmerieGUI
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem visitesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem médicamentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem statistiquesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem élèvesToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prénom;
         private System.Windows.Forms.DataGridViewComboBoxColumn classe;
-        private System.Windows.Forms.DataGridViewComboBoxColumn date_naissance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_naissance;
         private System.Windows.Forms.DataGridViewTextBoxColumn sant;
         private System.Windows.Forms.DataGridViewTextBoxColumn num_parent;
         private System.Windows.Forms.DataGridViewTextBoxColumn num_eleve;

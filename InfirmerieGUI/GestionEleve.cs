@@ -39,7 +39,15 @@ namespace InfirmerieGUI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            switch (dataGridView1.Columns[e.ColumnIndex].Name)
+            {
+                case "date_naissance":
+                    _Rectangle = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                    dtp.Size = new Size(_Rectangle.Width, _Rectangle.Height);
+                    dtp.Location = new Point(_Rectangle.X, _Rectangle.Y);
+                    dtp.Visible = true;
+                    break;
+            }
         }
 
         private void GestionEleve_Load(object sender, EventArgs e)
