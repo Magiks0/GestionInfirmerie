@@ -8,7 +8,7 @@ using InfirmerieBO;
 
 namespace InfirmerieDAL
 {
-    class EleveDAO
+    public class EleveDAO
     {
         static EleveDAO unEleveDAO;
 
