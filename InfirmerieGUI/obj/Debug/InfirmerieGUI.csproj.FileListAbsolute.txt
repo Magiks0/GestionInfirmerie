@@ -15,7 +15,6 @@ C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieDAL.d
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieBLL.pdb
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieDAL.pdb
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.csproj.AssemblyReference.cache
-C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.GestionInfirmerie.resources
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.Properties.Resources.resources
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.csproj.GenerateResource.cache
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.csproj.CoreCompileInputs.cache
@@ -31,3 +30,7 @@ C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\Infirmerie
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.FrmAccueil.resources
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieBO.dll
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieBO.pdb
+C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieBO.dll
+C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieBO.pdb
+C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.GestionEleve.resources
+C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.GstionInfirmerie.resources

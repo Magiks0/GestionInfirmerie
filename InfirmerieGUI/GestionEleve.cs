@@ -12,12 +12,47 @@ namespace InfirmerieGUI
 {
     public partial class GestionEleve : Form
     {
+        DateTimePicker dtp = new DateTimePicker();
+        Rectangle _Rectangle;
+
         public GestionEleve()
         {
             InitializeComponent();
+            dataGridView1.Controls.Add(dtp);
+            dtp.Visible = false;
+            dtp.Format = DateTimePickerFormat.Custom;
+            dtp.TextChanged += new EventHandler(dtp_TextChange);
+        }
+        private void dtp_TextChange(Object sender, EventArgs e)
+        {
+            dataGridView1.CurrentCell.Value = dtp.Text.ToString();
+        } 
+        private void dataGridView1_Scroll(Object sender, EventArgs e)
+        {
+            dtp.Visible = false;
         }
 
         private void lblAccueil_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void GestionEleve_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
