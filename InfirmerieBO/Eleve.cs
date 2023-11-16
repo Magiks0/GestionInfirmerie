@@ -36,7 +36,7 @@ namespace InfirmerieBO
         public string Firstname { get => firstname; set => firstname = value; }
         public DateTime Birthdate { get => birthdate; set => birthdate = value; }
         public int Phone { get => phone; set => phone = value; }
-        public int ClassNumber { get => classNumber; set => classNumber = value; }
+        public Classe ClassNumber { get => classNumber; set => classNumber = value; }
         public int ParentsPhone { get => parentsPhone; set => parentsPhone = value; }
         public bool ExtraTime { get => extraTime; set => extraTime = value; }
         public string Comment { get => comment; set => comment = value; }
