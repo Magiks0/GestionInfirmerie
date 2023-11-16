@@ -40,6 +40,21 @@ namespace InfirmerieBLL
 
         #region Gestion Eleve
 
+        public List<Eleve> ToutLesEleves()
+        {
+            return EleveDAO.GetEleves();
+        }
+
+        public int AjouterEleve(Eleve unEleve)
+        {
+            return EleveDAO.InsertEleve(unEleve);
+        }
+
+        public int SupprimerEleve(Eleve unEleve)
+        {
+            return EleveDAO.DeleteEleve(unEleve);
+        }
+
         #endregion
     }
 }
