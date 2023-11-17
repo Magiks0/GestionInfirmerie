@@ -76,11 +76,18 @@ namespace InfirmerieGUI
 
                 if (eleveASupprimer != null)
                 {
-                    // Appel de la méthode de suppression de la BLL
-                    GestionInfirmerieBL.GetGestionInfirmeries().SupprimerEleve(eleveASupprimer);
+                    // Afficher une MessageBox pour confirmer la suppression
+                    var confirmation = MessageBox.Show("Êtes-vous sûr de vouloir supprimer cet élève ?", "Confirmation de suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    // Rafraîchir le DataGridView
-                    ActualiserDataGridView();
+                    // Vérifier si l'utilisateur a cliqué sur 'Yes'
+                    if (confirmation == DialogResult.Yes)
+                    {
+                        // Appel de la méthode de suppression de la BLL
+                        GestionInfirmerieBL.GetGestionInfirmeries().SupprimerEleve(eleveASupprimer);
+
+                        // Rafraîchir le DataGridView
+                        ActualiserDataGridView();
+                    }
                 }
             }
             else
@@ -89,47 +96,16 @@ namespace InfirmerieGUI
             }
         }
 
+
         private void ActualiserDataGridView()
         {
             dataGridView1.DataSource = GestionInfirmerieBL.ToutLesEleves();
         }
 
-        private void AjouterEleve()
-        {
-            // Collecte des informations à partir des champs de saisie
-            string nom = textBoxNom.Text;
-            string prenom = textBoxPrenom.Text;
-            DateTime dateNaissance = dateTimePickerNaissance.Value;
-            string telEleve = textBoxTelEleve.Text;
-            // Assurez-vous d'avoir un moyen d'obtenir l'ID de la classe
-            int idClasse = int.Parse(comboBoxClasse.SelectedValue.ToString());
-            string telParent = textBoxTelParent.Text;
-            bool tiersTemps = checkBoxTiersTemps.Checked;
-            string commentaire = textBoxCommentaire.Text;
-
-            // Création de l'objet Eleve
-            Eleve nouvelEleve = new Eleve(string nom, string prenom, );
-            {
-                Lastname = nom,
-                Firstname = prenom,
-                Birthdate = dateNaissance,
-                Phone = telEleve,
-                ClassNumber = new Classe(idClasse, /* Nom de la classe */),
-                ParentsPhone = telParent,
-                ExtraTime = tiersTemps,
-                Comment = commentaire
-            };
-
-            // Ajout de l'élève via la BLL
-            GestionInfirmerieBL.GetGestionInfirmeries().AjouterEleve(nouvelEleve);
-
-            // Mise à jour du DataGridView
-            ActualiserDataGridView();
-        }
-
+       
         private void buttonAjouter_Click(object sender, EventArgs e)
         {
-            AjouterEleve();
+            
         }
 
 
