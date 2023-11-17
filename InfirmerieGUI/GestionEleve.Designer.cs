@@ -37,8 +37,8 @@ namespace InfirmerieGUI
             this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.visitesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.médicamentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.élèvesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.médicamentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statistiquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -86,6 +86,7 @@ namespace InfirmerieGUI
             this.button1.TabIndex = 2;
             this.button1.Text = "Supprimer";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button2
             // 
@@ -111,6 +112,7 @@ namespace InfirmerieGUI
             this.button3.TabIndex = 4;
             this.button3.Text = "Ajouter";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // menuStrip1
             // 
@@ -125,7 +127,7 @@ namespace InfirmerieGUI
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(165, 529);
+            this.menuStrip1.Size = new System.Drawing.Size(163, 529);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -138,14 +140,6 @@ namespace InfirmerieGUI
             this.visitesToolStripMenuItem.Size = new System.Drawing.Size(150, 28);
             this.visitesToolStripMenuItem.Text = "Visites";
             // 
-            // médicamentsToolStripMenuItem
-            // 
-            this.médicamentsToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.médicamentsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("médicamentsToolStripMenuItem.Image")));
-            this.médicamentsToolStripMenuItem.Name = "médicamentsToolStripMenuItem";
-            this.médicamentsToolStripMenuItem.Size = new System.Drawing.Size(150, 28);
-            this.médicamentsToolStripMenuItem.Text = "Médicaments";
-            // 
             // élèvesToolStripMenuItem
             // 
             this.élèvesToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -153,6 +147,14 @@ namespace InfirmerieGUI
             this.élèvesToolStripMenuItem.Name = "élèvesToolStripMenuItem";
             this.élèvesToolStripMenuItem.Size = new System.Drawing.Size(150, 28);
             this.élèvesToolStripMenuItem.Text = "Élèves";
+            // 
+            // médicamentsToolStripMenuItem
+            // 
+            this.médicamentsToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.médicamentsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("médicamentsToolStripMenuItem.Image")));
+            this.médicamentsToolStripMenuItem.Name = "médicamentsToolStripMenuItem";
+            this.médicamentsToolStripMenuItem.Size = new System.Drawing.Size(150, 28);
+            this.médicamentsToolStripMenuItem.Text = "Médicaments";
             // 
             // statistiquesToolStripMenuItem
             // 

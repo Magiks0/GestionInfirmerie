@@ -50,6 +50,11 @@ namespace InfirmerieBLL
             return EleveDAO.InsertEleve(unEleve);
         }
 
+        public static int UpdateEleve(Eleve unEleve)
+        {
+            return EleveDAO.UpdateEleve(unEleve);
+        }
+
         public int SupprimerEleve(Eleve unEleve)
         {
             return EleveDAO.DeleteEleve(unEleve);
