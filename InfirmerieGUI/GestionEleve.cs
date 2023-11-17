@@ -85,11 +85,18 @@ namespace InfirmerieGUI
 
                 if (eleveASupprimer != null)
                 {
-                    // Appel de la méthode de suppression de la BLL
-                    GestionInfirmerieBL.GetGestionInfirmeries().SupprimerEleve(eleveASupprimer);
+                    // Afficher une MessageBox pour confirmer la suppression
+                    var confirmation = MessageBox.Show("Êtes-vous sûr de vouloir supprimer cet élève ?", "Confirmation de suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    // Rafraîchir le DataGridView
-                    ActualiserDataGridView();
+                    // Vérifier si l'utilisateur a cliqué sur 'Yes'
+                    if (confirmation == DialogResult.Yes)
+                    {
+                        // Appel de la méthode de suppression de la BLL
+                        GestionInfirmerieBL.GetGestionInfirmeries().SupprimerEleve(eleveASupprimer);
+
+                        // Rafraîchir le DataGridView
+                        ActualiserDataGridView();
+                    }
                 }
             }
             else
@@ -97,6 +104,7 @@ namespace InfirmerieGUI
                 MessageBox.Show("Veuillez sélectionner un élève à supprimer.");
             }
         }
+
 
         private void ActualiserDataGridView()
         {
