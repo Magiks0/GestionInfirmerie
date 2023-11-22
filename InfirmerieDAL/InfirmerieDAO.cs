@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using InfirmerieBO;
 
 namespace InfirmerieDAL
 {
@@ -11,7 +12,7 @@ namespace InfirmerieDAL
     {
 
         //Méthode d'authentification qui vérifie la conformité des données et renvoie un booléen en fonctions
-        public static bool Authentification(string login, string mdp)
+        public static bool Authentification(Utilisateur unUtilisateur)
         {
             // Obtenir une connexion à la base de données en utilisant votre classe DbConnection
             SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion();
@@ -21,8 +22,8 @@ namespace InfirmerieDAL
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = maConnexion;
                 cmd.CommandText = "SELECT * FROM Utilisateur WHERE nom_utilisateur = @login AND mot_de_passe_utilisateur = @mdp";
-                cmd.Parameters.AddWithValue("@login", login);
-                cmd.Parameters.AddWithValue("@mdp", mdp);
+                cmd.Parameters.AddWithValue("@login", unUtilisateur.nomUtilisateur);
+                cmd.Parameters.AddWithValue("@mdp", unUtilisateur.mdpUtilisateur);
 
                 SqlDataReader monReader = cmd.ExecuteReader();
 

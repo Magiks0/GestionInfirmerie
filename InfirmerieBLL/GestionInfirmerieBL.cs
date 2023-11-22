@@ -17,7 +17,7 @@ namespace InfirmerieBLL
         // retourne la méthode d'authentification
         public static bool AuthentifierInfirmerie(Utilisateur unUtilisateur)
         {
-            return InfirmerieDAO.Authentification(unUtilisateur.nomUtilisateur, unUtilisateur.mdpUtilisateur);
+            return InfirmerieDAO.Authentification(unUtilisateur);
         }
 
         // retourne une instande de GestionInfirmerieBL
@@ -58,6 +58,30 @@ namespace InfirmerieBLL
         public int SupprimerEleve(Eleve unEleve)
         {
             return EleveDAO.DeleteEleve(unEleve);
+        }
+
+        #endregion
+
+        #region Gestion Medicaments
+
+        public static List<Eleve> ToutLesMedicaments()
+        {
+            return MedicamentDAO.GetEleves();
+        }
+        
+        public int AjouterMedicament(Medicament unMedicament)
+        {
+            return MedicamentDAO.InsertEleve(unMedicament);
+        }
+
+        public static int UpdateMedicament(Medicament unMedicament)
+        {
+            return MedicamentDAO.UpdateEleve(unMedicament);
+        }
+
+        public int SupprimerMedicament(Medicament unMedicament)
+        {
+            return MedicamentDAO.DeleteEleve(unMedicament);
         }
 
         #endregion
