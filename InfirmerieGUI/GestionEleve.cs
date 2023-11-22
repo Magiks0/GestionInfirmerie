@@ -38,15 +38,9 @@ namespace InfirmerieGUI
             dataGridView1.CellFormatting += new DataGridViewCellFormattingEventHandler(dataGridView1_CellFormatting);
 
 
+            ActualiserDataGridView();
+            
 
-            // Création d'un objet List d'Eleve à afficher dans le datagridview
-            List<Eleve> liste = new List<Eleve>();
-
-
-            liste = GestionInfirmerieBL.ToutLesEleves();
-            // Rattachement de la List à la source de données du datagridview
-
-           dataGridView1.DataSource = liste;
 
             dataGridView1.Controls.Add(dtp);
 
@@ -61,7 +55,6 @@ namespace InfirmerieGUI
             //    dataGridView1[0, i].Value = liste[i].Phone;
             //}
 
-            dataGridView1.DataSource = liste;
             dtp.Visible = false;
             dtp.Format = DateTimePickerFormat.Custom;
             dtp.TextChanged += new EventHandler(dtp_TextChange);
@@ -108,7 +101,49 @@ namespace InfirmerieGUI
 
         private void ActualiserDataGridView()
         {
-            dataGridView1.DataSource = GestionInfirmerieBL.ToutLesEleves();
+            // Création d'un objet List d'Eleve
+            List<Eleve> liste = new List<Eleve>();
+            // Nouvel table qui permetera d'utiliser la liste d'élèves
+            DataTable dataTable = new DataTable();
+
+            liste = GestionInfirmerieBL.ToutLesEleves();
+
+            // Add columns to the DataTable
+            dataTable.Columns.Add("Id");
+            dataTable.Columns.Add("Firstname");
+            dataTable.Columns.Add("Lastname");
+            dataTable.Columns.Add("Birthdate");
+            dataTable.Columns.Add("Phone");
+            dataTable.Columns.Add("ClassId");
+            dataTable.Columns.Add("ClassName");
+            dataTable.Columns.Add("ParentsPhone");
+            dataTable.Columns.Add("ExtraTime");
+            dataTable.Columns.Add("Comment");
+
+            foreach (Eleve unEleve in liste)
+            {
+                // Add rows to the DataTable
+                dataTable.Rows.Add(
+                    unEleve.Id.ToString(),
+                    unEleve.Firstname.ToString(),
+                    unEleve.Lastname.ToString(),
+                    unEleve.Birthdate.ToString(),
+                    unEleve.Phone.ToString(),
+                    unEleve.ClassNumber.GetId().ToString(),
+                    unEleve.ClassNumber.GetName().ToString(),
+                    unEleve.ParentsPhone.ToString(),
+                    unEleve.ExtraTime.ToString(),
+                    unEleve.Comment.ToString()
+                );
+            }
+
+            // Rattachement de la DataTable à la source de données du datagridview
+            dataGridView1.DataSource = dataTable;
+        }
+
+        private void ActualiserDataGridView(DataTable datatable)
+        {
+            dataGridView1.DataSource = datatable;
         }
 
         //private void AjouterEleve()
@@ -171,13 +206,19 @@ namespace InfirmerieGUI
             selectedDate = monthCalendar1.SelectionStart = date;
 
              NumEleveModif = txtNumeroEleve.Text = dataGridView1.SelectedCells[4].Value.ToString();
-             NumParentModif = txtNumeroParent.Text = dataGridView1.SelectedCells[6].Value.ToString();
+             NumParentModif = txtNumeroParent.Text = dataGridView1.SelectedCells[7].Value.ToString();
 
-            bool.TryParse(dataGridView1.SelectedCells[7].Value.ToString(), out check);
+            bool.TryParse(dataGridView1.SelectedCells[8].Value.ToString(), out check);
             extraTime = chkExtraTime.Checked = check;
             
-            comments = txtComments.Text = dataGridView1.SelectedCells[8].Value.ToString();
+            comments = txtComments.Text = dataGridView1.SelectedCells[9].Value.ToString();
 
+
+            comboBox1.Items =
+            int index;
+            int.TryParse(dataGridView1.SelectedCells[5].Value.ToString(), out index);
+            comboBox1.SelectedIndex = index;
+            comboBox1.SelectedItem = dataGridView1.SelectedCells[6].Value.ToString();
 
         }
 
@@ -259,6 +300,11 @@ namespace InfirmerieGUI
         }
 
         private void txtComments_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
