@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClasseDAO.cs" />
     <Compile Include="EleveDAO.cs" />
     <Compile Include="InfirmerieDAO.cs" />
     <Compile Include="DbConnection.cs" />
