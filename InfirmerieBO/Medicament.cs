@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace InfirmerieBO
 {
+    public class Medicament
     {
         private int id;
         private string nom;
