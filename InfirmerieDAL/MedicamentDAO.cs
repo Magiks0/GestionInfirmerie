@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace InfirmerieDAL
 {
-    class MedicamentDAO
+    public class MedicamentDAO
     {
         static MedicamentDAO unMedicamentDAO;
 
