@@ -1,9 +1,3 @@
-C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\bin\Debug\InfirmerieBLL.dll
-C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\bin\Debug\InfirmerieBLL.pdb
-C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.csproj.AssemblyReference.cache
-C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.csproj.CoreCompileInputs.cache
-C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.dll
-C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.pdb
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieBLL\bin\Debug\InfirmerieBLL.dll
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieBLL\bin\Debug\InfirmerieBLL.pdb
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieBLL\bin\Debug\InfirmerieBO.dll
@@ -15,8 +9,14 @@ C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.c
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.csproj.CopyComplete
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.dll
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.pdb
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\bin\Debug\InfirmerieBLL.dll
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\bin\Debug\InfirmerieBLL.pdb
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\bin\Debug\InfirmerieBO.dll
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\bin\Debug\InfirmerieDAL.dll
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\bin\Debug\InfirmerieBO.pdb
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\bin\Debug\InfirmerieDAL.pdb
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.csproj.CoreCompileInputs.cache
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.csproj.CopyComplete
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.dll
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBLL\obj\Debug\InfirmerieBLL.pdb
