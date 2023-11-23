@@ -385,7 +385,7 @@ namespace InfirmerieGUI
             this.pnlMedicaments.Controls.Add(this.dgvMedicaments);
             this.pnlMedicaments.Controls.Add(this.btnSupprimerMedic);
             this.pnlMedicaments.Controls.Add(this.btnConfirmerMedic);
-            this.pnlMedicaments.Location = new System.Drawing.Point(197, 12);
+            this.pnlMedicaments.Location = new System.Drawing.Point(200, 10);
             this.pnlMedicaments.Name = "pnlMedicaments";
             this.pnlMedicaments.Size = new System.Drawing.Size(1526, 772);
             this.pnlMedicaments.TabIndex = 8;
@@ -462,7 +462,8 @@ namespace InfirmerieGUI
             this.dgvMedicaments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMedicaments.BackgroundColor = System.Drawing.Color.White;
             this.dgvMedicaments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMedicaments.Location = new System.Drawing.Point(55, 70);
+            this.dgvMedicaments.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgvMedicaments.Location = new System.Drawing.Point(55, 74);
             this.dgvMedicaments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvMedicaments.Name = "dgvMedicaments";
             this.dgvMedicaments.RowHeadersWidth = 51;

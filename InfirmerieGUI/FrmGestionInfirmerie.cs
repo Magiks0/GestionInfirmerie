@@ -357,6 +357,10 @@ namespace InfirmerieGUI
         {
             pnlMedicModif.Visible = true;
 
+            txtIdMedicModif.Text = dgvMedicaments.SelectedRows[0].Cells["Id"].Value.ToString();
+            txtNomMedicModif.Text = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
+
+
             MessageBox.Show("Selected");
             //int.TryParse(txtIdMedicModif.Text = dgvMedicaments.SelectedCells[0].Value.ToString(), out idMedicModif);
 
