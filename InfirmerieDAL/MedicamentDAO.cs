@@ -13,7 +13,7 @@ namespace InfirmerieDAL
         static MedicamentDAO unMedicamentDAO;
 
         // Accesseur en lecture, renvoie une instance
-        public static EleveDAO GetunEleveDAO()
+        public static MedicamentDAO GetunMedicament()
         {
             if (unMedicamentDAO == null)
             {
@@ -50,7 +50,7 @@ namespace InfirmerieDAL
             {
                 id = Int32.Parse(monReader["id_medicament"].ToString());
                 nom = monReader["nom_medicament"].ToString();
-                unMedicament = new Medicament(id, nom)
+                unMedicament = new Medicament(id, nom);
                 lesMedicaments.Add(unMedicament);
             }
 
@@ -72,7 +72,7 @@ namespace InfirmerieDAL
                                   "VALUES (@nom)";
 
                 // Use parameters to avoid SQL injection
-                cmd.Parameters.AddWithValue("@nom", unMedicament.Name); ;
+                cmd.Parameters.AddWithValue("@nom", unMedicament.Nom);
 
                 nbLignes = cmd.ExecuteNonQuery();
             }
@@ -92,7 +92,7 @@ namespace InfirmerieDAL
                                   "WHERE id_medicament = @id";
 
                 // Use parameters to avoid SQL injection
-                cmd.Parameters.AddWithValue("@nom", unMedicament.Name); ;
+                cmd.Parameters.AddWithValue("@nom", unMedicament.Nom); ;
                 cmd.Parameters.AddWithValue("@id", unMedicament.Id);
 
                 nbLignes = cmd.ExecuteNonQuery();
