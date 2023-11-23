@@ -14,7 +14,7 @@ using InfirmerieDAL;
 
 namespace InfirmerieGUI
 {
-    public partial class GestionEleve : Form
+    public partial class FrmGestionInfirmerie : Form
     {
         DateTimePicker dtp = new DateTimePicker();
         Rectangle _Rectangle;
@@ -29,7 +29,7 @@ namespace InfirmerieGUI
         private bool check;
         private bool extraTime;
 
-        public GestionEleve()
+        public FrmGestionInfirmerie()
         {
             InitializeComponent();
             GestionInfirmerieBL.SetchaineConnexion(ConfigurationManager.ConnectionStrings["Infirmerie"]);

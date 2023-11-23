@@ -1,7 +1,7 @@
 ﻿
 namespace InfirmerieGUI
 {
-    partial class GestionEleve
+    partial class FrmGestionInfirmerie
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace InfirmerieGUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionEleve));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestionInfirmerie));
             this.lblAccueil = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();

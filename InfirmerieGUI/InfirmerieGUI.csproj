@@ -47,25 +47,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GestionEleve.cs">
+    <Compile Include="FrmGestionInfirmerie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionEleve.Designer.cs">
-      <DependentUpon>GestionEleve.cs</DependentUpon>
+    <Compile Include="FrmGestionInfirmerie.Designer.cs">
+      <DependentUpon>FrmGestionInfirmerie.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionInfirmerie.cs">
+    <Compile Include="FrmConnexion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionInfirmerie.Designer.cs">
-      <DependentUpon>GestionInfirmerie.cs</DependentUpon>
+    <Compile Include="FrmConnexion.Designer.cs">
+      <DependentUpon>FrmConnexion.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GestionEleve.resx">
-      <DependentUpon>GestionEleve.cs</DependentUpon>
+    <EmbeddedResource Include="FrmGestionInfirmerie.resx">
+      <DependentUpon>FrmGestionInfirmerie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionInfirmerie.resx">
-      <DependentUpon>GestionInfirmerie.cs</DependentUpon>
+    <EmbeddedResource Include="FrmConnexion.resx">
+      <DependentUpon>FrmConnexion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
