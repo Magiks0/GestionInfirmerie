@@ -43,6 +43,10 @@ namespace InfirmerieGUI
             this.button2.Click += new EventHandler(button2_Click);
             dataGridView1.CellFormatting += new DataGridViewCellFormattingEventHandler(dataGridView1_CellFormatting);
 
+            dgvMedicaments.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.btnConfirmerMedic.Click += new EventHandler(btnConfirmerMedic_Click);
+
+
             ActualiserDataGridViewEleves();
             ActualiserDataGridViewMedicaments();
 
@@ -355,16 +359,12 @@ namespace InfirmerieGUI
 
         private void dgvMedicaments_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            pnlAjoutMedic.Visible = false;
             pnlMedicModif.Visible = true;
+            txtNomMedicAjout.Text = "";
 
             txtIdMedicModif.Text = dgvMedicaments.SelectedRows[0].Cells["Id"].Value.ToString();
             txtNomMedicModif.Text = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
-
-
-            MessageBox.Show("Selected");
-            //int.TryParse(txtIdMedicModif.Text = dgvMedicaments.SelectedCells[0].Value.ToString(), out idMedicModif);
-
-           //nomMedicModif = txtNomMedicModif.Text = dgvMedicaments.SelectedCells[1].Value.ToString();
 
         }
 
@@ -380,9 +380,69 @@ namespace InfirmerieGUI
 
         private void btnConfirmerMedic_Click(object sender, EventArgs e)
         {
-            Medicament unMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
-            MedicamentDAO.UpdateMedicament(unMedicament);
-            ActualiserDataGridViewMedicaments();
+            if (txtNomMedicAjout.Text != "")
+            {
+                Medicament nouvMedicament = new Medicament(txtNomMedicAjout.Text);
+                if (MedicamentDAO.InsertMedicament(nouvMedicament) != 0)
+                { 
+                    MessageBox.Show(txtNomMedicAjout.Text + " à bien été ajouté !");
+                    txtNomMedicAjout.Text = "";
+                    ActualiserDataGridViewMedicaments();
+                }else{
+                    MessageBox.Show("Erreur dans l'ajout de "+ txtNomMedicAjout.Text + " !");
+                }
+             
+            }
+
+            string changes = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
+            if(txtNomMedicModif.Text != changes && txtNomMedicModif.Text != "")
+            {   
+                int.TryParse(txtIdMedicModif.Text, out idMedicModif);
+                Medicament unMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
+                if(MedicamentDAO.UpdateMedicament(unMedicament) != 0)
+                {
+                    MessageBox.Show("Vos modifications ont bien été pris en compte !");
+                    ActualiserDataGridViewMedicaments();
+                }
+                else
+                {
+                    MessageBox.Show("Vos modifications n'ont pas été appliqués !");
+                }
+            }
+        }
+
+        private void txtNomMedicAjout_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAjoutMEdic_Click(object sender, EventArgs e)
+        {
+            pnlMedicModif.Visible = false;
+            pnlAjoutMedic.Visible = true;
+            txtNomMedicModif.Text = "";
+            txtIdMedicAjout.Text = "";
+        }
+
+        private void btnSupprimerMedic_Click(object sender, EventArgs e)
+        {
+            string nomSuppr = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
+            var confirmation = MessageBox.Show("Voulez-vous supprimer " + nomSuppr + " ?","Confirmation de suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(confirmation == DialogResult.Yes)
+            {
+                string idSuppr = dgvMedicaments.SelectedRows[0].Cells["Id"].Value.ToString();
+                int.TryParse(idSuppr, out idMedicModif);
+                Medicament DelMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
+                if(MedicamentDAO.DeleteMedicament(DelMedicament) != 0)
+                {
+                    MessageBox.Show(nomSuppr + " à bien été supprimé !");
+                    ActualiserDataGridViewMedicaments();
+                }
+                else
+                {
+                    MessageBox.Show("Erreur de suppression !");
+                }
+            }
         }
     }
 }

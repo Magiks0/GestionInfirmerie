@@ -88,11 +88,10 @@ namespace InfirmerieDAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = maConnexion;
-                cmd.CommandText = "UPDATE Medicament SET nom_medicament = @nom" +
-                                  "WHERE id_medicament = @id";
+                cmd.CommandText = "UPDATE Medicament SET nom_medicament = @nom WHERE id_medicament = @id";
 
                 // Use parameters to avoid SQL injection
-                cmd.Parameters.AddWithValue("@nom", unMedicament.Nom); ;
+                cmd.Parameters.AddWithValue("@nom", unMedicament.Nom);
                 cmd.Parameters.AddWithValue("@id", unMedicament.Id);
 
                 nbLignes = cmd.ExecuteNonQuery();

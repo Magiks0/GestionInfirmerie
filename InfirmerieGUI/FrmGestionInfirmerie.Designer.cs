@@ -67,6 +67,12 @@ namespace InfirmerieGUI
             this.dgvMedicaments = new System.Windows.Forms.DataGridView();
             this.btnSupprimerMedic = new System.Windows.Forms.Button();
             this.btnConfirmerMedic = new System.Windows.Forms.Button();
+            this.pnlAjoutMedic = new System.Windows.Forms.Panel();
+            this.txtIdMedicAjout = new System.Windows.Forms.TextBox();
+            this.lblNomMedicAjout = new System.Windows.Forms.Label();
+            this.txtNomMedicAjout = new System.Windows.Forms.TextBox();
+            this.lblAjoutMedic = new System.Windows.Forms.Label();
+            this.lblModifMedic = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlModif.SuspendLayout();
@@ -74,6 +80,7 @@ namespace InfirmerieGUI
             this.pnlMedicaments.SuspendLayout();
             this.pnlMedicModif.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicaments)).BeginInit();
+            this.pnlAjoutMedic.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblAccueil
@@ -380,6 +387,7 @@ namespace InfirmerieGUI
             // pnlMedicaments
             // 
             this.pnlMedicaments.Controls.Add(this.lblMedicaments);
+            this.pnlMedicaments.Controls.Add(this.pnlAjoutMedic);
             this.pnlMedicaments.Controls.Add(this.pnlMedicModif);
             this.pnlMedicaments.Controls.Add(this.btnAjoutMEdic);
             this.pnlMedicaments.Controls.Add(this.dgvMedicaments);
@@ -406,6 +414,7 @@ namespace InfirmerieGUI
             // pnlMedicModif
             // 
             this.pnlMedicModif.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pnlMedicModif.Controls.Add(this.lblModifMedic);
             this.pnlMedicModif.Controls.Add(this.txtIdMedicModif);
             this.pnlMedicModif.Controls.Add(this.lblNomMedicModif);
             this.pnlMedicModif.Controls.Add(this.txtNomMedicModif);
@@ -424,6 +433,7 @@ namespace InfirmerieGUI
             this.txtIdMedicModif.Name = "txtIdMedicModif";
             this.txtIdMedicModif.Size = new System.Drawing.Size(100, 22);
             this.txtIdMedicModif.TabIndex = 2;
+            this.txtIdMedicModif.Visible = false;
             // 
             // lblNomMedicModif
             // 
@@ -454,6 +464,7 @@ namespace InfirmerieGUI
             this.btnAjoutMEdic.TabIndex = 4;
             this.btnAjoutMEdic.Text = "Ajouter";
             this.btnAjoutMEdic.UseVisualStyleBackColor = false;
+            this.btnAjoutMEdic.Click += new System.EventHandler(this.btnAjoutMEdic_Click);
             // 
             // dgvMedicaments
             // 
@@ -486,6 +497,7 @@ namespace InfirmerieGUI
             this.btnSupprimerMedic.TabIndex = 2;
             this.btnSupprimerMedic.Text = "Supprimer";
             this.btnSupprimerMedic.UseVisualStyleBackColor = false;
+            this.btnSupprimerMedic.Click += new System.EventHandler(this.btnSupprimerMedic_Click);
             // 
             // btnConfirmerMedic
             // 
@@ -500,6 +512,67 @@ namespace InfirmerieGUI
             this.btnConfirmerMedic.Text = "Confirmer";
             this.btnConfirmerMedic.UseVisualStyleBackColor = false;
             this.btnConfirmerMedic.Click += new System.EventHandler(this.btnConfirmerMedic_Click);
+            // 
+            // pnlAjoutMedic
+            // 
+            this.pnlAjoutMedic.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pnlAjoutMedic.Controls.Add(this.lblAjoutMedic);
+            this.pnlAjoutMedic.Controls.Add(this.txtIdMedicAjout);
+            this.pnlAjoutMedic.Controls.Add(this.lblNomMedicAjout);
+            this.pnlAjoutMedic.Controls.Add(this.txtNomMedicAjout);
+            this.pnlAjoutMedic.Location = new System.Drawing.Point(55, 387);
+            this.pnlAjoutMedic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlAjoutMedic.Name = "pnlAjoutMedic";
+            this.pnlAjoutMedic.Size = new System.Drawing.Size(1232, 478);
+            this.pnlAjoutMedic.TabIndex = 7;
+            this.pnlAjoutMedic.Visible = false;
+            // 
+            // txtIdMedicAjout
+            // 
+            this.txtIdMedicAjout.Location = new System.Drawing.Point(0, 2);
+            this.txtIdMedicAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIdMedicAjout.Name = "txtIdMedicAjout";
+            this.txtIdMedicAjout.Size = new System.Drawing.Size(100, 22);
+            this.txtIdMedicAjout.TabIndex = 2;
+            this.txtIdMedicAjout.Visible = false;
+            this.txtIdMedicAjout.TextChanged += new System.EventHandler(this.txtNomMedicAjout_TextChanged);
+            // 
+            // lblNomMedicAjout
+            // 
+            this.lblNomMedicAjout.AutoSize = true;
+            this.lblNomMedicAjout.Location = new System.Drawing.Point(20, 53);
+            this.lblNomMedicAjout.Name = "lblNomMedicAjout";
+            this.lblNomMedicAjout.Size = new System.Drawing.Size(41, 17);
+            this.lblNomMedicAjout.TabIndex = 1;
+            this.lblNomMedicAjout.Text = "Nom:";
+            // 
+            // txtNomMedicAjout
+            // 
+            this.txtNomMedicAjout.Location = new System.Drawing.Point(80, 50);
+            this.txtNomMedicAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNomMedicAjout.Name = "txtNomMedicAjout";
+            this.txtNomMedicAjout.Size = new System.Drawing.Size(141, 22);
+            this.txtNomMedicAjout.TabIndex = 0;
+            // 
+            // lblAjoutMedic
+            // 
+            this.lblAjoutMedic.AutoSize = true;
+            this.lblAjoutMedic.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAjoutMedic.Location = new System.Drawing.Point(3, 0);
+            this.lblAjoutMedic.Name = "lblAjoutMedic";
+            this.lblAjoutMedic.Size = new System.Drawing.Size(292, 35);
+            this.lblAjoutMedic.TabIndex = 3;
+            this.lblAjoutMedic.Text = "Ajouter un médicament";
+            // 
+            // lblModifMedic
+            // 
+            this.lblModifMedic.AutoSize = true;
+            this.lblModifMedic.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModifMedic.Location = new System.Drawing.Point(0, 3);
+            this.lblModifMedic.Name = "lblModifMedic";
+            this.lblModifMedic.Size = new System.Drawing.Size(305, 35);
+            this.lblModifMedic.TabIndex = 8;
+            this.lblModifMedic.Text = "Modifier un médicament";
             // 
             // FrmGestionInfirmerie
             // 
@@ -527,6 +600,8 @@ namespace InfirmerieGUI
             this.pnlMedicModif.ResumeLayout(false);
             this.pnlMedicModif.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicaments)).EndInit();
+            this.pnlAjoutMedic.ResumeLayout(false);
+            this.pnlAjoutMedic.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -572,5 +647,11 @@ namespace InfirmerieGUI
         private System.Windows.Forms.DataGridView dgvMedicaments;
         private System.Windows.Forms.Button btnSupprimerMedic;
         private System.Windows.Forms.Button btnConfirmerMedic;
+        private System.Windows.Forms.Panel pnlAjoutMedic;
+        private System.Windows.Forms.TextBox txtIdMedicAjout;
+        private System.Windows.Forms.Label lblNomMedicAjout;
+        private System.Windows.Forms.TextBox txtNomMedicAjout;
+        private System.Windows.Forms.Label lblAjoutMedic;
+        private System.Windows.Forms.Label lblModifMedic;
     }
 }
