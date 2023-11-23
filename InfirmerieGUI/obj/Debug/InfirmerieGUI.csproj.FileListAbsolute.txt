@@ -33,4 +33,4 @@ C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieBO.dl
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\bin\Debug\InfirmerieBO.pdb
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.GestionEleve.resources
 C:\Users\admin\Desktop\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.GstionInfirmerie.resources
-C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.GestionEleve.resources
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieGUI\obj\Debug\InfirmerieGUI.FrmGestionInfirmerie.resources

@@ -74,7 +74,7 @@ namespace InfirmerieGUI
             {
                 int index = dataGridView1.SelectedRows[0].Index;
 
-                Eleve eleveASupprimer = dataGridView1.Rows[index].DataBoundItem as Eleve;
+                Eleve eleveASupprimer = dataGridView1.Rows[index].DataBoundItem as Eleve;s
 
                 if (eleveASupprimer != null)
                 {
@@ -214,11 +214,11 @@ namespace InfirmerieGUI
             comments = txtComments.Text = dataGridView1.SelectedCells[9].Value.ToString();
 
 
-            comboBox1.Items =
-            int index;
-            int.TryParse(dataGridView1.SelectedCells[5].Value.ToString(), out index);
-            comboBox1.SelectedIndex = index;
-            comboBox1.SelectedItem = dataGridView1.SelectedCells[6].Value.ToString();
+            //comboBox1.Items =
+            //int index;
+            //int.TryParse(dataGridView1.SelectedCells[5].Value.ToString(), out index);
+            //comboBox1.SelectedIndex = index;
+            //comboBox1.SelectedItem = dataGridView1.SelectedCells[6].Value.ToString();
 
         }
 

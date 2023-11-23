@@ -64,24 +64,24 @@ namespace InfirmerieBLL
 
         #region Gestion Medicaments
 
-        public static List<Eleve> ToutLesMedicaments()
+        public static List<Medicament> ToutLesMedicaments()
         {
-            return MedicamentDAO.GetEleves();
+            return MedicamentDAO.GetMedicaments();
         }
         
         public int AjouterMedicament(Medicament unMedicament)
         {
-            return MedicamentDAO.InsertEleve(unMedicament);
+            return MedicamentDAO.InsertMedicament(unMedicament);
         }
 
         public static int UpdateMedicament(Medicament unMedicament)
         {
-            return MedicamentDAO.UpdateEleve(unMedicament);
+            return MedicamentDAO.UpdateMedicament(unMedicament);
         }
 
         public int SupprimerMedicament(Medicament unMedicament)
         {
-            return MedicamentDAO.DeleteEleve(unMedicament);
+            return MedicamentDAO.DeleteMedicament(unMedicament);
         }
 
         #endregion
