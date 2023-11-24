@@ -93,7 +93,7 @@ namespace InfirmerieGUI
             this.lblAccueil.Size = new System.Drawing.Size(107, 41);
             this.lblAccueil.TabIndex = 0;
             this.lblAccueil.Text = "Élèves";
-            this.lblAccueil.Click += new System.EventHandler(this.lblAccueil_Click);
+
             // 
             // dataGridView1
             // 
@@ -111,6 +111,7 @@ namespace InfirmerieGUI
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+
             // 
             // button1
             // 
@@ -126,6 +127,7 @@ namespace InfirmerieGUI
             this.button1.Text = "Supprimer";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
+
             // 
             // button2
             // 
@@ -140,6 +142,7 @@ namespace InfirmerieGUI
             this.button2.Text = "Confirmer";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+
             // 
             // button3
             // 
@@ -154,6 +157,7 @@ namespace InfirmerieGUI
             this.button3.Text = "Ajouter";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+
             // 
             // menuStrip1
             // 
@@ -173,7 +177,7 @@ namespace InfirmerieGUI
             this.menuStrip1.Size = new System.Drawing.Size(162, 807);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+
             // 
             // visitesToolStripMenuItem
             // 
@@ -233,7 +237,6 @@ namespace InfirmerieGUI
             this.pnlModif.Size = new System.Drawing.Size(1232, 478);
             this.pnlModif.TabIndex = 6;
             this.pnlModif.Visible = false;
-            this.pnlModif.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // comboBox1
             // 
@@ -243,7 +246,6 @@ namespace InfirmerieGUI
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 15;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // lblComments
             // 
@@ -262,7 +264,6 @@ namespace InfirmerieGUI
             this.txtComments.Name = "txtComments";
             this.txtComments.Size = new System.Drawing.Size(151, 22);
             this.txtComments.TabIndex = 13;
-            this.txtComments.TextChanged += new System.EventHandler(this.txtComments_TextChanged);
             // 
             // chkExtraTime
             // 
@@ -274,7 +275,6 @@ namespace InfirmerieGUI
             this.chkExtraTime.TabIndex = 12;
             this.chkExtraTime.Text = "Tier-Temps";
             this.chkExtraTime.UseVisualStyleBackColor = true;
-            this.chkExtraTime.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // lblNumeroTelParentModif
             // 
@@ -301,7 +301,6 @@ namespace InfirmerieGUI
             this.lblTelEleveModif.Size = new System.Drawing.Size(101, 17);
             this.lblTelEleveModif.TabIndex = 9;
             this.lblTelEleveModif.Text = "Numero Eleve:";
-            this.lblTelEleveModif.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtNumeroEleve
             // 
@@ -310,14 +309,12 @@ namespace InfirmerieGUI
             this.txtNumeroEleve.Name = "txtNumeroEleve";
             this.txtNumeroEleve.Size = new System.Drawing.Size(141, 22);
             this.txtNumeroEleve.TabIndex = 8;
-            this.txtNumeroEleve.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // monthCalendar1
             // 
             this.monthCalendar1.Location = new System.Drawing.Point(5, 191);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 7;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // lblBirthdate
             // 
@@ -398,7 +395,6 @@ namespace InfirmerieGUI
             this.pnlMedicaments.Size = new System.Drawing.Size(1526, 772);
             this.pnlMedicaments.TabIndex = 8;
             this.pnlMedicaments.Visible = false;
-            this.pnlMedicaments.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMedicaments_Paint);
             // 
             // lblMedicaments
             // 
@@ -424,7 +420,6 @@ namespace InfirmerieGUI
             this.pnlMedicModif.Size = new System.Drawing.Size(1232, 478);
             this.pnlMedicModif.TabIndex = 6;
             this.pnlMedicModif.Visible = false;
-            this.pnlMedicModif.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // txtIdMedicModif
             // 
@@ -535,7 +530,6 @@ namespace InfirmerieGUI
             this.txtIdMedicAjout.Size = new System.Drawing.Size(100, 22);
             this.txtIdMedicAjout.TabIndex = 2;
             this.txtIdMedicAjout.Visible = false;
-            this.txtIdMedicAjout.TextChanged += new System.EventHandler(this.txtNomMedicAjout_TextChanged);
             // 
             // lblNomMedicAjout
             // 
@@ -587,7 +581,6 @@ namespace InfirmerieGUI
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmGestionInfirmerie";
             this.Text = "Gestion Infirmerie | Accueil";
-            this.Load += new System.EventHandler(this.GestionEleve_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

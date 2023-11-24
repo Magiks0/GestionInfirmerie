@@ -17,8 +17,6 @@ namespace InfirmerieGUI
     public partial class FrmGestionInfirmerie : Form
     {
         DateTimePicker dtp = new DateTimePicker();
-        Rectangle _Rectangle;
-        DataGridView dgv = new DataGridView();
 
         //Eleves
         private int idModif;
@@ -57,6 +55,8 @@ namespace InfirmerieGUI
             dtp.Format = DateTimePickerFormat.Custom;
             dtp.TextChanged += new EventHandler(dtp_TextChange);
         }
+
+        #region Elèves
         private void dtp_TextChange(Object sender, EventArgs e)
         {
             dataGridView1.CurrentCell.Value = dtp.Text.ToString();
@@ -95,8 +95,6 @@ namespace InfirmerieGUI
                 MessageBox.Show("Veuillez sélectionner un élève à supprimer.");
             }
         }
-
-
         private void ActualiserDataGridViewEleves()
         {
             // Création d'un objet List d'Eleve
@@ -138,42 +136,7 @@ namespace InfirmerieGUI
             // Rattachement de la DataTable à la source de données du datagridview
             dataGridView1.DataSource = dataTable;
         }
-
-
-
-        private void ActualiserDataGridViewMedicaments()
-        {
-            // Création d'un objet List d'Eleve
-            List<Medicament> listeMedicaments = new List<Medicament>();
-            // Nouvel table qui permetera d'utiliser la liste de medicaments
-            DataTable datatableMedicaments = new DataTable();
-
-            listeMedicaments = GestionInfirmerieBL.ToutLesMedicaments();
-
-            // Add columns to the DataTable
-            datatableMedicaments.Columns.Add("Id");
-            datatableMedicaments.Columns.Add("Nom");
-
-            foreach (Medicament medic in listeMedicaments)
-            {
-                // Add rows to the DataTable
-                DataRow row = datatableMedicaments.NewRow();
-                row["Id"] = medic.Id.ToString();
-                row["Nom"] = medic.Nom.ToString();
-                datatableMedicaments.Rows.Add(row);
-            }
-
-            //foreach (DataRow row in datatableMedicaments.Rows)
-            //{
-            //    MessageBox.Show(row["Id"].ToString() + " " + row["Nom"].ToString());
-            //}
-
-            //rattacher au dgv le datatable
-            dgvMedicaments.DataSource = datatableMedicaments;
-        }
-
-
-
+        
 
         #region A FAIRE
         //private void AjouterEleve()
@@ -215,11 +178,6 @@ namespace InfirmerieGUI
         //}
         #endregion
 
-        private void lblAccueil_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             pnlModif.Visible = true;
@@ -243,23 +201,6 @@ namespace InfirmerieGUI
             
             comments = txtComments.Text = dataGridView1.SelectedCells[9].Value.ToString();
 
-
-            //comboBox1.Items =
-            //int index;
-            //int.TryParse(dataGridView1.SelectedCells[5].Value.ToString(), out index);
-            //comboBox1.SelectedIndex = index;
-            //comboBox1.SelectedItem = dataGridView1.SelectedCells[6].Value.ToString();
-
-        }
-
-        private void GestionEleve_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -268,11 +209,6 @@ namespace InfirmerieGUI
             Eleve updateEleve = new Eleve(idModif, txtNomModif.Text, txtPrenomModif.Text, monthCalendar1.SelectionStart, txtNumeroEleve.Text, uneClasse, txtNumeroParent.Text, chkExtraTime.Checked, txtComments.Text);
             EleveDAO.UpdateEleve(updateEleve);
             ActualiserDataGridViewEleves();
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -299,44 +235,33 @@ namespace InfirmerieGUI
         {
             SupprimerEleve();
         }
+#endregion
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        #region Médicaments
+
+        private void ActualiserDataGridViewMedicaments()
         {
+            // Création d'un objet List d'Eleve
+            List<Medicament> listeMedicaments = new List<Medicament>();
+            // Nouvel table qui permetera d'utiliser la liste de medicaments
+            DataTable datatableMedicaments = new DataTable();
 
-        }
+            listeMedicaments = GestionInfirmerieBL.ToutLesMedicaments();
 
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
+            // Add columns to the DataTable
+            datatableMedicaments.Columns.Add("Id");
+            datatableMedicaments.Columns.Add("Nom");
 
-        }
-
-        private void txtBirthdateModif_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtComments_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            foreach (Medicament medic in listeMedicaments)
+            {
+                // Add rows to the DataTable
+                DataRow row = datatableMedicaments.NewRow();
+                row["Id"] = medic.Id.ToString();
+                row["Nom"] = medic.Nom.ToString();
+                datatableMedicaments.Rows.Add(row);
+            }
+            //rattacher au dgv le datatable
+            dgvMedicaments.DataSource = datatableMedicaments;
         }
 
         private void médicamentsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -352,11 +277,6 @@ namespace InfirmerieGUI
             pnlMedicaments.Visible = false;
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void dgvMedicaments_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             pnlAjoutMedic.Visible = false;
@@ -365,16 +285,6 @@ namespace InfirmerieGUI
 
             txtIdMedicModif.Text = dgvMedicaments.SelectedRows[0].Cells["Id"].Value.ToString();
             txtNomMedicModif.Text = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
-
-        }
-
-        private void pnlMedicaments_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
 
         }
 
@@ -411,11 +321,6 @@ namespace InfirmerieGUI
             }
         }
 
-        private void txtNomMedicAjout_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAjoutMEdic_Click(object sender, EventArgs e)
         {
             pnlMedicModif.Visible = false;
@@ -435,8 +340,9 @@ namespace InfirmerieGUI
                 Medicament DelMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
                 if(MedicamentDAO.DeleteMedicament(DelMedicament) != 0)
                 {
-                    MessageBox.Show(nomSuppr + " à bien été supprimé !");
                     ActualiserDataGridViewMedicaments();
+                    txtNomMedicModif.Text = "";
+                    MessageBox.Show(nomSuppr + " à bien été supprimé !");
                 }
                 else
                 {
@@ -444,5 +350,6 @@ namespace InfirmerieGUI
                 }
             }
         }
+        #endregion
     }
 }
