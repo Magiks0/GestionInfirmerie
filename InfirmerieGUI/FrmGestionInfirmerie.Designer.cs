@@ -88,7 +88,7 @@ namespace InfirmerieGUI
             this.lblAccueil.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblAccueil.AutoSize = true;
             this.lblAccueil.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
-            this.lblAccueil.Location = new System.Drawing.Point(636, 9);
+            this.lblAccueil.Location = new System.Drawing.Point(620, 9);
             this.lblAccueil.Name = "lblAccueil";
             this.lblAccueil.Size = new System.Drawing.Size(107, 41);
             this.lblAccueil.TabIndex = 0;
@@ -106,7 +106,7 @@ namespace InfirmerieGUI
             this.dgvEleves.Name = "dgvEleves";
             this.dgvEleves.RowHeadersWidth = 51;
             this.dgvEleves.RowTemplate.Height = 24;
-            this.dgvEleves.Size = new System.Drawing.Size(1086, 298);
+            this.dgvEleves.Size = new System.Drawing.Size(1053, 298);
             this.dgvEleves.TabIndex = 1;
             this.dgvEleves.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvEleves.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -117,7 +117,7 @@ namespace InfirmerieGUI
             this.btnSupprimerEleve.BackColor = System.Drawing.Color.IndianRed;
             this.btnSupprimerEleve.FlatAppearance.BorderSize = 0;
             this.btnSupprimerEleve.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnSupprimerEleve.Location = new System.Drawing.Point(886, 27);
+            this.btnSupprimerEleve.Location = new System.Drawing.Point(853, 27);
             this.btnSupprimerEleve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSupprimerEleve.Name = "btnSupprimerEleve";
             this.btnSupprimerEleve.Size = new System.Drawing.Size(117, 30);
@@ -131,7 +131,7 @@ namespace InfirmerieGUI
             this.btnConfirmereleve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConfirmereleve.BackColor = System.Drawing.Color.LemonChiffon;
             this.btnConfirmereleve.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnConfirmereleve.Location = new System.Drawing.Point(1009, 27);
+            this.btnConfirmereleve.Location = new System.Drawing.Point(976, 27);
             this.btnConfirmereleve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfirmereleve.Name = "btnConfirmereleve";
             this.btnConfirmereleve.Size = new System.Drawing.Size(129, 30);
@@ -145,7 +145,7 @@ namespace InfirmerieGUI
             this.btnAjoutEleve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAjoutEleve.BackColor = System.Drawing.Color.LightGreen;
             this.btnAjoutEleve.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAjoutEleve.Location = new System.Drawing.Point(1144, 27);
+            this.btnAjoutEleve.Location = new System.Drawing.Point(1111, 27);
             this.btnAjoutEleve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAjoutEleve.Name = "btnAjoutEleve";
             this.btnAjoutEleve.Size = new System.Drawing.Size(91, 30);
@@ -170,42 +170,51 @@ namespace InfirmerieGUI
             this.msMenu.Name = "msMenu";
             this.msMenu.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.msMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.msMenu.Size = new System.Drawing.Size(264, 807);
+            this.msMenu.Size = new System.Drawing.Size(302, 807);
             this.msMenu.TabIndex = 5;
             this.msMenu.Text = "menuStrip1";
             // 
             // visitesToolStripMenuItem
             // 
-            this.visitesToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.visitesToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.visitesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("visitesToolStripMenuItem.Image")));
+            this.visitesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.visitesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.visitesToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 45, 0, 0);
             this.visitesToolStripMenuItem.Name = "visitesToolStripMenuItem";
-            this.visitesToolStripMenuItem.Size = new System.Drawing.Size(258, 28);
+            this.visitesToolStripMenuItem.Size = new System.Drawing.Size(296, 53);
             this.visitesToolStripMenuItem.Text = "Visites";
             // 
             // élèvesToolStripMenuItem
             // 
-            this.élèvesToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.élèvesToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.élèvesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("élèvesToolStripMenuItem.Image")));
+            this.élèvesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.élèvesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.élèvesToolStripMenuItem.Name = "élèvesToolStripMenuItem";
-            this.élèvesToolStripMenuItem.Size = new System.Drawing.Size(258, 28);
+            this.élèvesToolStripMenuItem.Size = new System.Drawing.Size(296, 53);
             this.élèvesToolStripMenuItem.Text = "Élèves";
             this.élèvesToolStripMenuItem.Click += new System.EventHandler(this.élèvesToolStripMenuItem_Click);
             // 
             // médicamentsToolStripMenuItem
             // 
-            this.médicamentsToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.médicamentsToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.médicamentsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("médicamentsToolStripMenuItem.Image")));
+            this.médicamentsToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.médicamentsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.médicamentsToolStripMenuItem.Name = "médicamentsToolStripMenuItem";
-            this.médicamentsToolStripMenuItem.Size = new System.Drawing.Size(258, 28);
+            this.médicamentsToolStripMenuItem.Size = new System.Drawing.Size(296, 53);
             this.médicamentsToolStripMenuItem.Text = "Médicaments";
             this.médicamentsToolStripMenuItem.Click += new System.EventHandler(this.médicamentsToolStripMenuItem_Click);
             // 
             // statistiquesToolStripMenuItem
             // 
-            this.statistiquesToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statistiquesToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statistiquesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("statistiquesToolStripMenuItem.Image")));
+            this.statistiquesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.statistiquesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
-            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(258, 28);
+            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(296, 53);
             this.statistiquesToolStripMenuItem.Text = "Statistiques";
             // 
             // pnlModif
@@ -229,7 +238,7 @@ namespace InfirmerieGUI
             this.pnlModif.Location = new System.Drawing.Point(149, 372);
             this.pnlModif.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlModif.Name = "pnlModif";
-            this.pnlModif.Size = new System.Drawing.Size(1086, 478);
+            this.pnlModif.Size = new System.Drawing.Size(1053, 478);
             this.pnlModif.TabIndex = 6;
             this.pnlModif.Visible = false;
             // 
@@ -372,9 +381,9 @@ namespace InfirmerieGUI
             this.pnlEleves.Controls.Add(this.dgvEleves);
             this.pnlEleves.Controls.Add(this.btnSupprimerEleve);
             this.pnlEleves.Controls.Add(this.btnConfirmereleve);
-            this.pnlEleves.Location = new System.Drawing.Point(267, 0);
+            this.pnlEleves.Location = new System.Drawing.Point(300, 0);
             this.pnlEleves.Name = "pnlEleves";
-            this.pnlEleves.Size = new System.Drawing.Size(1411, 780);
+            this.pnlEleves.Size = new System.Drawing.Size(1378, 780);
             this.pnlEleves.TabIndex = 7;
             // 
             // pnlMedicaments
@@ -387,9 +396,9 @@ namespace InfirmerieGUI
             this.pnlMedicaments.Controls.Add(this.dgvMedicaments);
             this.pnlMedicaments.Controls.Add(this.btnSupprimerMedic);
             this.pnlMedicaments.Controls.Add(this.btnConfirmerMedic);
-            this.pnlMedicaments.Location = new System.Drawing.Point(264, 0);
+            this.pnlMedicaments.Location = new System.Drawing.Point(305, 0);
             this.pnlMedicaments.Name = "pnlMedicaments";
-            this.pnlMedicaments.Size = new System.Drawing.Size(1411, 1038);
+            this.pnlMedicaments.Size = new System.Drawing.Size(1370, 1038);
             this.pnlMedicaments.TabIndex = 8;
             this.pnlMedicaments.Visible = false;
             // 
@@ -398,7 +407,7 @@ namespace InfirmerieGUI
             this.lblMedicaments.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMedicaments.AutoSize = true;
             this.lblMedicaments.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
-            this.lblMedicaments.Location = new System.Drawing.Point(582, 16);
+            this.lblMedicaments.Location = new System.Drawing.Point(562, 16);
             this.lblMedicaments.Name = "lblMedicaments";
             this.lblMedicaments.Size = new System.Drawing.Size(211, 41);
             this.lblMedicaments.TabIndex = 0;
@@ -414,7 +423,7 @@ namespace InfirmerieGUI
             this.pnlAjoutMedic.Location = new System.Drawing.Point(152, 372);
             this.pnlAjoutMedic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlAjoutMedic.Name = "pnlAjoutMedic";
-            this.pnlAjoutMedic.Size = new System.Drawing.Size(1083, 480);
+            this.pnlAjoutMedic.Size = new System.Drawing.Size(1042, 480);
             this.pnlAjoutMedic.TabIndex = 7;
             this.pnlAjoutMedic.Visible = false;
             // 
@@ -464,7 +473,7 @@ namespace InfirmerieGUI
             this.pnlMedicModif.Location = new System.Drawing.Point(149, 374);
             this.pnlMedicModif.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlMedicModif.Name = "pnlMedicModif";
-            this.pnlMedicModif.Size = new System.Drawing.Size(1089, 480);
+            this.pnlMedicModif.Size = new System.Drawing.Size(1048, 480);
             this.pnlMedicModif.TabIndex = 6;
             this.pnlMedicModif.Visible = false;
             // 
@@ -509,7 +518,7 @@ namespace InfirmerieGUI
             this.btnAjoutMEdic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAjoutMEdic.BackColor = System.Drawing.Color.LightGreen;
             this.btnAjoutMEdic.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAjoutMEdic.Location = new System.Drawing.Point(1144, 27);
+            this.btnAjoutMEdic.Location = new System.Drawing.Point(1103, 27);
             this.btnAjoutMEdic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAjoutMEdic.Name = "btnAjoutMEdic";
             this.btnAjoutMEdic.Size = new System.Drawing.Size(91, 30);
@@ -532,7 +541,7 @@ namespace InfirmerieGUI
             this.dgvMedicaments.RowHeadersWidth = 51;
             this.dgvMedicaments.RowTemplate.Height = 24;
             this.dgvMedicaments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedicaments.Size = new System.Drawing.Size(1086, 300);
+            this.dgvMedicaments.Size = new System.Drawing.Size(1045, 300);
             this.dgvMedicaments.TabIndex = 1;
             this.dgvMedicaments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedicaments_CellContentClick);
             // 
@@ -542,7 +551,7 @@ namespace InfirmerieGUI
             this.btnSupprimerMedic.BackColor = System.Drawing.Color.IndianRed;
             this.btnSupprimerMedic.FlatAppearance.BorderSize = 0;
             this.btnSupprimerMedic.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnSupprimerMedic.Location = new System.Drawing.Point(886, 27);
+            this.btnSupprimerMedic.Location = new System.Drawing.Point(845, 27);
             this.btnSupprimerMedic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSupprimerMedic.Name = "btnSupprimerMedic";
             this.btnSupprimerMedic.Size = new System.Drawing.Size(117, 30);
@@ -556,7 +565,7 @@ namespace InfirmerieGUI
             this.btnConfirmerMedic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConfirmerMedic.BackColor = System.Drawing.Color.LemonChiffon;
             this.btnConfirmerMedic.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnConfirmerMedic.Location = new System.Drawing.Point(1009, 27);
+            this.btnConfirmerMedic.Location = new System.Drawing.Point(968, 27);
             this.btnConfirmerMedic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfirmerMedic.Name = "btnConfirmerMedic";
             this.btnConfirmerMedic.Size = new System.Drawing.Size(129, 30);
