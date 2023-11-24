@@ -153,8 +153,6 @@ namespace InfirmerieDAL
         {
             int nbLignes;
 
-            try
-            {
                 using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
                 {
                     SqlCommand cmd = new SqlCommand();
@@ -166,12 +164,8 @@ namespace InfirmerieDAL
 
                     nbLignes = cmd.ExecuteNonQuery();
                 }
-            }
-            catch (Exception e)
-            {
-                return 0;
-            }
 
+                // A AJOUTER GESTION EXCEPTION IMPOSsible de supprimer quand liée à une visite
             return nbLignes;
         }
 

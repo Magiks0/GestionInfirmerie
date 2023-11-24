@@ -34,7 +34,7 @@ namespace InfirmerieGUI
             this.dgvEleves = new System.Windows.Forms.DataGridView();
             this.btnSupprimerEleve = new System.Windows.Forms.Button();
             this.btnConfirmereleve = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAjoutEleve = new System.Windows.Forms.Button();
             this.msMenu = new System.Windows.Forms.MenuStrip();
             this.visitesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.élèvesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -140,19 +140,19 @@ namespace InfirmerieGUI
             this.btnConfirmereleve.UseVisualStyleBackColor = false;
             this.btnConfirmereleve.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnAjoutEleve
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.LightGreen;
-            this.button3.Font = new System.Drawing.Font("Calibri", 9F);
-            this.button3.Location = new System.Drawing.Point(1144, 27);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(91, 30);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Ajouter";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnAjoutEleve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAjoutEleve.BackColor = System.Drawing.Color.LightGreen;
+            this.btnAjoutEleve.Font = new System.Drawing.Font("Calibri", 9F);
+            this.btnAjoutEleve.Location = new System.Drawing.Point(1144, 27);
+            this.btnAjoutEleve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAjoutEleve.Name = "btnAjoutEleve";
+            this.btnAjoutEleve.Size = new System.Drawing.Size(91, 30);
+            this.btnAjoutEleve.TabIndex = 4;
+            this.btnAjoutEleve.Text = "Ajouter";
+            this.btnAjoutEleve.UseVisualStyleBackColor = false;
+            this.btnAjoutEleve.Click += new System.EventHandler(this.button3_Click);
             // 
             // msMenu
             // 
@@ -366,10 +366,9 @@ namespace InfirmerieGUI
             // pnlEleves
             // 
             this.pnlEleves.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlEleves.Controls.Add(this.pnlMedicaments);
             this.pnlEleves.Controls.Add(this.lblAccueil);
             this.pnlEleves.Controls.Add(this.pnlModif);
-            this.pnlEleves.Controls.Add(this.button3);
+            this.pnlEleves.Controls.Add(this.btnAjoutEleve);
             this.pnlEleves.Controls.Add(this.dgvEleves);
             this.pnlEleves.Controls.Add(this.btnSupprimerEleve);
             this.pnlEleves.Controls.Add(this.btnConfirmereleve);
@@ -388,7 +387,7 @@ namespace InfirmerieGUI
             this.pnlMedicaments.Controls.Add(this.dgvMedicaments);
             this.pnlMedicaments.Controls.Add(this.btnSupprimerMedic);
             this.pnlMedicaments.Controls.Add(this.btnConfirmerMedic);
-            this.pnlMedicaments.Location = new System.Drawing.Point(1098, 95);
+            this.pnlMedicaments.Location = new System.Drawing.Point(264, 0);
             this.pnlMedicaments.Name = "pnlMedicaments";
             this.pnlMedicaments.Size = new System.Drawing.Size(1411, 1038);
             this.pnlMedicaments.TabIndex = 8;
@@ -571,6 +570,7 @@ namespace InfirmerieGUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1654, 807);
+            this.Controls.Add(this.pnlMedicaments);
             this.Controls.Add(this.pnlEleves);
             this.Controls.Add(this.msMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -603,7 +603,7 @@ namespace InfirmerieGUI
         private System.Windows.Forms.DataGridView dgvEleves;
         private System.Windows.Forms.Button btnSupprimerEleve;
         private System.Windows.Forms.Button btnConfirmereleve;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAjoutEleve;
         private System.Windows.Forms.MenuStrip msMenu;
         private System.Windows.Forms.ToolStripMenuItem visitesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem médicamentsToolStripMenuItem;

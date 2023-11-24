@@ -39,7 +39,7 @@ namespace InfirmerieGUI
             InitializeComponent();
             GestionInfirmerieBL.SetchaineConnexion(ConfigurationManager.ConnectionStrings["Infirmerie"]);
             dgvEleves.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.btnConfirmerEleve.Click += new EventHandler(button2_Click);
+            this.btnConfirmereleve.Click += new EventHandler(button2_Click);
             dgvEleves.CellFormatting += new DataGridViewCellFormattingEventHandler(dataGridView1_CellFormatting);
 
             dgvMedicaments.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -71,9 +71,21 @@ namespace InfirmerieGUI
         {
             if (dgvEleves.SelectedRows.Count > 0)
             {
+                int.TryParse(dgvEleves.SelectedRows[0].Cells["ClassId"].Value.ToString(), out int idClasseADel);
                 int index = dgvEleves.SelectedRows[0].Index;
+                int idModif;
+                int.TryParse(dgvEleves.SelectedRows[0].Cells["Id"].Value.ToString(), out idModif);
+                string nomModif = dgvEleves.SelectedRows[0].Cells["LastName"].Value.ToString();
+                string prenomModif = dgvEleves.SelectedRows[0].Cells["FirstName"].Value.ToString();
+                DateTime dateNaissance = DateTime.Parse(dgvEleves.SelectedRows[0].Cells["Birthdate"].Value.ToString());
+                string numEleve = dgvEleves.SelectedRows[0].Cells["Phone"].Value.ToString();
+                Classe numClasse = new Classe(idClasseADel, dgvEleves.SelectedRows[0].Cells["ClassName"].Value.ToString());
+                string numParent = dgvEleves.SelectedRows[0].Cells["ParentsPhone"].Value.ToString();
+                bool extraTime;
+                bool.TryParse(dgvEleves.SelectedRows[0].Cells["extraTime"].Value.ToString(), out extraTime);
+                string comment = dgvEleves.SelectedRows[0].Cells["Comment"].Value.ToString();
 
-                Eleve eleveASupprimer = dgvEleves.Rows[index].DataBoundItem as Eleve;
+                Eleve eleveASupprimer = new Eleve(idModif, nomModif, prenomModif, dateNaissance, numEleve, numClasse, numParent, extraTime, comment);
 
                 if (eleveASupprimer != null)
                 {
@@ -137,7 +149,7 @@ namespace InfirmerieGUI
             // Rattachement de la DataTable à la source de données du datagridview
             dgvEleves.DataSource = dataTable;
         }
-        
+
 
         #region A FAIRE
         //private void AjouterEleve()
@@ -186,8 +198,8 @@ namespace InfirmerieGUI
 
             int.TryParse(txtIdModif.Text = dgvEleves.SelectedCells[0].Value.ToString(), out idModif);
 
-            nomModif = txtNomModif.Text = dgvEleves.SelectedCells[1].Value.ToString();
-            prenomModif = txtPrenomModif.Text = dgvEleves.SelectedCells[2].Value.ToString();
+            nomModif = txtNomModif.Text = dgvEleves.SelectedCells[2].Value.ToString();
+            prenomModif = txtPrenomModif.Text = dgvEleves.SelectedCells[1].Value.ToString();
 
             //Selection de la date a l'apparition du calendrier
             DateTime date = new DateTime();
@@ -236,7 +248,7 @@ namespace InfirmerieGUI
         {
             SupprimerEleve();
         }
-#endregion
+        #endregion
 
         #region Médicaments
 
