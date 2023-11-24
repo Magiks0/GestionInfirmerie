@@ -57,6 +57,22 @@ namespace InfirmerieGUI
             this.lblNomModif = new System.Windows.Forms.Label();
             this.txtNomModif = new System.Windows.Forms.TextBox();
             this.pnlEleves = new System.Windows.Forms.Panel();
+            this.pnlAjoutEleve = new System.Windows.Forms.Panel();
+            this.cboxClasseEleveAjout = new System.Windows.Forms.ComboBox();
+            this.lblCommentaireEleveAjout = new System.Windows.Forms.Label();
+            this.txtCommentaireEleveAjout = new System.Windows.Forms.TextBox();
+            this.chkExtraTimeEleveAjout = new System.Windows.Forms.CheckBox();
+            this.lblNumeroParentEleveAjout = new System.Windows.Forms.Label();
+            this.txtNumeroParentEleveAjout = new System.Windows.Forms.TextBox();
+            this.lblNumeroEleveAjout = new System.Windows.Forms.Label();
+            this.txtNumeroEleveAjout = new System.Windows.Forms.TextBox();
+            this.mcBirthdateEleveAjout = new System.Windows.Forms.MonthCalendar();
+            this.lblBirthdateEleveAjout = new System.Windows.Forms.Label();
+            this.lblPrenomEleveAjout = new System.Windows.Forms.Label();
+            this.txtPrenomEleveAjout = new System.Windows.Forms.TextBox();
+            this.txtIdEleveAjout = new System.Windows.Forms.TextBox();
+            this.lblNomEleveAjout = new System.Windows.Forms.Label();
+            this.txtNomEleveAjout = new System.Windows.Forms.TextBox();
             this.pnlMedicaments = new System.Windows.Forms.Panel();
             this.lblMedicaments = new System.Windows.Forms.Label();
             this.pnlAjoutMedic = new System.Windows.Forms.Panel();
@@ -77,6 +93,7 @@ namespace InfirmerieGUI
             this.msMenu.SuspendLayout();
             this.pnlModif.SuspendLayout();
             this.pnlEleves.SuspendLayout();
+            this.pnlAjoutEleve.SuspendLayout();
             this.pnlMedicaments.SuspendLayout();
             this.pnlAjoutMedic.SuspendLayout();
             this.pnlMedicModif.SuspendLayout();
@@ -104,6 +121,7 @@ namespace InfirmerieGUI
             this.dgvEleves.Location = new System.Drawing.Point(149, 70);
             this.dgvEleves.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvEleves.Name = "dgvEleves";
+            this.dgvEleves.ReadOnly = true;
             this.dgvEleves.RowHeadersWidth = 51;
             this.dgvEleves.RowTemplate.Height = 24;
             this.dgvEleves.Size = new System.Drawing.Size(1053, 298);
@@ -375,20 +393,179 @@ namespace InfirmerieGUI
             // pnlEleves
             // 
             this.pnlEleves.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlEleves.Controls.Add(this.pnlAjoutEleve);
             this.pnlEleves.Controls.Add(this.lblAccueil);
             this.pnlEleves.Controls.Add(this.pnlModif);
             this.pnlEleves.Controls.Add(this.btnAjoutEleve);
             this.pnlEleves.Controls.Add(this.dgvEleves);
             this.pnlEleves.Controls.Add(this.btnSupprimerEleve);
             this.pnlEleves.Controls.Add(this.btnConfirmereleve);
-            this.pnlEleves.Location = new System.Drawing.Point(300, 0);
+            this.pnlEleves.Location = new System.Drawing.Point(49, 229);
             this.pnlEleves.Name = "pnlEleves";
             this.pnlEleves.Size = new System.Drawing.Size(1378, 780);
             this.pnlEleves.TabIndex = 7;
             // 
+            // pnlAjoutEleve
+            // 
+            this.pnlAjoutEleve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlAjoutEleve.Controls.Add(this.cboxClasseEleveAjout);
+            this.pnlAjoutEleve.Controls.Add(this.lblCommentaireEleveAjout);
+            this.pnlAjoutEleve.Controls.Add(this.txtCommentaireEleveAjout);
+            this.pnlAjoutEleve.Controls.Add(this.chkExtraTimeEleveAjout);
+            this.pnlAjoutEleve.Controls.Add(this.lblNumeroParentEleveAjout);
+            this.pnlAjoutEleve.Controls.Add(this.txtNumeroParentEleveAjout);
+            this.pnlAjoutEleve.Controls.Add(this.lblNumeroEleveAjout);
+            this.pnlAjoutEleve.Controls.Add(this.txtNumeroEleveAjout);
+            this.pnlAjoutEleve.Controls.Add(this.mcBirthdateEleveAjout);
+            this.pnlAjoutEleve.Controls.Add(this.lblBirthdateEleveAjout);
+            this.pnlAjoutEleve.Controls.Add(this.lblPrenomEleveAjout);
+            this.pnlAjoutEleve.Controls.Add(this.txtPrenomEleveAjout);
+            this.pnlAjoutEleve.Controls.Add(this.txtIdEleveAjout);
+            this.pnlAjoutEleve.Controls.Add(this.lblNomEleveAjout);
+            this.pnlAjoutEleve.Controls.Add(this.txtNomEleveAjout);
+            this.pnlAjoutEleve.Location = new System.Drawing.Point(149, 374);
+            this.pnlAjoutEleve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlAjoutEleve.Name = "pnlAjoutEleve";
+            this.pnlAjoutEleve.Size = new System.Drawing.Size(1053, 478);
+            this.pnlAjoutEleve.TabIndex = 16;
+            this.pnlAjoutEleve.Visible = false;
+            // 
+            // cboxClasseEleveAjout
+            // 
+            this.cboxClasseEleveAjout.FormattingEnabled = true;
+            this.cboxClasseEleveAjout.Location = new System.Drawing.Point(411, 176);
+            this.cboxClasseEleveAjout.Margin = new System.Windows.Forms.Padding(4);
+            this.cboxClasseEleveAjout.Name = "cboxClasseEleveAjout";
+            this.cboxClasseEleveAjout.Size = new System.Drawing.Size(160, 24);
+            this.cboxClasseEleveAjout.TabIndex = 15;
+            this.cboxClasseEleveAjout.Visible = false;
+            // 
+            // lblCommentaireEleveAjout
+            // 
+            this.lblCommentaireEleveAjout.AutoSize = true;
+            this.lblCommentaireEleveAjout.Location = new System.Drawing.Point(591, 112);
+            this.lblCommentaireEleveAjout.Name = "lblCommentaireEleveAjout";
+            this.lblCommentaireEleveAjout.Size = new System.Drawing.Size(143, 17);
+            this.lblCommentaireEleveAjout.TabIndex = 14;
+            this.lblCommentaireEleveAjout.Text = "Commentaires Santé:";
+            // 
+            // txtCommentaireEleveAjout
+            // 
+            this.txtCommentaireEleveAjout.Location = new System.Drawing.Point(740, 112);
+            this.txtCommentaireEleveAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCommentaireEleveAjout.MinimumSize = new System.Drawing.Size(4, 50);
+            this.txtCommentaireEleveAjout.Name = "txtCommentaireEleveAjout";
+            this.txtCommentaireEleveAjout.Size = new System.Drawing.Size(151, 22);
+            this.txtCommentaireEleveAjout.TabIndex = 13;
+            // 
+            // chkExtraTimeEleveAjout
+            // 
+            this.chkExtraTimeEleveAjout.AutoSize = true;
+            this.chkExtraTimeEleveAjout.Location = new System.Drawing.Point(631, 42);
+            this.chkExtraTimeEleveAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkExtraTimeEleveAjout.Name = "chkExtraTimeEleveAjout";
+            this.chkExtraTimeEleveAjout.Size = new System.Drawing.Size(103, 21);
+            this.chkExtraTimeEleveAjout.TabIndex = 12;
+            this.chkExtraTimeEleveAjout.Text = "Tier-Temps";
+            this.chkExtraTimeEleveAjout.UseVisualStyleBackColor = true;
+            // 
+            // lblNumeroParentEleveAjout
+            // 
+            this.lblNumeroParentEleveAjout.AutoSize = true;
+            this.lblNumeroParentEleveAjout.Location = new System.Drawing.Point(259, 112);
+            this.lblNumeroParentEleveAjout.Name = "lblNumeroParentEleveAjout";
+            this.lblNumeroParentEleveAjout.Size = new System.Drawing.Size(147, 17);
+            this.lblNumeroParentEleveAjout.TabIndex = 11;
+            this.lblNumeroParentEleveAjout.Text = "Numero Parent Eleve:";
+            // 
+            // txtNumeroParentEleveAjout
+            // 
+            this.txtNumeroParentEleveAjout.Location = new System.Drawing.Point(411, 110);
+            this.txtNumeroParentEleveAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNumeroParentEleveAjout.Name = "txtNumeroParentEleveAjout";
+            this.txtNumeroParentEleveAjout.Size = new System.Drawing.Size(141, 22);
+            this.txtNumeroParentEleveAjout.TabIndex = 10;
+            // 
+            // lblNumeroEleveAjout
+            // 
+            this.lblNumeroEleveAjout.AutoSize = true;
+            this.lblNumeroEleveAjout.Location = new System.Drawing.Point(304, 55);
+            this.lblNumeroEleveAjout.Name = "lblNumeroEleveAjout";
+            this.lblNumeroEleveAjout.Size = new System.Drawing.Size(101, 17);
+            this.lblNumeroEleveAjout.TabIndex = 9;
+            this.lblNumeroEleveAjout.Text = "Numero Eleve:";
+            // 
+            // txtNumeroEleveAjout
+            // 
+            this.txtNumeroEleveAjout.Location = new System.Drawing.Point(411, 52);
+            this.txtNumeroEleveAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNumeroEleveAjout.Name = "txtNumeroEleveAjout";
+            this.txtNumeroEleveAjout.Size = new System.Drawing.Size(141, 22);
+            this.txtNumeroEleveAjout.TabIndex = 8;
+            // 
+            // mcBirthdateEleveAjout
+            // 
+            this.mcBirthdateEleveAjout.Location = new System.Drawing.Point(5, 191);
+            this.mcBirthdateEleveAjout.MaxSelectionCount = 1;
+            this.mcBirthdateEleveAjout.Name = "mcBirthdateEleveAjout";
+            this.mcBirthdateEleveAjout.TabIndex = 7;
+            // 
+            // lblBirthdateEleveAjout
+            // 
+            this.lblBirthdateEleveAjout.AutoSize = true;
+            this.lblBirthdateEleveAjout.Location = new System.Drawing.Point(3, 165);
+            this.lblBirthdateEleveAjout.Name = "lblBirthdateEleveAjout";
+            this.lblBirthdateEleveAjout.Size = new System.Drawing.Size(130, 17);
+            this.lblBirthdateEleveAjout.TabIndex = 6;
+            this.lblBirthdateEleveAjout.Text = "Date de naissance:";
+            // 
+            // lblPrenomEleveAjout
+            // 
+            this.lblPrenomEleveAjout.AutoSize = true;
+            this.lblPrenomEleveAjout.Location = new System.Drawing.Point(3, 110);
+            this.lblPrenomEleveAjout.Name = "lblPrenomEleveAjout";
+            this.lblPrenomEleveAjout.Size = new System.Drawing.Size(57, 17);
+            this.lblPrenomEleveAjout.TabIndex = 4;
+            this.lblPrenomEleveAjout.Text = "Prenom";
+            // 
+            // txtPrenomEleveAjout
+            // 
+            this.txtPrenomEleveAjout.Location = new System.Drawing.Point(67, 110);
+            this.txtPrenomEleveAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPrenomEleveAjout.Name = "txtPrenomEleveAjout";
+            this.txtPrenomEleveAjout.Size = new System.Drawing.Size(141, 22);
+            this.txtPrenomEleveAjout.TabIndex = 3;
+            // 
+            // txtIdEleveAjout
+            // 
+            this.txtIdEleveAjout.Location = new System.Drawing.Point(0, 2);
+            this.txtIdEleveAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIdEleveAjout.Name = "txtIdEleveAjout";
+            this.txtIdEleveAjout.Size = new System.Drawing.Size(100, 22);
+            this.txtIdEleveAjout.TabIndex = 2;
+            this.txtIdEleveAjout.Visible = false;
+            // 
+            // lblNomEleveAjout
+            // 
+            this.lblNomEleveAjout.AutoSize = true;
+            this.lblNomEleveAjout.Location = new System.Drawing.Point(3, 55);
+            this.lblNomEleveAjout.Name = "lblNomEleveAjout";
+            this.lblNomEleveAjout.Size = new System.Drawing.Size(41, 17);
+            this.lblNomEleveAjout.TabIndex = 1;
+            this.lblNomEleveAjout.Text = "Nom:";
+            // 
+            // txtNomEleveAjout
+            // 
+            this.txtNomEleveAjout.Location = new System.Drawing.Point(67, 55);
+            this.txtNomEleveAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNomEleveAjout.Name = "txtNomEleveAjout";
+            this.txtNomEleveAjout.Size = new System.Drawing.Size(141, 22);
+            this.txtNomEleveAjout.TabIndex = 0;
+            // 
             // pnlMedicaments
             // 
             this.pnlMedicaments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlMedicaments.Controls.Add(this.pnlEleves);
             this.pnlMedicaments.Controls.Add(this.lblMedicaments);
             this.pnlMedicaments.Controls.Add(this.pnlAjoutMedic);
             this.pnlMedicaments.Controls.Add(this.pnlMedicModif);
@@ -396,7 +573,7 @@ namespace InfirmerieGUI
             this.pnlMedicaments.Controls.Add(this.dgvMedicaments);
             this.pnlMedicaments.Controls.Add(this.btnSupprimerMedic);
             this.pnlMedicaments.Controls.Add(this.btnConfirmerMedic);
-            this.pnlMedicaments.Location = new System.Drawing.Point(305, 0);
+            this.pnlMedicaments.Location = new System.Drawing.Point(300, 0);
             this.pnlMedicaments.Name = "pnlMedicaments";
             this.pnlMedicaments.Size = new System.Drawing.Size(1370, 1038);
             this.pnlMedicaments.TabIndex = 8;
@@ -538,12 +715,13 @@ namespace InfirmerieGUI
             this.dgvMedicaments.Location = new System.Drawing.Point(149, 72);
             this.dgvMedicaments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvMedicaments.Name = "dgvMedicaments";
+            this.dgvMedicaments.ReadOnly = true;
             this.dgvMedicaments.RowHeadersWidth = 51;
             this.dgvMedicaments.RowTemplate.Height = 24;
             this.dgvMedicaments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMedicaments.Size = new System.Drawing.Size(1045, 300);
             this.dgvMedicaments.TabIndex = 1;
-            this.dgvMedicaments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedicaments_CellContentClick);
+            this.dgvMedicaments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedicaments_CellClick);
             // 
             // btnSupprimerMedic
             // 
@@ -580,7 +758,6 @@ namespace InfirmerieGUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1654, 807);
             this.Controls.Add(this.pnlMedicaments);
-            this.Controls.Add(this.pnlEleves);
             this.Controls.Add(this.msMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.msMenu;
@@ -594,6 +771,8 @@ namespace InfirmerieGUI
             this.pnlModif.PerformLayout();
             this.pnlEleves.ResumeLayout(false);
             this.pnlEleves.PerformLayout();
+            this.pnlAjoutEleve.ResumeLayout(false);
+            this.pnlAjoutEleve.PerformLayout();
             this.pnlMedicaments.ResumeLayout(false);
             this.pnlMedicaments.PerformLayout();
             this.pnlAjoutMedic.ResumeLayout(false);
@@ -651,5 +830,21 @@ namespace InfirmerieGUI
         private System.Windows.Forms.TextBox txtNomMedicAjout;
         private System.Windows.Forms.Label lblAjoutMedic;
         private System.Windows.Forms.Label lblModifMedic;
+        private System.Windows.Forms.Panel pnlAjoutEleve;
+        private System.Windows.Forms.ComboBox cboxClasseEleveAjout;
+        private System.Windows.Forms.Label lblCommentaireEleveAjout;
+        private System.Windows.Forms.TextBox txtCommentaireEleveAjout;
+        private System.Windows.Forms.CheckBox chkExtraTimeEleveAjout;
+        private System.Windows.Forms.Label lblNumeroParentEleveAjout;
+        private System.Windows.Forms.TextBox txtNumeroParentEleveAjout;
+        private System.Windows.Forms.Label lblNumeroEleveAjout;
+        private System.Windows.Forms.TextBox txtNumeroEleveAjout;
+        private System.Windows.Forms.MonthCalendar mcBirthdateEleveAjout;
+        private System.Windows.Forms.Label lblBirthdateEleveAjout;
+        private System.Windows.Forms.Label lblPrenomEleveAjout;
+        private System.Windows.Forms.TextBox txtPrenomEleveAjout;
+        private System.Windows.Forms.TextBox txtIdEleveAjout;
+        private System.Windows.Forms.Label lblNomEleveAjout;
+        private System.Windows.Forms.TextBox txtNomEleveAjout;
     }
 }

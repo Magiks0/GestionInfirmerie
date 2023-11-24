@@ -45,7 +45,7 @@ namespace InfirmerieBLL
             return EleveDAO.GetEleves();
         }
 
-        public int AjouterEleve(Eleve unEleve)
+        public static int AjouterEleve(Eleve unEleve)
         {
             return EleveDAO.InsertEleve(unEleve);
         }
@@ -55,7 +55,7 @@ namespace InfirmerieBLL
             return EleveDAO.UpdateEleve(unEleve);
         }
 
-        public int SupprimerEleve(Eleve unEleve)
+        public static int SupprimerEleve(Eleve unEleve)
         {
             return EleveDAO.DeleteEleve(unEleve);
         }
@@ -69,7 +69,7 @@ namespace InfirmerieBLL
             return MedicamentDAO.GetMedicaments();
         }
         
-        public int AjouterMedicament(Medicament unMedicament)
+        public static int AjouterMedicament(Medicament unMedicament)
         {
             return MedicamentDAO.InsertMedicament(unMedicament);
         }
@@ -79,7 +79,7 @@ namespace InfirmerieBLL
             return MedicamentDAO.UpdateMedicament(unMedicament);
         }
 
-        public int SupprimerMedicament(Medicament unMedicament)
+        public static int SupprimerMedicament(Medicament unMedicament)
         {
             return MedicamentDAO.DeleteMedicament(unMedicament);
         }

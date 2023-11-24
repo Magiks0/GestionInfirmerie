@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using InfirmerieBLL;
 using InfirmerieBO;
-using InfirmerieDAL;
 
 namespace InfirmerieGUI
 {
@@ -96,7 +95,7 @@ namespace InfirmerieGUI
                     if (confirmation == DialogResult.Yes)
                     {
                         // Appel de la méthode de suppression de la BLL
-                        GestionInfirmerieBL.GetGestionInfirmeries().SupprimerEleve(eleveASupprimer);
+                        GestionInfirmerieBL.SupprimerEleve(eleveASupprimer);
 
                         // Rafraîchir le DataGridView
                         ActualiserDataGridViewEleves();
@@ -152,43 +151,34 @@ namespace InfirmerieGUI
 
 
         #region A FAIRE
-        //private void AjouterEleve()
-        //{
-        //    // Collecte des informations à partir des champs de saisie
-        //    string nom = txtNomAjout.Text;
-        //    string prenom = textBox2.Text;
-        //    DateTime dateNaissance = dtp.Value;
-        //    string telEleve = textBoxTelEleve.Text;
-        //    // Assurez-vous d'avoir un moyen d'obtenir l'ID de la classe
-        //    int idClasse = int.Parse(comboBoxClasse.SelectedValue.ToString());
-        //    string telParent = textBoxTelParent.Text;
-        //    bool tiersTemps = checkBoxTiersTemps.Checked;
-        //    string commentaire = textBoxCommentaire.Text;
+        private void AjouterEleve()
+        {
+            // Collecte des informations à partir des champs de saisie
+            string nom = txtNomEleveAjout.Text;
+            string prenom = txtPrenomEleveAjout.Text;
+            DateTime dateNaissance = mcBirthdateEleveAjout.SelectionStart;
+            string telEleve = txtNumeroEleveAjout.Text;
+            // Assurez-vous d'avoir un moyen d'obtenir l'ID de la classe
+            Classe classe = new Classe(1);
+            string telParent = txtNumeroParentEleveAjout.Text;
+            bool tiersTemps = chkExtraTimeEleveAjout.Checked;
+            string commentaire = txtCommentaireEleveAjout.Text;
 
-        //    // Création de l'objet Eleve
-        //    Eleve nouvelEleve = new Eleve(string nom, string prenom, string dateNaissance);
-        //    {
-        //        Lastname = nom,
-        //        Firstname = prenom,
-        //        Birthdate = dateNaissance,
-        //        Phone = telEleve,
-        //        ClassNumber = new Classe(idClasse, /* Nom de la classe */),
-        //        ParentsPhone = telParent,
-        //        ExtraTime = tiersTemps,
-        //        Comment = commentaire
-        //    };
 
-        //    // Ajout de l'élève via la BLL
-        //    GestionInfirmerieBL.GetGestionInfirmeries().AjouterEleve(nouvelEleve);
+            // Création de l'objet Eleve
+            Eleve nouvelEleve = new Eleve(nom, prenom, dateNaissance, telEleve, classe, telParent, tiersTemps, commentaire);
 
-        //    // Mise à jour du DataGridView
-        //    ActualiserDataGridViewEleves();
-        //}
+            // Ajout de l'élève via la BLL
+            GestionInfirmerieBL.AjouterEleve(nouvelEleve);
 
-        //private void buttonAjouter_Click(object sender, EventArgs e)
-        //{
-        //    AjouterEleve();
-        //}
+            // Mise à jour du DataGridView
+            ActualiserDataGridViewEleves();
+        }
+
+        private void buttonAjouter_Click(object sender, EventArgs e)
+        {
+            AjouterEleve();
+        }
         #endregion
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -220,7 +210,7 @@ namespace InfirmerieGUI
         {
             Classe uneClasse = new Classe(1, "Seconde1");
             Eleve updateEleve = new Eleve(idModif, txtNomModif.Text, txtPrenomModif.Text, monthCalendar1.SelectionStart, txtNumeroEleve.Text, uneClasse, txtNumeroParent.Text, chkExtraTime.Checked, txtComments.Text);
-            EleveDAO.UpdateEleve(updateEleve);
+            GestionInfirmerieBL.UpdateEleve(updateEleve);
             ActualiserDataGridViewEleves();
         }
 
@@ -290,8 +280,9 @@ namespace InfirmerieGUI
             pnlMedicaments.Visible = false;
         }
 
-        private void dgvMedicaments_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvMedicaments_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             pnlAjoutMedic.Visible = false;
             pnlMedicModif.Visible = true;
             txtNomMedicAjout.Text = "";
@@ -306,7 +297,7 @@ namespace InfirmerieGUI
             if (txtNomMedicAjout.Text != "")
             {
                 Medicament nouvMedicament = new Medicament(txtNomMedicAjout.Text);
-                if (MedicamentDAO.InsertMedicament(nouvMedicament) != 0)
+                if (GestionInfirmerieBL.AjouterMedicament(nouvMedicament) != 0)
                 {
                     MessageBox.Show("Le médicament '" + txtNomMedicAjout.Text + "' a bien été ajouté.", "Ajout Réussi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNomMedicAjout.Text = "";
@@ -323,7 +314,7 @@ namespace InfirmerieGUI
             {
                 int.TryParse(txtIdMedicModif.Text, out idMedicModif);
                 Medicament unMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
-                if (MedicamentDAO.UpdateMedicament(unMedicament) != 0)
+                if (GestionInfirmerieBL.UpdateMedicament(unMedicament) != 0)
                 {
                     MessageBox.Show("Les modifications du médicament ont bien été prises en compte.", "Modifications Réussies", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ActualiserDataGridViewMedicaments();
@@ -355,7 +346,7 @@ namespace InfirmerieGUI
                 int.TryParse(idSuppr, out idMedicModif);
                 Medicament DelMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
 
-                if (MedicamentDAO.DeleteMedicament(DelMedicament) != 0)
+                if (GestionInfirmerieBL.SupprimerMedicament(DelMedicament) != 0)
                 {
                     ActualiserDataGridViewMedicaments();
                     txtNomMedicModif.Text = "";
@@ -369,5 +360,7 @@ namespace InfirmerieGUI
         }
 
         #endregion
+
+        
     }
 }
