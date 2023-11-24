@@ -16,8 +16,8 @@ namespace InfirmerieGUI
 {
     public partial class FrmGestionInfirmerie : Form
     {
+        #region Déclaration des variables
         DateTimePicker dtp = new DateTimePicker();
-
         //Eleves
         private int idModif;
         private string nomModif;
@@ -32,14 +32,15 @@ namespace InfirmerieGUI
         //Medicaments
         int idMedicModif;
         string nomMedicModif;
+        #endregion
 
         public FrmGestionInfirmerie()
         {
             InitializeComponent();
             GestionInfirmerieBL.SetchaineConnexion(ConfigurationManager.ConnectionStrings["Infirmerie"]);
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.button2.Click += new EventHandler(button2_Click);
-            dataGridView1.CellFormatting += new DataGridViewCellFormattingEventHandler(dataGridView1_CellFormatting);
+            dgvEleves.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.btnConfirmerEleve.Click += new EventHandler(button2_Click);
+            dgvEleves.CellFormatting += new DataGridViewCellFormattingEventHandler(dataGridView1_CellFormatting);
 
             dgvMedicaments.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.btnConfirmerMedic.Click += new EventHandler(btnConfirmerMedic_Click);
@@ -49,7 +50,7 @@ namespace InfirmerieGUI
             ActualiserDataGridViewMedicaments();
 
 
-            dataGridView1.Controls.Add(dtp);
+            dgvEleves.Controls.Add(dtp);
 
             dtp.Visible = false;
             dtp.Format = DateTimePickerFormat.Custom;
@@ -59,7 +60,7 @@ namespace InfirmerieGUI
         #region Elèves
         private void dtp_TextChange(Object sender, EventArgs e)
         {
-            dataGridView1.CurrentCell.Value = dtp.Text.ToString();
+            dgvEleves.CurrentCell.Value = dtp.Text.ToString();
         } 
         private void dataGridView1_Scroll(Object sender, EventArgs e)
         {
@@ -68,11 +69,11 @@ namespace InfirmerieGUI
 
         private void SupprimerEleve()
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dgvEleves.SelectedRows.Count > 0)
             {
-                int index = dataGridView1.SelectedRows[0].Index;
+                int index = dgvEleves.SelectedRows[0].Index;
 
-                Eleve eleveASupprimer = dataGridView1.Rows[index].DataBoundItem as Eleve;
+                Eleve eleveASupprimer = dgvEleves.Rows[index].DataBoundItem as Eleve;
 
                 if (eleveASupprimer != null)
                 {
@@ -134,7 +135,7 @@ namespace InfirmerieGUI
             }
 
             // Rattachement de la DataTable à la source de données du datagridview
-            dataGridView1.DataSource = dataTable;
+            dgvEleves.DataSource = dataTable;
         }
         
 
@@ -183,23 +184,23 @@ namespace InfirmerieGUI
             pnlModif.Visible = true;
 
 
-            int.TryParse(txtIdModif.Text = dataGridView1.SelectedCells[0].Value.ToString(), out idModif);
+            int.TryParse(txtIdModif.Text = dgvEleves.SelectedCells[0].Value.ToString(), out idModif);
 
-            nomModif = txtNomModif.Text = dataGridView1.SelectedCells[1].Value.ToString();
-            prenomModif = txtPrenomModif.Text = dataGridView1.SelectedCells[2].Value.ToString();
+            nomModif = txtNomModif.Text = dgvEleves.SelectedCells[1].Value.ToString();
+            prenomModif = txtPrenomModif.Text = dgvEleves.SelectedCells[2].Value.ToString();
 
             //Selection de la date a l'apparition du calendrier
             DateTime date = new DateTime();
-            DateTime.TryParse(dataGridView1.SelectedCells[3].Value.ToString(), out date);
+            DateTime.TryParse(dgvEleves.SelectedCells[3].Value.ToString(), out date);
             selectedDate = monthCalendar1.SelectionStart = date;
 
-             NumEleveModif = txtNumeroEleve.Text = dataGridView1.SelectedCells[4].Value.ToString();
-             NumParentModif = txtNumeroParent.Text = dataGridView1.SelectedCells[7].Value.ToString();
+             NumEleveModif = txtNumeroEleve.Text = dgvEleves.SelectedCells[4].Value.ToString();
+             NumParentModif = txtNumeroParent.Text = dgvEleves.SelectedCells[7].Value.ToString();
 
-            bool.TryParse(dataGridView1.SelectedCells[8].Value.ToString(), out check);
+            bool.TryParse(dgvEleves.SelectedCells[8].Value.ToString(), out check);
             extraTime = chkExtraTime.Checked = check;
             
-            comments = txtComments.Text = dataGridView1.SelectedCells[9].Value.ToString();
+            comments = txtComments.Text = dgvEleves.SelectedCells[9].Value.ToString();
 
         }
 
@@ -213,9 +214,9 @@ namespace InfirmerieGUI
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].HeaderText == "Classe Élève" && e.RowIndex >= 0)
+            if (dgvEleves.Columns[e.ColumnIndex].HeaderText == "Classe Élève" && e.RowIndex >= 0)
             {
-                Classe maClasse = dataGridView1.Rows[e.RowIndex].DataBoundItem as Classe;
+                Classe maClasse = dgvEleves.Rows[e.RowIndex].DataBoundItem as Classe;
                 if (maClasse != null)
                 {
                     e.Value = maClasse.GetName();
@@ -225,10 +226,10 @@ namespace InfirmerieGUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int indexNouvelleLigne = dataGridView1.Rows.Add();
+            int indexNouvelleLigne = dgvEleves.Rows.Add();
 
             // Initialisation des valeurs de la nouvelle ligne (facultatif)
-            dataGridView1.Rows[indexNouvelleLigne].Cells["NomColonne"].Value = "Valeur par défaut"; // Remplacez "NomColonne" et "Valeur par défaut" comme nécessaire
+            dgvEleves.Rows[indexNouvelleLigne].Cells["NomColonne"].Value = "Valeur par défaut"; // Remplacez "NomColonne" et "Valeur par défaut" comme nécessaire
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -294,32 +295,34 @@ namespace InfirmerieGUI
             {
                 Medicament nouvMedicament = new Medicament(txtNomMedicAjout.Text);
                 if (MedicamentDAO.InsertMedicament(nouvMedicament) != 0)
-                { 
-                    MessageBox.Show(txtNomMedicAjout.Text + " à bien été ajouté !");
-                    txtNomMedicAjout.Text = "";
-                    ActualiserDataGridViewMedicaments();
-                }else{
-                    MessageBox.Show("Erreur dans l'ajout de "+ txtNomMedicAjout.Text + " !");
-                }
-             
-            }
-
-            string changes = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
-            if(txtNomMedicModif.Text != changes && txtNomMedicModif.Text != "")
-            {   
-                int.TryParse(txtIdMedicModif.Text, out idMedicModif);
-                Medicament unMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
-                if(MedicamentDAO.UpdateMedicament(unMedicament) != 0)
                 {
-                    MessageBox.Show("Vos modifications ont bien été pris en compte !");
+                    MessageBox.Show("Le médicament '" + txtNomMedicAjout.Text + "' a bien été ajouté.", "Ajout Réussi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNomMedicAjout.Text = "";
                     ActualiserDataGridViewMedicaments();
                 }
                 else
                 {
-                    MessageBox.Show("Vos modifications n'ont pas été appliqués !");
+                    MessageBox.Show("Erreur lors de l'ajout du médicament '" + txtNomMedicAjout.Text + "'.", "Erreur d'Ajout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            string changes = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
+            if (txtNomMedicModif.Text != changes && txtNomMedicModif.Text != "")
+            {
+                int.TryParse(txtIdMedicModif.Text, out idMedicModif);
+                Medicament unMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
+                if (MedicamentDAO.UpdateMedicament(unMedicament) != 0)
+                {
+                    MessageBox.Show("Les modifications du médicament ont bien été prises en compte.", "Modifications Réussies", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActualiserDataGridViewMedicaments();
+                }
+                else
+                {
+                    MessageBox.Show("Erreur lors de la modification des données du médicament.\nAucune modification n'a été apportée.", "Erreur Modifications", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
 
         private void btnAjoutMEdic_Click(object sender, EventArgs e)
         {
@@ -332,24 +335,27 @@ namespace InfirmerieGUI
         private void btnSupprimerMedic_Click(object sender, EventArgs e)
         {
             string nomSuppr = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
-            var confirmation = MessageBox.Show("Voulez-vous supprimer " + nomSuppr + " ?","Confirmation de suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(confirmation == DialogResult.Yes)
+            var confirmation = MessageBox.Show("Voulez-vous vraiment supprimer le médicament '" + nomSuppr + "' ?", "Confirmation de Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmation == DialogResult.Yes)
             {
                 string idSuppr = dgvMedicaments.SelectedRows[0].Cells["Id"].Value.ToString();
                 int.TryParse(idSuppr, out idMedicModif);
                 Medicament DelMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
-                if(MedicamentDAO.DeleteMedicament(DelMedicament) != 0)
+
+                if (MedicamentDAO.DeleteMedicament(DelMedicament) != 0)
                 {
                     ActualiserDataGridViewMedicaments();
                     txtNomMedicModif.Text = "";
-                    MessageBox.Show(nomSuppr + " à bien été supprimé !");
+                    MessageBox.Show("Le médicament '" + nomSuppr + "' a bien été supprimé.", "Suppression Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Erreur de suppression !");
+                    MessageBox.Show("Erreur lors de la suppression du médicament '" + nomSuppr + "'.", "Erreur de Suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
         #endregion
     }
 }

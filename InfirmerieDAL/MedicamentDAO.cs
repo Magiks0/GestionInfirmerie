@@ -22,7 +22,6 @@ namespace InfirmerieDAL
             return unMedicamentDAO;
         }
 
-
         // Cette méthode retourne une List contenant les objets Eleves contenus dans la table Identification
         public static List<Medicament> GetMedicaments()
         {
@@ -64,17 +63,24 @@ namespace InfirmerieDAL
         {
             int nbLignes;
 
-            using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+            try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = maConnexion;
-                cmd.CommandText = "INSERT INTO Medicament (nom_medicament) " +
-                                  "VALUES (@nom)";
+                using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = maConnexion;
+                    cmd.CommandText = "INSERT INTO Medicament (nom_medicament) " +
+                                      "VALUES (@nom)";
 
-                // Use parameters to avoid SQL injection
-                cmd.Parameters.AddWithValue("@nom", unMedicament.Nom);
+                    // Use parameters to avoid SQL injection
+                    cmd.Parameters.AddWithValue("@nom", unMedicament.Nom);
 
-                nbLignes = cmd.ExecuteNonQuery();
+                    nbLignes = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                return 0;
             }
 
             return nbLignes;
@@ -84,17 +90,22 @@ namespace InfirmerieDAL
         {
             int nbLignes;
 
-            using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+            try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = maConnexion;
-                cmd.CommandText = "UPDATE Medicament SET nom_medicament = @nom WHERE id_medicament = @id";
-
-                // Use parameters to avoid SQL injection
-                cmd.Parameters.AddWithValue("@nom", unMedicament.Nom);
-                cmd.Parameters.AddWithValue("@id", unMedicament.Id);
-
-                nbLignes = cmd.ExecuteNonQuery();
+                using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = maConnexion;
+                    cmd.CommandText = "UPDATE Medicament SET nom_medicament = @nom WHERE id_medicament = @id";
+                    // Use parameters to avoid SQL injection
+                    cmd.Parameters.AddWithValue("@nom", unMedicament.Nom);
+                    cmd.Parameters.AddWithValue("@id", unMedicament.Id);
+                    nbLignes = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                return 0;
             }
 
             return nbLignes;
@@ -104,20 +115,28 @@ namespace InfirmerieDAL
         {
             int nbLignes;
 
-            using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+            try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = maConnexion;
-                cmd.CommandText = "DELETE FROM Medicament WHERE id_medicament = @id";
+                using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = maConnexion;
+                    cmd.CommandText = "DELETE FROM Medicament WHERE id_medicament = @id";
 
-                // Use parameters to avoid SQL injection
-                cmd.Parameters.AddWithValue("@id", unMedicament.Id);
+                    // Use parameters to avoid SQL injection
+                    cmd.Parameters.AddWithValue("@id", unMedicament.Id);
 
-                nbLignes = cmd.ExecuteNonQuery();
+                    nbLignes = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                return 0;
             }
 
             return nbLignes;
         }
+
 
     }
 

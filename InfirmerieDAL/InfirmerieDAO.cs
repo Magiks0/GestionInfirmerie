@@ -21,7 +21,7 @@ namespace InfirmerieDAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = maConnexion;
-                cmd.CommandText = "SELECT * FROM Utilisateur WHERE nom_utilisateur = @login AND mot_de_passe_utilisateur = @mdp";
+                cmd.CommandText = "SELECT nom_utilisateur, mot_de_passe_utilisateur FROM Utilisateur WHERE nom_utilisateur = @login AND mot_de_passe_utilisateur = @mdp";
                 cmd.Parameters.AddWithValue("@login", unUtilisateur.nomUtilisateur);
                 cmd.Parameters.AddWithValue("@mdp", unUtilisateur.mdpUtilisateur);
 

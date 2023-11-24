@@ -80,25 +80,32 @@ namespace InfirmerieDAL
         {
             int nbLignes;
 
-            using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+            try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = maConnexion;
-                cmd.CommandText = "INSERT INTO Eleve (nom_eleve, prenom_eleve, date_naissance_eleve, tel_portable_eleve, id_classe_eleve, tel_parent_eleve, tiers_temps_eleve, commentaire_sante_eleve) " +
-                                  "VALUES (@nom, @prenom, @dateNaissance, @telEleve, @idClasse, @telParent, @tiersTemps, @commentaire)";
+                using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = maConnexion;
+                    cmd.CommandText = "INSERT INTO Eleve (nom_eleve, prenom_eleve, date_naissance_eleve, tel_portable_eleve, id_classe_eleve, tel_parent_eleve, tiers_temps_eleve, commentaire_sante_eleve) " +
+                                      "VALUES (@nom, @prenom, @dateNaissance, @telEleve, @idClasse, @telParent, @tiersTemps, @commentaire)";
 
-                // Use parameters to avoid SQL injection
-                cmd.Parameters.AddWithValue("@nom", unEleve.Lastname);                    ;
-                cmd.Parameters.AddWithValue("@prenom", unEleve.Firstname);
-                cmd.Parameters.AddWithValue("@dateNaissance", unEleve.Birthdate);
-                cmd.Parameters.AddWithValue("@telEleve", unEleve.Phone);
-                // Bien prendre l'id de l'objet classe!
-                cmd.Parameters.AddWithValue("@idClasse", unEleve.ClassNumber.GetId());
-                cmd.Parameters.AddWithValue("@telParent", unEleve.ParentsPhone);
-                cmd.Parameters.AddWithValue("@tiersTemps", unEleve.ExtraTime);
-                cmd.Parameters.AddWithValue("@commentaire", unEleve.Comment);
+                    // Use parameters to avoid SQL injection
+                    cmd.Parameters.AddWithValue("@nom", unEleve.Lastname); ;
+                    cmd.Parameters.AddWithValue("@prenom", unEleve.Firstname);
+                    cmd.Parameters.AddWithValue("@dateNaissance", unEleve.Birthdate);
+                    cmd.Parameters.AddWithValue("@telEleve", unEleve.Phone);
+                    // Bien prendre l'id de l'objet classe!
+                    cmd.Parameters.AddWithValue("@idClasse", unEleve.ClassNumber.GetId());
+                    cmd.Parameters.AddWithValue("@telParent", unEleve.ParentsPhone);
+                    cmd.Parameters.AddWithValue("@tiersTemps", unEleve.ExtraTime);
+                    cmd.Parameters.AddWithValue("@commentaire", unEleve.Comment);
 
-                nbLignes = cmd.ExecuteNonQuery();
+                    nbLignes = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                return 0;
             }
 
             return nbLignes;
@@ -108,28 +115,35 @@ namespace InfirmerieDAL
         {
             int nbLignes;
 
-            using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+            try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = maConnexion;
-                cmd.CommandText = "UPDATE Eleve SET nom_eleve = @nom, prenom_eleve = @prenom, date_naissance_eleve = @dateNaissance, " +
-                                  "tel_portable_eleve = @telEleve, id_classe_eleve = @idClasse, tel_parent_eleve = @telParent, " +
-                                  "tiers_temps_eleve = @tiersTemps, commentaire_sante_eleve = @commentaire " +
-                                  "WHERE id_eleve = @id";
+                using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = maConnexion;
+                    cmd.CommandText = "UPDATE Eleve SET nom_eleve = @nom, prenom_eleve = @prenom, date_naissance_eleve = @dateNaissance, " +
+                                      "tel_portable_eleve = @telEleve, id_classe_eleve = @idClasse, tel_parent_eleve = @telParent, " +
+                                      "tiers_temps_eleve = @tiersTemps, commentaire_sante_eleve = @commentaire " +
+                                      "WHERE id_eleve = @id";
 
-                // Use parameters to avoid SQL injection
-                cmd.Parameters.AddWithValue("@nom", unEleve.Lastname); ;
-                cmd.Parameters.AddWithValue("@prenom", unEleve.Firstname);
-                cmd.Parameters.AddWithValue("@dateNaissance", unEleve.Birthdate);
-                cmd.Parameters.AddWithValue("@telEleve", unEleve.Phone);
-                // Bien prendre l'id de l'objet classe!
-                cmd.Parameters.AddWithValue("@idClasse", unEleve.ClassNumber.GetId());
-                cmd.Parameters.AddWithValue("@telParent", unEleve.ParentsPhone);
-                cmd.Parameters.AddWithValue("@tiersTemps", unEleve.ExtraTime);
-                cmd.Parameters.AddWithValue("@commentaire", unEleve.Comment);
-                cmd.Parameters.AddWithValue("@id", unEleve.Id);
+                    // Use parameters to avoid SQL injection
+                    cmd.Parameters.AddWithValue("@nom", unEleve.Lastname); ;
+                    cmd.Parameters.AddWithValue("@prenom", unEleve.Firstname);
+                    cmd.Parameters.AddWithValue("@dateNaissance", unEleve.Birthdate);
+                    cmd.Parameters.AddWithValue("@telEleve", unEleve.Phone);
+                    // Bien prendre l'id de l'objet classe!
+                    cmd.Parameters.AddWithValue("@idClasse", unEleve.ClassNumber.GetId());
+                    cmd.Parameters.AddWithValue("@telParent", unEleve.ParentsPhone);
+                    cmd.Parameters.AddWithValue("@tiersTemps", unEleve.ExtraTime);
+                    cmd.Parameters.AddWithValue("@commentaire", unEleve.Comment);
+                    cmd.Parameters.AddWithValue("@id", unEleve.Id);
 
-                nbLignes = cmd.ExecuteNonQuery();
+                    nbLignes = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                return 0;
             }
 
             return nbLignes;
@@ -139,16 +153,23 @@ namespace InfirmerieDAL
         {
             int nbLignes;
 
-            using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+            try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = maConnexion;
-                cmd.CommandText = "DELETE FROM Eleve WHERE id_eleve = @id";
+                using (SqlConnection maConnexion = DbConnection.GetConnexionBD().GetSqlConnexion())
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = maConnexion;
+                    cmd.CommandText = "DELETE FROM Eleve WHERE id_eleve = @id";
 
-                // Use parameters to avoid SQL injection
-                cmd.Parameters.AddWithValue("@id", unEleve.Id);
+                    // Use parameters to avoid SQL injection
+                    cmd.Parameters.AddWithValue("@id", unEleve.Id);
 
-                nbLignes = cmd.ExecuteNonQuery();
+                    nbLignes = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                return 0;
             }
 
             return nbLignes;
