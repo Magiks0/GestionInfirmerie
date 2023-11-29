@@ -24,6 +24,10 @@ namespace InfirmerieBO
             this.nom = nom;
         }
 
+        public int GetId()
+        {
+            return this.id;
+        }
         public int Id { get => id; set => id = value; }
         public string Nom { get => nom; set => nom = value; }
     }

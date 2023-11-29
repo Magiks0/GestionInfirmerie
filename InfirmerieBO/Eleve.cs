@@ -54,5 +54,10 @@ namespace InfirmerieBO
         public string ParentsPhone { get => parentsPhone; set => parentsPhone = value; }
         public bool ExtraTime { get => extraTime; set => extraTime = value; }
         public string Comment { get => comment; set => comment = value; }
+
+        public int GetId()
+        {
+            return this.id;
+        }
     }
 }

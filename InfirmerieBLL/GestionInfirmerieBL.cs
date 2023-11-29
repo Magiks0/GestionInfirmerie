@@ -85,5 +85,29 @@ namespace InfirmerieBLL
         }
 
         #endregion
+
+        #region Gestion Visites
+
+        public static List<Visite> ToutesLesVisites()
+        {
+            return VisiteDAO.GetVisites();
+        }
+
+        public static int Ajouterament(Visite unVisite)
+        {
+            return VisiteDAO.InsertVisite(unVisite);
+        }
+
+        public static int UpdateVisite(Visite unVisite)
+        {
+            return VisiteDAO.UpdateVisite(unVisite);
+        }
+
+        public static int SupprimerVisite(Visite unVisite)
+        {
+            return VisiteDAO.DeleteVisite(unVisite);
+        }
+
+        #endregion
     }
 }
