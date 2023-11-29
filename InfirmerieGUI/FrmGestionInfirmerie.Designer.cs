@@ -400,7 +400,7 @@ namespace InfirmerieGUI
             this.pnlEleves.Controls.Add(this.dgvEleves);
             this.pnlEleves.Controls.Add(this.btnSupprimerEleve);
             this.pnlEleves.Controls.Add(this.btnConfirmereleve);
-            this.pnlEleves.Location = new System.Drawing.Point(49, 229);
+            this.pnlEleves.Location = new System.Drawing.Point(305, 0);
             this.pnlEleves.Name = "pnlEleves";
             this.pnlEleves.Size = new System.Drawing.Size(1378, 780);
             this.pnlEleves.TabIndex = 7;
@@ -565,7 +565,6 @@ namespace InfirmerieGUI
             // pnlMedicaments
             // 
             this.pnlMedicaments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlMedicaments.Controls.Add(this.pnlEleves);
             this.pnlMedicaments.Controls.Add(this.lblMedicaments);
             this.pnlMedicaments.Controls.Add(this.pnlAjoutMedic);
             this.pnlMedicaments.Controls.Add(this.pnlMedicModif);
@@ -573,7 +572,7 @@ namespace InfirmerieGUI
             this.pnlMedicaments.Controls.Add(this.dgvMedicaments);
             this.pnlMedicaments.Controls.Add(this.btnSupprimerMedic);
             this.pnlMedicaments.Controls.Add(this.btnConfirmerMedic);
-            this.pnlMedicaments.Location = new System.Drawing.Point(300, 0);
+            this.pnlMedicaments.Location = new System.Drawing.Point(287, 0);
             this.pnlMedicaments.Name = "pnlMedicaments";
             this.pnlMedicaments.Size = new System.Drawing.Size(1370, 1038);
             this.pnlMedicaments.TabIndex = 8;
@@ -757,6 +756,7 @@ namespace InfirmerieGUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1654, 807);
+            this.Controls.Add(this.pnlEleves);
             this.Controls.Add(this.pnlMedicaments);
             this.Controls.Add(this.msMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
