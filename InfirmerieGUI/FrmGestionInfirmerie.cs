@@ -61,7 +61,7 @@ namespace InfirmerieGUI
         private void dtp_TextChange(Object sender, EventArgs e)
         {
             dgvEleves.CurrentCell.Value = dtp.Text.ToString();
-        } 
+        }
         private void dataGridView1_Scroll(Object sender, EventArgs e)
         {
             dtp.Visible = false;
@@ -197,12 +197,12 @@ namespace InfirmerieGUI
             DateTime.TryParse(dgvEleves.SelectedCells[3].Value.ToString(), out date);
             selectedDate = monthCalendar1.SelectionStart = date;
 
-             NumEleveModif = txtNumeroEleve.Text = dgvEleves.SelectedCells[4].Value.ToString();
-             NumParentModif = txtNumeroParent.Text = dgvEleves.SelectedCells[7].Value.ToString();
+            NumEleveModif = txtNumeroEleve.Text = dgvEleves.SelectedCells[4].Value.ToString();
+            NumParentModif = txtNumeroParent.Text = dgvEleves.SelectedCells[7].Value.ToString();
 
             bool.TryParse(dgvEleves.SelectedCells[8].Value.ToString(), out check);
             extraTime = chkExtraTime.Checked = check;
-            
+
             comments = txtComments.Text = dgvEleves.SelectedCells[9].Value.ToString();
 
         }
@@ -268,7 +268,7 @@ namespace InfirmerieGUI
             dgvMedicaments.DataSource = datatableMedicaments;
         }
 
-        
+
 
         private void dgvMedicaments_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -399,30 +399,6 @@ namespace InfirmerieGUI
             dgvVisites.DataSource = datatableVisites;
         }
 
-        //private void médicamentsToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    pnlMedicaments.Visible = true;
-        //    pnlEleves.Visible = false;
-        //    ActualiserDataGridViewMedicaments();
-        //}
-
-        //private void élèvesToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    pnlEleves.Visible = true;
-        //    pnlMedicaments.Visible = false;
-        //}
-
-        //private void dgvMedicaments_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-
-        //    pnlAjoutMedic.Visible = false;
-        //    pnlMedicModif.Visible = true;
-        //    txtNomMedicAjout.Text = "";
-
-        //    txtIdMedicModif.Text = dgvMedicaments.SelectedRows[0].Cells["Id"].Value.ToString();
-        //    txtNomMedicModif.Text = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
-
-        //}
 
         //private void btnConfirmerMedic_Click(object sender, EventArgs e)
         //{
@@ -491,9 +467,108 @@ namespace InfirmerieGUI
         //    }
         //}
 
+        private void dgvVisites_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            pnlAjoutVisite.Visible = false;
+            pnlModifVisite.Visible = true;
+
+            txtAjoutCommentaireVisite.Text = "";
+            txtAjoutMotifVisite.Text = "";
+            txtAjoutQuantiteMedicamentVisite.Text = "";
+
+            txtIdMedicModif.Text = dgvMedicaments.SelectedRows[0].Cells["Id"].Value.ToString();
+            txtNomMedicModif.Text = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
+
+        }
+
+
+        private void btnConfirmerVisite_Click(object sender, EventArgs e)
+        {
+            if (txtAjoutMotifVisite.Text != "" && txtAjoutCommentaireVisite.Text != "")
+            {
+
+
+
+                Medicament nouvMedicament = new Medicament(txtNomMedicAjout.Text);
+                if (GestionInfirmerieBL.AjouterMedicament(nouvMedicament) != 0)
+                {
+                    MessageBox.Show("Le médicament '" + txtNomMedicAjout.Text + "' a bien été ajouté.", "Ajout Réussi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNomMedicAjout.Text = "";
+                    ActualiserDataGridViewMedicaments();
+                }
+                else
+                {
+                    MessageBox.Show("Erreur lors de l'ajout du médicament '" + txtNomMedicAjout.Text + "'.", "Erreur d'Ajout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            string changes = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
+            if (txtNomMedicModif.Text != changes && txtNomMedicModif.Text != "")
+            {
+                int.TryParse(txtIdMedicModif.Text, out idMedicModif);
+                Medicament unMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
+                if (GestionInfirmerieBL.UpdateMedicament(unMedicament) != 0)
+                {
+                    MessageBox.Show("Les modifications du médicament ont bien été prises en compte.", "Modifications Réussies", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActualiserDataGridViewMedicaments();
+                }
+                else
+                {
+                    MessageBox.Show("Erreur lors de la modification des données du médicament.\nAucune modification n'a été apportée.", "Erreur Modifications", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnAjouterVisite_Click(object sender, EventArgs e)
+        {
+            pnlModifVisite.Visible = false;
+            pnlAjoutVisite.Visible = true;
+
+
+            //ELEVE COMBO BOX
+            List<Eleve> lesEleves = GestionInfirmerieBL.ToutLesEleves();
+            // Create a new list of strings with concatenated Lastname and Firstname
+            List<string> displayNames = lesEleves.Select(a => $"{a.Lastname} {a.Firstname}").ToList();
+            // Add the concatenated names to the ComboBox
+            cbAjoutEleveVisite.Items.AddRange(displayNames.ToArray());
+            // Set the DisplayMember and ValueMember
+            cbAjoutEleveVisite.DisplayMember = "FullName"; // You can use any string here
+            cbAjoutEleveVisite.ValueMember = "Id";
+
+            //Medicaments COMBO BOX
+            List<Medicament> lesMedicaments = GestionInfirmerieBL.ToutLesMedicaments();
+            cbAjoutMedicamentVisite.Items.AddRange(lesMedicaments.ToArray());
+            cbAjoutMedicamentVisite.DisplayMember = "Nom";
+            cbAjoutMedicamentVisite.ValueMember = "Id";
+
+        }
+
+        private void cbAjoutMedicamentVisite_TextChanged(object sender, EventArgs e)
+        {
+            if (cbAjoutMedicamentVisite.SelectedIndex != -1)
+            {
+                // An item is selected, make the TextBox visible and update its value
+                txtAjoutQuantiteMedicamentVisite.Visible = true;
+                lblAjoutQuantiteMedicamentVisite.Visible = true;
+
+                // You can set the initial value of the TextBox based on the selected item
+                // For example, if your Medicament class has a property Quantity, you can do:
+                // txtAjoutQuantiteMedicamentVisite.Text = lesMedicaments[cbAjoutMedicamentVisite.SelectedIndex].Quantity.ToString();
+            }
+            else
+            {
+                // No item is selected, make the TextBox invisible
+
+                txtAjoutQuantiteMedicamentVisite.Visible = false;
+                lblAjoutQuantiteMedicamentVisite.Visible = false;
+                // Optionally, clear the value in the TextBox
+                txtAjoutQuantiteMedicamentVisite.Text = string.Empty;
+            }
+        }
 
         #endregion
 
+        #region ToolStripMenu
         private void médicamentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlMedicaments.Visible = true;
@@ -517,5 +592,8 @@ namespace InfirmerieGUI
             pnlMedicaments.Visible = false;
             ActualiserDataGridViewVisites();
         }
+
+        #endregion
+
     }
 }

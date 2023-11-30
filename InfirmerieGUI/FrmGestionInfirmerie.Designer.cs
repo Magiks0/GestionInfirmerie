@@ -109,6 +109,8 @@ namespace InfirmerieGUI
             this.lblModifMotifVisite = new System.Windows.Forms.Label();
             this.txtModifMotifVisite = new System.Windows.Forms.TextBox();
             this.pnlAjoutVisite = new System.Windows.Forms.Panel();
+            this.lblAjoutEleveVisite = new System.Windows.Forms.Label();
+            this.cbAjoutEleveVisite = new System.Windows.Forms.ComboBox();
             this.lblAjoutMedicamentVisite = new System.Windows.Forms.Label();
             this.dtpAjoutDateFinVisite = new System.Windows.Forms.DateTimePicker();
             this.lblAjoutDateFinVisite = new System.Windows.Forms.Label();
@@ -129,8 +131,7 @@ namespace InfirmerieGUI
             this.dgvVisites = new System.Windows.Forms.DataGridView();
             this.btnSupprimerVisite = new System.Windows.Forms.Button();
             this.btnConfirmerVisite = new System.Windows.Forms.Button();
-            this.lblAjoutEleveVisite = new System.Windows.Forms.Label();
-            this.cbAjoutEleveVisite = new System.Windows.Forms.ComboBox();
+            this.txtModifIdVisite = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEleves)).BeginInit();
             this.msMenu.SuspendLayout();
             this.pnlModif.SuspendLayout();
@@ -837,6 +838,7 @@ namespace InfirmerieGUI
             // pnlModifVisite
             // 
             this.pnlModifVisite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlModifVisite.Controls.Add(this.txtModifIdVisite);
             this.pnlModifVisite.Controls.Add(this.lblModifEleveVisite);
             this.pnlModifVisite.Controls.Add(this.cbModifEleveVisite);
             this.pnlModifVisite.Controls.Add(this.lblModifMedicamentVisite);
@@ -854,7 +856,7 @@ namespace InfirmerieGUI
             this.pnlModifVisite.Controls.Add(this.lblModifDateDebutVisite);
             this.pnlModifVisite.Controls.Add(this.lblModifMotifVisite);
             this.pnlModifVisite.Controls.Add(this.txtModifMotifVisite);
-            this.pnlModifVisite.Location = new System.Drawing.Point(112, 329);
+            this.pnlModifVisite.Location = new System.Drawing.Point(112, 341);
             this.pnlModifVisite.Margin = new System.Windows.Forms.Padding(2);
             this.pnlModifVisite.Name = "pnlModifVisite";
             this.pnlModifVisite.Size = new System.Drawing.Size(790, 388);
@@ -878,7 +880,6 @@ namespace InfirmerieGUI
             this.cbModifEleveVisite.Name = "cbModifEleveVisite";
             this.cbModifEleveVisite.Size = new System.Drawing.Size(187, 21);
             this.cbModifEleveVisite.TabIndex = 22;
-            this.cbModifEleveVisite.Visible = false;
             // 
             // lblModifMedicamentVisite
             // 
@@ -947,7 +948,6 @@ namespace InfirmerieGUI
             this.cbModifMedicamentVisite.Name = "cbModifMedicamentVisite";
             this.cbModifMedicamentVisite.Size = new System.Drawing.Size(107, 21);
             this.cbModifMedicamentVisite.TabIndex = 15;
-            this.cbModifMedicamentVisite.Visible = false;
             // 
             // txtModifCommentaireVisite
             // 
@@ -1045,12 +1045,30 @@ namespace InfirmerieGUI
             this.pnlAjoutVisite.Controls.Add(this.lblAjoutDateDebutVisite);
             this.pnlAjoutVisite.Controls.Add(this.lblAjoutMotifVisite);
             this.pnlAjoutVisite.Controls.Add(this.txtAjoutMotifVisite);
-            this.pnlAjoutVisite.Location = new System.Drawing.Point(138, 353);
+            this.pnlAjoutVisite.Location = new System.Drawing.Point(114, 327);
             this.pnlAjoutVisite.Margin = new System.Windows.Forms.Padding(2);
             this.pnlAjoutVisite.Name = "pnlAjoutVisite";
             this.pnlAjoutVisite.Size = new System.Drawing.Size(790, 388);
             this.pnlAjoutVisite.TabIndex = 16;
             this.pnlAjoutVisite.Visible = false;
+            // 
+            // lblAjoutEleveVisite
+            // 
+            this.lblAjoutEleveVisite.AutoSize = true;
+            this.lblAjoutEleveVisite.Location = new System.Drawing.Point(36, 47);
+            this.lblAjoutEleveVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAjoutEleveVisite.Name = "lblAjoutEleveVisite";
+            this.lblAjoutEleveVisite.Size = new System.Drawing.Size(40, 13);
+            this.lblAjoutEleveVisite.TabIndex = 25;
+            this.lblAjoutEleveVisite.Text = "Eleve :";
+            // 
+            // cbAjoutEleveVisite
+            // 
+            this.cbAjoutEleveVisite.FormattingEnabled = true;
+            this.cbAjoutEleveVisite.Location = new System.Drawing.Point(81, 43);
+            this.cbAjoutEleveVisite.Name = "cbAjoutEleveVisite";
+            this.cbAjoutEleveVisite.Size = new System.Drawing.Size(187, 21);
+            this.cbAjoutEleveVisite.TabIndex = 24;
             // 
             // lblAjoutMedicamentVisite
             // 
@@ -1119,7 +1137,7 @@ namespace InfirmerieGUI
             this.cbAjoutMedicamentVisite.Name = "cbAjoutMedicamentVisite";
             this.cbAjoutMedicamentVisite.Size = new System.Drawing.Size(107, 21);
             this.cbAjoutMedicamentVisite.TabIndex = 15;
-            this.cbAjoutMedicamentVisite.Visible = false;
+            this.cbAjoutMedicamentVisite.TextChanged += new System.EventHandler(this.cbAjoutMedicamentVisite_TextChanged);
             // 
             // txtAjoutCommentaireVisite
             // 
@@ -1127,7 +1145,7 @@ namespace InfirmerieGUI
             this.txtAjoutCommentaireVisite.Margin = new System.Windows.Forms.Padding(2);
             this.txtAjoutCommentaireVisite.MinimumSize = new System.Drawing.Size(4, 50);
             this.txtAjoutCommentaireVisite.Name = "txtAjoutCommentaireVisite";
-            this.txtAjoutCommentaireVisite.Size = new System.Drawing.Size(114, 50);
+            this.txtAjoutCommentaireVisite.Size = new System.Drawing.Size(114, 20);
             this.txtAjoutCommentaireVisite.TabIndex = 13;
             // 
             // chkbAjoutRenvoiDomicileVisite
@@ -1150,6 +1168,7 @@ namespace InfirmerieGUI
             this.lblAjoutQuantiteMedicamentVisite.Size = new System.Drawing.Size(117, 13);
             this.lblAjoutQuantiteMedicamentVisite.TabIndex = 11;
             this.lblAjoutQuantiteMedicamentVisite.Text = "Quantité Medicament ?";
+            this.lblAjoutQuantiteMedicamentVisite.Visible = false;
             // 
             // txtAjoutQuantiteMedicamentVisite
             // 
@@ -1158,6 +1177,7 @@ namespace InfirmerieGUI
             this.txtAjoutQuantiteMedicamentVisite.Name = "txtAjoutQuantiteMedicamentVisite";
             this.txtAjoutQuantiteMedicamentVisite.Size = new System.Drawing.Size(107, 20);
             this.txtAjoutQuantiteMedicamentVisite.TabIndex = 10;
+            this.txtAjoutQuantiteMedicamentVisite.Visible = false;
             // 
             // lblAjoutCommentaireVisite
             // 
@@ -1221,6 +1241,7 @@ namespace InfirmerieGUI
             this.btnAjouterVisite.TabIndex = 4;
             this.btnAjouterVisite.Text = "Ajouter";
             this.btnAjouterVisite.UseVisualStyleBackColor = false;
+            this.btnAjouterVisite.Click += new System.EventHandler(this.btnAjouterVisite_Click);
             // 
             // dgvVisites
             // 
@@ -1237,6 +1258,7 @@ namespace InfirmerieGUI
             this.dgvVisites.RowTemplate.Height = 24;
             this.dgvVisites.Size = new System.Drawing.Size(790, 242);
             this.dgvVisites.TabIndex = 1;
+            this.dgvVisites.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVisites_CellClick);
             // 
             // btnSupprimerVisite
             // 
@@ -1264,25 +1286,16 @@ namespace InfirmerieGUI
             this.btnConfirmerVisite.TabIndex = 3;
             this.btnConfirmerVisite.Text = "Confirmer";
             this.btnConfirmerVisite.UseVisualStyleBackColor = false;
+            this.btnConfirmerVisite.Click += new System.EventHandler(this.btnConfirmerVisite_Click);
             // 
-            // lblAjoutEleveVisite
+            // txtModifIdVisite
             // 
-            this.lblAjoutEleveVisite.AutoSize = true;
-            this.lblAjoutEleveVisite.Location = new System.Drawing.Point(36, 47);
-            this.lblAjoutEleveVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAjoutEleveVisite.Name = "lblAjoutEleveVisite";
-            this.lblAjoutEleveVisite.Size = new System.Drawing.Size(40, 13);
-            this.lblAjoutEleveVisite.TabIndex = 25;
-            this.lblAjoutEleveVisite.Text = "Eleve :";
-            // 
-            // cbAjoutEleveVisite
-            // 
-            this.cbAjoutEleveVisite.FormattingEnabled = true;
-            this.cbAjoutEleveVisite.Location = new System.Drawing.Point(81, 43);
-            this.cbAjoutEleveVisite.Name = "cbAjoutEleveVisite";
-            this.cbAjoutEleveVisite.Size = new System.Drawing.Size(187, 21);
-            this.cbAjoutEleveVisite.TabIndex = 24;
-            this.cbAjoutEleveVisite.Visible = false;
+            this.txtModifIdVisite.Location = new System.Drawing.Point(17, 7);
+            this.txtModifIdVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.txtModifIdVisite.Name = "txtModifIdVisite";
+            this.txtModifIdVisite.Size = new System.Drawing.Size(107, 20);
+            this.txtModifIdVisite.TabIndex = 24;
+            this.txtModifIdVisite.Visible = false;
             // 
             // FrmGestionInfirmerie
             // 
@@ -1429,5 +1442,6 @@ namespace InfirmerieGUI
         private System.Windows.Forms.ComboBox cbModifEleveVisite;
         private System.Windows.Forms.Label lblAjoutEleveVisite;
         private System.Windows.Forms.ComboBox cbAjoutEleveVisite;
+        private System.Windows.Forms.TextBox txtModifIdVisite;
     }
 }
