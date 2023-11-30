@@ -268,18 +268,7 @@ namespace InfirmerieGUI
             dgvMedicaments.DataSource = datatableMedicaments;
         }
 
-        private void médicamentsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            pnlMedicaments.Visible = true;
-            pnlEleves.Visible = false;
-            ActualiserDataGridViewMedicaments();
-        }
-
-        private void élèvesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            pnlEleves.Visible = true;
-            pnlMedicaments.Visible = false;
-        }
+        
 
         private void dgvMedicaments_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -505,5 +494,28 @@ namespace InfirmerieGUI
 
         #endregion
 
+        private void médicamentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlMedicaments.Visible = true;
+            pnlEleves.Visible = false;
+            pnlVisites.Visible = false;
+            ActualiserDataGridViewMedicaments();
+        }
+
+        private void élèvesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlEleves.Visible = true;
+            pnlMedicaments.Visible = false;
+            pnlVisites.Visible = false;
+            ActualiserDataGridViewEleves();
+        }
+
+        private void visitesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlVisites.Visible = true;
+            pnlEleves.Visible = false;
+            pnlMedicaments.Visible = false;
+            ActualiserDataGridViewVisites();
+        }
     }
 }

@@ -249,6 +249,7 @@ namespace InfirmerieGUI
             this.visitesToolStripMenuItem.Name = "visitesToolStripMenuItem";
             this.visitesToolStripMenuItem.Size = new System.Drawing.Size(221, 43);
             this.visitesToolStripMenuItem.Text = "Visites";
+            this.visitesToolStripMenuItem.Click += new System.EventHandler(this.visitesToolStripMenuItem_Click);
             // 
             // élèvesToolStripMenuItem
             // 
