@@ -47,6 +47,7 @@ namespace InfirmerieGUI
 
             ActualiserDataGridViewEleves();
             ActualiserDataGridViewMedicaments();
+            ActualiserDataGridViewVisites();
 
 
             dgvEleves.Controls.Add(dtp);
@@ -359,8 +360,150 @@ namespace InfirmerieGUI
             }
         }
 
+
         #endregion
 
-        
+        #region Visites
+
+        private void ActualiserDataGridViewVisites()
+        {
+            // Création d'un objet List de visites
+            List<Visite> listeVisites = new List<Visite>();
+            // Nouvel table qui permetera d'utiliser la liste de visites
+            DataTable datatableVisites = new DataTable();
+
+            listeVisites = GestionInfirmerieBL.ToutesLesVisites();
+
+            // Add columns to the DataTable
+            datatableVisites.Columns.Add("Id");
+            datatableVisites.Columns.Add("Nom Eleve");
+            datatableVisites.Columns.Add("Prénom Eleve");
+            datatableVisites.Columns.Add("Date Debut Visite");
+            datatableVisites.Columns.Add("Date Fin Visite");
+            datatableVisites.Columns.Add("Motif");
+            datatableVisites.Columns.Add("Commentaire");
+            datatableVisites.Columns.Add("Renvoi Domicile ?");
+            datatableVisites.Columns.Add("Hospitalisation ?");
+            datatableVisites.Columns.Add("Parents Prevenu ?");
+            datatableVisites.Columns.Add("Médicament");
+            datatableVisites.Columns.Add("Quantité Médicaments");
+
+            foreach (Visite visit in listeVisites)
+            {
+                // Add rows to the DataTable
+                DataRow row = datatableVisites.NewRow();
+                row["Id"] = visit.Id.ToString();
+                row["Nom Eleve"] = visit.Eleve.Lastname.ToString();
+                row["Prénom Eleve"] = visit.Eleve.Firstname.ToString();
+                row["Date Debut Visite"] = visit.DateVisite.ToString("dd/MM/yyyy") + " " + visit.HeureDebutVisite.ToString();
+                row["Date Fin Visite"] = visit.DateVisite.ToString("dd/MM/yyyy") + " " + visit.HeureFinVisite.ToString();
+                row["Motif"] = visit.MotifVisite.ToString();
+                row["Commentaire"] = visit.CommentaireVisite.ToString();
+                row["Renvoi Domicile ?"] = visit.RenvoiDomicile.ToString();
+                row["Hospitalisation ?"] = visit.Hospitalisation.ToString();
+                row["Parents Prevenu ?"] = visit.ParentsPrevenus.ToString();
+                row["Médicament"] = visit.Medicament.Nom.ToString();
+                row["Quantité Médicaments"] = visit.QuantiteMedicament.ToString();
+                datatableVisites.Rows.Add(row);
+            }
+            //rattacher au dgv le datatable
+            dgvVisites.DataSource = datatableVisites;
+        }
+
+        //private void médicamentsToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    pnlMedicaments.Visible = true;
+        //    pnlEleves.Visible = false;
+        //    ActualiserDataGridViewMedicaments();
+        //}
+
+        //private void élèvesToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    pnlEleves.Visible = true;
+        //    pnlMedicaments.Visible = false;
+        //}
+
+        //private void dgvMedicaments_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+
+        //    pnlAjoutMedic.Visible = false;
+        //    pnlMedicModif.Visible = true;
+        //    txtNomMedicAjout.Text = "";
+
+        //    txtIdMedicModif.Text = dgvMedicaments.SelectedRows[0].Cells["Id"].Value.ToString();
+        //    txtNomMedicModif.Text = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
+
+        //}
+
+        //private void btnConfirmerMedic_Click(object sender, EventArgs e)
+        //{
+        //    if (txtNomMedicAjout.Text != "")
+        //    {
+        //        Medicament nouvMedicament = new Medicament(txtNomMedicAjout.Text);
+        //        if (GestionInfirmerieBL.AjouterMedicament(nouvMedicament) != 0)
+        //        {
+        //            MessageBox.Show("Le médicament '" + txtNomMedicAjout.Text + "' a bien été ajouté.", "Ajout Réussi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //            txtNomMedicAjout.Text = "";
+        //            ActualiserDataGridViewMedicaments();
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Erreur lors de l'ajout du médicament '" + txtNomMedicAjout.Text + "'.", "Erreur d'Ajout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+
+        //    string changes = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
+        //    if (txtNomMedicModif.Text != changes && txtNomMedicModif.Text != "")
+        //    {
+        //        int.TryParse(txtIdMedicModif.Text, out idMedicModif);
+        //        Medicament unMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
+        //        if (GestionInfirmerieBL.UpdateMedicament(unMedicament) != 0)
+        //        {
+        //            MessageBox.Show("Les modifications du médicament ont bien été prises en compte.", "Modifications Réussies", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //            ActualiserDataGridViewMedicaments();
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Erreur lors de la modification des données du médicament.\nAucune modification n'a été apportée.", "Erreur Modifications", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //}
+
+
+        //private void btnAjoutMEdic_Click(object sender, EventArgs e)
+        //{
+        //    pnlMedicModif.Visible = false;
+        //    pnlAjoutMedic.Visible = true;
+        //    txtNomMedicModif.Text = "";
+        //    txtIdMedicAjout.Text = "";
+        //}
+
+        //private void btnSupprimerMedic_Click(object sender, EventArgs e)
+        //{
+        //    string nomSuppr = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
+        //    var confirmation = MessageBox.Show("Voulez-vous vraiment supprimer le médicament '" + nomSuppr + "' ?", "Confirmation de Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+        //    if (confirmation == DialogResult.Yes)
+        //    {
+        //        string idSuppr = dgvMedicaments.SelectedRows[0].Cells["Id"].Value.ToString();
+        //        int.TryParse(idSuppr, out idMedicModif);
+        //        Medicament DelMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
+
+        //        if (GestionInfirmerieBL.SupprimerMedicament(DelMedicament) != 0)
+        //        {
+        //            ActualiserDataGridViewMedicaments();
+        //            txtNomMedicModif.Text = "";
+        //            MessageBox.Show("Le médicament '" + nomSuppr + "' a bien été supprimé.", "Suppression Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Erreur lors de la suppression du médicament '" + nomSuppr + "'.", "Erreur de Suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //}
+
+
+        #endregion
+
     }
 }

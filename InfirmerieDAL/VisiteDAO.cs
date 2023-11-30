@@ -25,8 +25,8 @@ namespace InfirmerieDAL
             int id;
             Eleve eleve;
             DateTime dateVisite;
-            DateTime heureDebutVisite;
-            DateTime heureFinVisite;
+            TimeSpan heureDebutVisite;
+            TimeSpan heureFinVisite;
             string motifVisite;
             string commentaireVisite;
             bool renvoiDomicile;
@@ -45,7 +45,7 @@ namespace InfirmerieDAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
             // select pour avoir toute les informations de Visite ainsi que le nom de sa classe (pour la création d'objet classe)
-            cmd.CommandText = "SELECT * FROM Visite";
+            cmd.CommandText = "SELECT * FROM Visite V, Eleve E, Medicament M WHERE V.id_eleve_visite = E.id_eleve AND V.id_medicament_visite = M.id_medicament";
 
             SqlDataReader monReader = cmd.ExecuteReader();
 
@@ -56,10 +56,10 @@ namespace InfirmerieDAL
             {
                 id = Int32.Parse(monReader["id_visite"].ToString());
                 //VRAIMENT PAS SUR JE TROUVE CA INUTILE D'APPELER TOUT CA LA DEDANS
-                eleve = new Eleve(Int32.Parse(monReader["id_eleve"].ToString()), monReader["nom_eleve"].ToString(), monReader["prenom_eleve"].ToString(), monReader.GetDateTime(monReader.GetOrdinal("date_naissance_eleve")), monReader["tel_portable"].ToString(), Int32.Parse(monReader["id_classe_eleve"].ToString()), monReader["tel_parent_eleve"].ToString());
+                eleve = new Eleve (monReader["nom_eleve"].ToString(), monReader["prenom_eleve"].ToString(), monReader.GetDateTime(monReader.GetOrdinal("date_naissance_eleve")), monReader["tel_portable_eleve"].ToString(), new Classe(Int32.Parse(monReader["id_classe_eleve"].ToString())), monReader["tel_parent_eleve"].ToString(), bool.Parse(monReader["tiers_temps_eleve"].ToString()), monReader["commentaire_sante_eleve"].ToString());
                 dateVisite = monReader.GetDateTime(monReader.GetOrdinal("date_visite"));
-                heureDebutVisite = monReader.GetDateTime(monReader.GetOrdinal("heure_debut_visite"));
-                heureFinVisite = monReader.GetDateTime(monReader.GetOrdinal("heure_fin_visite"));
+                heureDebutVisite = monReader.GetTimeSpan(monReader.GetOrdinal("heure_debut_visite"));
+                heureFinVisite = monReader.GetTimeSpan(monReader.GetOrdinal("heure_fin_visite"));
                 motifVisite = monReader["motif_visite"].ToString();
                 commentaireVisite = monReader["commentaires_visite"].ToString();
                 renvoiDomicile = bool.Parse(monReader["renvoi_domicile_visite"].ToString());
@@ -92,7 +92,7 @@ namespace InfirmerieDAL
                                       "VALUES (@idEleve, @dateVisite, @heureDebutVisite, @heureFinVisite, @motifVisite, @commentaireVisite, @renvoiDomicile, @hospitalisation, @parentsPrevenus, @medicament, @quantiteMedicament)";
 
                     // Use parameters to avoid SQL injection
-                    cmd.Parameters.AddWithValue("@idEleve", uneVisite.IdEleve.GetId()); ;
+                    cmd.Parameters.AddWithValue("@idEleve", uneVisite.Eleve.GetId()); ;
                     cmd.Parameters.AddWithValue("@dateVisite", uneVisite.DateVisite);
                     cmd.Parameters.AddWithValue("@heureDebutVisite", uneVisite.HeureDebutVisite);
                     cmd.Parameters.AddWithValue("@heureFinVisite", uneVisite.HeureFinVisite);
@@ -101,7 +101,7 @@ namespace InfirmerieDAL
                     cmd.Parameters.AddWithValue("@renvoiDomicile", uneVisite.RenvoiDomicile);
                     cmd.Parameters.AddWithValue("@hospitalisation", uneVisite.Hospitalisation);
                     cmd.Parameters.AddWithValue("@parentsPrevenus", uneVisite.ParentsPrevenus);
-                    cmd.Parameters.AddWithValue("@idMedicament", uneVisite.IdMedicament.GetId());
+                    cmd.Parameters.AddWithValue("@idMedicament", uneVisite.Medicament.GetId());
                     cmd.Parameters.AddWithValue("@quantiteMedicament", uneVisite.QuantiteMedicament);
 
                     nbLignes = cmd.ExecuteNonQuery();
@@ -131,7 +131,7 @@ namespace InfirmerieDAL
                                       "quantite_medicament_visite = @quantiteMedicament WHERE id_eleve_visite = @idEleve";
 
                     // Use parameters to avoid SQL injection
-                    cmd.Parameters.AddWithValue("@idEleve", uneVisite.IdEleve.GetId()); ;
+                    cmd.Parameters.AddWithValue("@idEleve", uneVisite.Eleve.GetId()); ;
                     cmd.Parameters.AddWithValue("@dateVisite", uneVisite.DateVisite);
                     cmd.Parameters.AddWithValue("@heureDebutVisite", uneVisite.HeureDebutVisite);
                     cmd.Parameters.AddWithValue("@heureFinVisite", uneVisite.HeureFinVisite);
@@ -140,7 +140,7 @@ namespace InfirmerieDAL
                     cmd.Parameters.AddWithValue("@renvoiDomicile", uneVisite.RenvoiDomicile);
                     cmd.Parameters.AddWithValue("@hospitalisation", uneVisite.Hospitalisation);
                     cmd.Parameters.AddWithValue("@parentsPrevenus", uneVisite.ParentsPrevenus);
-                    cmd.Parameters.AddWithValue("@idMedicament", uneVisite.IdMedicament.GetId());
+                    cmd.Parameters.AddWithValue("@idMedicament", uneVisite.Medicament.GetId());
                     cmd.Parameters.AddWithValue("@quantiteMedicament", uneVisite.QuantiteMedicament);
 
                     nbLignes = cmd.ExecuteNonQuery();
