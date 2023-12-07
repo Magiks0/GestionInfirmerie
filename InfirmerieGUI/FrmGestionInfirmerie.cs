@@ -365,6 +365,7 @@ namespace InfirmerieGUI
 
             // Add columns to the DataTable
             datatableVisites.Columns.Add("Id");
+            datatableVisites.Columns.Add("Id Eleve");
             datatableVisites.Columns.Add("Nom Eleve");
             datatableVisites.Columns.Add("Prénom Eleve");
             datatableVisites.Columns.Add("Date Debut Visite");
@@ -374,6 +375,7 @@ namespace InfirmerieGUI
             datatableVisites.Columns.Add("Renvoi Domicile ?");
             datatableVisites.Columns.Add("Hospitalisation ?");
             datatableVisites.Columns.Add("Parents Prevenu ?");
+            datatableVisites.Columns.Add("Id Médicament");
             datatableVisites.Columns.Add("Médicament");
             datatableVisites.Columns.Add("Quantité Médicaments");
 
@@ -382,6 +384,7 @@ namespace InfirmerieGUI
                 // Add rows to the DataTable
                 DataRow row = datatableVisites.NewRow();
                 row["Id"] = visit.Id.ToString();
+                row["Id Eleve"] = visit.Eleve.Id.ToString();
                 row["Nom Eleve"] = visit.Eleve.Lastname.ToString();
                 row["Prénom Eleve"] = visit.Eleve.Firstname.ToString();
                 row["Date Debut Visite"] = visit.DateVisite.ToString("dd/MM/yyyy") + " " + visit.HeureDebutVisite.ToString();
@@ -391,6 +394,7 @@ namespace InfirmerieGUI
                 row["Renvoi Domicile ?"] = visit.RenvoiDomicile.ToString();
                 row["Hospitalisation ?"] = visit.Hospitalisation.ToString();
                 row["Parents Prevenu ?"] = visit.ParentsPrevenus.ToString();
+                row["Id Médicament"] = visit.Medicament.Id.ToString();
                 row["Médicament"] = visit.Medicament.Nom.ToString();
                 row["Quantité Médicaments"] = visit.QuantiteMedicament.ToString();
                 datatableVisites.Rows.Add(row);
@@ -399,124 +403,91 @@ namespace InfirmerieGUI
             dgvVisites.DataSource = datatableVisites;
         }
 
-
-        //private void btnConfirmerMedic_Click(object sender, EventArgs e)
-        //{
-        //    if (txtNomMedicAjout.Text != "")
-        //    {
-        //        Medicament nouvMedicament = new Medicament(txtNomMedicAjout.Text);
-        //        if (GestionInfirmerieBL.AjouterMedicament(nouvMedicament) != 0)
-        //        {
-        //            MessageBox.Show("Le médicament '" + txtNomMedicAjout.Text + "' a bien été ajouté.", "Ajout Réussi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //            txtNomMedicAjout.Text = "";
-        //            ActualiserDataGridViewMedicaments();
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Erreur lors de l'ajout du médicament '" + txtNomMedicAjout.Text + "'.", "Erreur d'Ajout", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
-
-        //    string changes = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
-        //    if (txtNomMedicModif.Text != changes && txtNomMedicModif.Text != "")
-        //    {
-        //        int.TryParse(txtIdMedicModif.Text, out idMedicModif);
-        //        Medicament unMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
-        //        if (GestionInfirmerieBL.UpdateMedicament(unMedicament) != 0)
-        //        {
-        //            MessageBox.Show("Les modifications du médicament ont bien été prises en compte.", "Modifications Réussies", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //            ActualiserDataGridViewMedicaments();
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Erreur lors de la modification des données du médicament.\nAucune modification n'a été apportée.", "Erreur Modifications", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
-        //}
-
-
-        //private void btnAjoutMEdic_Click(object sender, EventArgs e)
-        //{
-        //    pnlMedicModif.Visible = false;
-        //    pnlAjoutMedic.Visible = true;
-        //    txtNomMedicModif.Text = "";
-        //    txtIdMedicAjout.Text = "";
-        //}
-
-        //private void btnSupprimerMedic_Click(object sender, EventArgs e)
-        //{
-        //    string nomSuppr = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
-        //    var confirmation = MessageBox.Show("Voulez-vous vraiment supprimer le médicament '" + nomSuppr + "' ?", "Confirmation de Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-        //    if (confirmation == DialogResult.Yes)
-        //    {
-        //        string idSuppr = dgvMedicaments.SelectedRows[0].Cells["Id"].Value.ToString();
-        //        int.TryParse(idSuppr, out idMedicModif);
-        //        Medicament DelMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
-
-        //        if (GestionInfirmerieBL.SupprimerMedicament(DelMedicament) != 0)
-        //        {
-        //            ActualiserDataGridViewMedicaments();
-        //            txtNomMedicModif.Text = "";
-        //            MessageBox.Show("Le médicament '" + nomSuppr + "' a bien été supprimé.", "Suppression Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Erreur lors de la suppression du médicament '" + nomSuppr + "'.", "Erreur de Suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
-        //}
-
         private void dgvVisites_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // on affiche le panel de modif uniquement
             pnlAjoutVisite.Visible = false;
             pnlModifVisite.Visible = true;
 
+            // on efface tous les champs ajouter au cas où l'utilisateur les avait remplis
             txtAjoutCommentaireVisite.Text = "";
             txtAjoutMotifVisite.Text = "";
             txtAjoutQuantiteMedicamentVisite.Text = "";
 
-            txtIdMedicModif.Text = dgvMedicaments.SelectedRows[0].Cells["Id"].Value.ToString();
-            txtNomMedicModif.Text = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
+            //ELEVE COMBO BOX
+            List<Eleve> lesEleves = GestionInfirmerieBL.ToutLesEleves();
+            cbModifEleveVisite.DataSource = lesEleves;
+
+            //Medicaments COMBO BOX
+            List<Medicament> lesMedicaments = GestionInfirmerieBL.ToutLesMedicaments();
+            cbModifMedicamentVisite.DataSource = lesMedicaments;
+
+            int indexRow = e.RowIndex;
+            if (indexRow >= 0)
+            {
+                DataGridViewRow row = dgvVisites.Rows[indexRow];
+                //get the id
+                txtModifIdVisite.Text = row.Cells["Id"].Value.ToString();
+                //get the combo boxes right
+                cbModifEleveVisite.SelectedIndex = int.Parse(row.Cells["Id Eleve"].Value.ToString()) -1;
+                cbModifMedicamentVisite.SelectedIndex = int.Parse(row.Cells["Id Médicament"].Value.ToString()) - 1;
+                //txt
+                txtModifCommentaireVisite.Text = row.Cells["Commentaire"].Value.ToString();
+                txtModifMotifVisite.Text = row.Cells["Motif"].Value.ToString();
+                txtModifQuantiteMedicamentVisite.Text = row.Cells["Quantité Médicaments"].Value.ToString();
+                //check-box
+                chkbModifHospitalisationVisite.Checked = bool.Parse(row.Cells["Hospitalisation ?"].Value.ToString());
+                chkbModifParentsPrevenusVisite.Checked = bool.Parse(row.Cells["Parents Prevenu ?"].Value.ToString());
+                chkbModifRenvoiDomicileVisite.Checked = bool.Parse(row.Cells["Renvoi Domicile ?"].Value.ToString());
+                //dtp
+                dtpModifDateDebutVisite.Value = DateTime.Parse(row.Cells["Date Debut Visite"].Value.ToString());
+                dtpModifDateFinVisite.Value = DateTime.Parse(row.Cells["Date Fin Visite"].Value.ToString());
+            }
+
+            //DataGridViewRow newRow = dgvVisites.SelectedRows[0];
+            //txtModifIdVisite.Text = dgvVisites.SelectedRows[0].Cells["Id"].Value.ToString();
+            //cbModifEleveVisite.SelectedIndex = int.Parse(dgvVisites.SelectedRows[0].Cells["Id Eleve"].Value.ToString());
 
         }
 
-
         private void btnConfirmerVisite_Click(object sender, EventArgs e)
         {
-            if (txtAjoutMotifVisite.Text != "" && txtAjoutCommentaireVisite.Text != "")
+
+            if (pnlAjoutVisite.Visible)
             {
+                object newEleveobj = cbAjoutEleveVisite.SelectedItem;
+                Eleve newEleve = newEleveobj as Eleve;
+                Medicament nouvMedicament = cbAjoutMedicamentVisite.SelectedItem as Medicament;
+                Visite nouvVisite = new Visite(newEleve, dtpAjoutDateDebutVisite.Value.TimeOfDay, dtpAjoutDateDebutVisite.Value, dtpAjoutDateFinVisite.Value.TimeOfDay, txtAjoutMotifVisite.Text, txtAjoutCommentaireVisite.Text, chkbAjoutRenvoiDomicileVisite.Checked, chkbAjoutHospitalisationVisite.Checked, chkbAjoutParentsPrevenusVisite.Checked, nouvMedicament, txtAjoutQuantiteMedicamentVisite.Text);
 
-
-
-                Medicament nouvMedicament = new Medicament(txtNomMedicAjout.Text);
-                if (GestionInfirmerieBL.AjouterMedicament(nouvMedicament) != 0)
+                if (GestionInfirmerieBL.AjouterVisite(nouvVisite) != 0)
                 {
-                    MessageBox.Show("Le médicament '" + txtNomMedicAjout.Text + "' a bien été ajouté.", "Ajout Réussi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La visite a bien été ajouté.", "Ajout Réussi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNomMedicAjout.Text = "";
                     ActualiserDataGridViewMedicaments();
                 }
                 else
                 {
-                    MessageBox.Show("Erreur lors de l'ajout du médicament '" + txtNomMedicAjout.Text + "'.", "Erreur d'Ajout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erreur lors de l'ajout de la visite.", "Erreur d'Ajout", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-
-            string changes = dgvMedicaments.SelectedRows[0].Cells["Nom"].Value.ToString();
-            if (txtNomMedicModif.Text != changes && txtNomMedicModif.Text != "")
+            }else if (pnlModifVisite.Visible)
             {
+            Eleve updatedEleve = cbModifEleveVisite.SelectedItem as Eleve;
+            Medicament updatedMedicament = cbModifMedicamentVisite.SelectedItem as Medicament;
+
                 int.TryParse(txtIdMedicModif.Text, out idMedicModif);
-                Medicament unMedicament = new Medicament(idMedicModif, txtNomMedicModif.Text);
-                if (GestionInfirmerieBL.UpdateMedicament(unMedicament) != 0)
+                Visite nouvVisite = new Visite(int.Parse(txtModifIdVisite.Text) ,updatedEleve,  dtpModifDateDebutVisite.Value, dtpModifDateDebutVisite.Value.TimeOfDay, dtpModifDateFinVisite.Value.TimeOfDay, txtModifMotifVisite.Text, txtModifCommentaireVisite.Text, chkbModifRenvoiDomicileVisite.Checked, chkbModifHospitalisationVisite.Checked, chkbModifParentsPrevenusVisite.Checked, updatedMedicament, txtModifQuantiteMedicamentVisite.Text);
+                if (GestionInfirmerieBL.UpdateVisite(nouvVisite) != 0)
                 {
-                    MessageBox.Show("Les modifications du médicament ont bien été prises en compte.", "Modifications Réussies", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ActualiserDataGridViewMedicaments();
+                    MessageBox.Show("Les modifications de la visite ont bien été prises en compte.", "Modifications Réussies", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActualiserDataGridViewVisites();
                 }
                 else
                 {
-                    MessageBox.Show("Erreur lors de la modification des données du médicament.\nAucune modification n'a été apportée.", "Erreur Modifications", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erreur lors de la modification des données de la visite.\nAucune modification n'a été apportée.", "Erreur Modifications", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
         }
 
         private void btnAjouterVisite_Click(object sender, EventArgs e)
@@ -527,19 +498,12 @@ namespace InfirmerieGUI
 
             //ELEVE COMBO BOX
             List<Eleve> lesEleves = GestionInfirmerieBL.ToutLesEleves();
-            // Create a new list of strings with concatenated Lastname and Firstname
-            List<string> displayNames = lesEleves.Select(a => $"{a.Lastname} {a.Firstname}").ToList();
-            // Add the concatenated names to the ComboBox
-            cbAjoutEleveVisite.Items.AddRange(displayNames.ToArray());
-            // Set the DisplayMember and ValueMember
-            cbAjoutEleveVisite.DisplayMember = "FullName"; // You can use any string here
-            cbAjoutEleveVisite.ValueMember = "Id";
+            cbAjoutEleveVisite.DataSource = lesEleves;
 
             //Medicaments COMBO BOX
             List<Medicament> lesMedicaments = GestionInfirmerieBL.ToutLesMedicaments();
-            cbAjoutMedicamentVisite.Items.AddRange(lesMedicaments.ToArray());
-            cbAjoutMedicamentVisite.DisplayMember = "Nom";
-            cbAjoutMedicamentVisite.ValueMember = "Id";
+            cbAjoutMedicamentVisite.DataSource = lesMedicaments;
+
 
         }
 

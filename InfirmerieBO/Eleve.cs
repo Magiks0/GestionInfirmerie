@@ -59,5 +59,10 @@ namespace InfirmerieBO
         {
             return this.id;
         }
+
+        public override string ToString()
+        {
+            return Lastname + " " + Firstname;
+        }
     }
 }

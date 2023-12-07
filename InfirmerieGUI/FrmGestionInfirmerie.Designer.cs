@@ -91,6 +91,7 @@ namespace InfirmerieGUI
             this.btnConfirmerMedic = new System.Windows.Forms.Button();
             this.pnlVisites = new System.Windows.Forms.Panel();
             this.pnlModifVisite = new System.Windows.Forms.Panel();
+            this.txtModifIdVisite = new System.Windows.Forms.TextBox();
             this.lblModifEleveVisite = new System.Windows.Forms.Label();
             this.cbModifEleveVisite = new System.Windows.Forms.ComboBox();
             this.lblModifMedicamentVisite = new System.Windows.Forms.Label();
@@ -131,7 +132,6 @@ namespace InfirmerieGUI
             this.dgvVisites = new System.Windows.Forms.DataGridView();
             this.btnSupprimerVisite = new System.Windows.Forms.Button();
             this.btnConfirmerVisite = new System.Windows.Forms.Button();
-            this.txtModifIdVisite = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEleves)).BeginInit();
             this.msMenu.SuspendLayout();
             this.pnlModif.SuspendLayout();
@@ -863,6 +863,15 @@ namespace InfirmerieGUI
             this.pnlModifVisite.TabIndex = 22;
             this.pnlModifVisite.Visible = false;
             // 
+            // txtModifIdVisite
+            // 
+            this.txtModifIdVisite.Location = new System.Drawing.Point(17, 7);
+            this.txtModifIdVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.txtModifIdVisite.Name = "txtModifIdVisite";
+            this.txtModifIdVisite.Size = new System.Drawing.Size(107, 20);
+            this.txtModifIdVisite.TabIndex = 24;
+            this.txtModifIdVisite.Visible = false;
+            // 
             // lblModifEleveVisite
             // 
             this.lblModifEleveVisite.AutoSize = true;
@@ -1287,15 +1296,6 @@ namespace InfirmerieGUI
             this.btnConfirmerVisite.Text = "Confirmer";
             this.btnConfirmerVisite.UseVisualStyleBackColor = false;
             this.btnConfirmerVisite.Click += new System.EventHandler(this.btnConfirmerVisite_Click);
-            // 
-            // txtModifIdVisite
-            // 
-            this.txtModifIdVisite.Location = new System.Drawing.Point(17, 7);
-            this.txtModifIdVisite.Margin = new System.Windows.Forms.Padding(2);
-            this.txtModifIdVisite.Name = "txtModifIdVisite";
-            this.txtModifIdVisite.Size = new System.Drawing.Size(107, 20);
-            this.txtModifIdVisite.TabIndex = 24;
-            this.txtModifIdVisite.Visible = false;
             // 
             // FrmGestionInfirmerie
             // 

@@ -19,8 +19,6 @@ namespace InfirmerieBO
         private bool renvoiDomicile;
         private bool hospitalisation;
         private bool parentsPrevenus;
-        private Medicament medicament;
-        private string quantiteMedicament;
 
         #endregion
 
@@ -38,8 +36,8 @@ namespace InfirmerieBO
             this.renvoiDomicile = renvoiDomicile;
             this.hospitalisation = hospitalisation;
             this.parentsPrevenus = parentsPrevenus;
-            this.medicament = unMedicament;
-            this.quantiteMedicament = quantiteMedicament;
+            this.Medicament = unMedicament;
+            this.QuantiteMedicament = quantiteMedicament;
         }
 
         //Constructeur Visite sans ID
@@ -54,8 +52,8 @@ namespace InfirmerieBO
             this.renvoiDomicile = renvoiDomicile;
             this.hospitalisation = hospitalisation;
             this.parentsPrevenus = parentsPrevenus;
-            this.medicament = unMedicament;
-            this.quantiteMedicament = quantiteMedicament;
+            this.Medicament = unMedicament;
+            this.QuantiteMedicament = quantiteMedicament;
         }
         #endregion
 
@@ -69,8 +67,8 @@ namespace InfirmerieBO
         public bool RenvoiDomicile { get => renvoiDomicile; set => renvoiDomicile = value; }
         public bool Hospitalisation { get => hospitalisation; set => hospitalisation = value; }
         public bool ParentsPrevenus { get => parentsPrevenus; set => parentsPrevenus = value; }
-        public Medicament Medicament { get => medicament; set => medicament = value; }
-        public string QuantiteMedicament { get => quantiteMedicament; set => quantiteMedicament = value; }
+        public Medicament Medicament { get; set; }
+        public string QuantiteMedicament { get; set; }
         public DateTime DateVisite { get => dateVisite; set => dateVisite = value; }
         #endregion
     }

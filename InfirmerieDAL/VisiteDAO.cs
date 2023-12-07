@@ -56,7 +56,7 @@ namespace InfirmerieDAL
             {
                 id = Int32.Parse(monReader["id_visite"].ToString());
                 //VRAIMENT PAS SUR JE TROUVE CA INUTILE D'APPELER TOUT CA LA DEDANS
-                eleve = new Eleve (monReader["nom_eleve"].ToString(), monReader["prenom_eleve"].ToString(), monReader.GetDateTime(monReader.GetOrdinal("date_naissance_eleve")), monReader["tel_portable_eleve"].ToString(), new Classe(Int32.Parse(monReader["id_classe_eleve"].ToString())), monReader["tel_parent_eleve"].ToString(), bool.Parse(monReader["tiers_temps_eleve"].ToString()), monReader["commentaire_sante_eleve"].ToString());
+                eleve = new Eleve (int.Parse(monReader["id_eleve"].ToString()), monReader["nom_eleve"].ToString(), monReader["prenom_eleve"].ToString(), monReader.GetDateTime(monReader.GetOrdinal("date_naissance_eleve")), monReader["tel_portable_eleve"].ToString(), new Classe(Int32.Parse(monReader["id_classe_eleve"].ToString())), monReader["tel_parent_eleve"].ToString(), bool.Parse(monReader["tiers_temps_eleve"].ToString()), monReader["commentaire_sante_eleve"].ToString());
                 dateVisite = monReader.GetDateTime(monReader.GetOrdinal("date_visite"));
                 heureDebutVisite = monReader.GetTimeSpan(monReader.GetOrdinal("heure_debut_visite"));
                 heureFinVisite = monReader.GetTimeSpan(monReader.GetOrdinal("heure_fin_visite"));
@@ -89,10 +89,10 @@ namespace InfirmerieDAL
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = maConnexion;
                     cmd.CommandText = "INSERT INTO Visite (id_eleve_visite, date_visite, heure_debut_visite, heure_fin_visite, motif_visite, commentaires_visite, renvoi_domicile_visite, hospitalisation_visite, parents_prevenus_visite, id_medicament_visite, quantite_medicament_visite) " +
-                                      "VALUES (@idEleve, @dateVisite, @heureDebutVisite, @heureFinVisite, @motifVisite, @commentaireVisite, @renvoiDomicile, @hospitalisation, @parentsPrevenus, @medicament, @quantiteMedicament)";
+                                      "VALUES (@idEleve, @dateVisite, @heureDebutVisite, @heureFinVisite, @motifVisite, @commentaireVisite, @renvoiDomicile, @hospitalisation, @parentsPrevenus, @idMedicament, @quantiteMedicament)";
 
                     // Use parameters to avoid SQL injection
-                    cmd.Parameters.AddWithValue("@idEleve", uneVisite.Eleve.GetId()); ;
+                    cmd.Parameters.AddWithValue("@idEleve", uneVisite.Eleve.Id);
                     cmd.Parameters.AddWithValue("@dateVisite", uneVisite.DateVisite);
                     cmd.Parameters.AddWithValue("@heureDebutVisite", uneVisite.HeureDebutVisite);
                     cmd.Parameters.AddWithValue("@heureFinVisite", uneVisite.HeureFinVisite);
@@ -101,7 +101,7 @@ namespace InfirmerieDAL
                     cmd.Parameters.AddWithValue("@renvoiDomicile", uneVisite.RenvoiDomicile);
                     cmd.Parameters.AddWithValue("@hospitalisation", uneVisite.Hospitalisation);
                     cmd.Parameters.AddWithValue("@parentsPrevenus", uneVisite.ParentsPrevenus);
-                    cmd.Parameters.AddWithValue("@idMedicament", uneVisite.Medicament.GetId());
+                    cmd.Parameters.AddWithValue("@idMedicament", uneVisite.Medicament.Id);
                     cmd.Parameters.AddWithValue("@quantiteMedicament", uneVisite.QuantiteMedicament);
 
                     nbLignes = cmd.ExecuteNonQuery();
@@ -109,6 +109,7 @@ namespace InfirmerieDAL
             }
             catch (Exception e)
             {
+                Console.WriteLine($"Error: {e.Message}");
                 return 0;
             }
 
@@ -125,12 +126,13 @@ namespace InfirmerieDAL
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = maConnexion;
-                    cmd.CommandText = "UPDATE Visite SET date_visite = @dateVisite, heure_debut_visite = @heureDebutVisite, heure_fin_visite = @heureFinVisite," +
+                    cmd.CommandText = "UPDATE Visite SET id_eleve_visite = @idEleve, date_visite = @dateVisite, heure_debut_visite = @heureDebutVisite, heure_fin_visite = @heureFinVisite," +
                                       "motif_visite = @motifVisite, commentaires_visite = @commentaireVisite, renvoi_domicile_visite = @renvoiDomicile," +
-                                      "hospitalisation_visite = @hospitalisation, parents_prevenus_visite = @parentsPrevenus, id_medicament_visite = @medicament," +
-                                      "quantite_medicament_visite = @quantiteMedicament WHERE id_eleve_visite = @idEleve";
+                                      "hospitalisation_visite = @hospitalisation, parents_prevenus_visite = @parentsPrevenus, id_medicament_visite = @idMedicament," +
+                                      "quantite_medicament_visite = @quantiteMedicament WHERE id_visite = @idVisite";
 
                     // Use parameters to avoid SQL injection
+                    cmd.Parameters.AddWithValue("@idVisite", uneVisite.Id); ;
                     cmd.Parameters.AddWithValue("@idEleve", uneVisite.Eleve.GetId()); ;
                     cmd.Parameters.AddWithValue("@dateVisite", uneVisite.DateVisite);
                     cmd.Parameters.AddWithValue("@heureDebutVisite", uneVisite.HeureDebutVisite);

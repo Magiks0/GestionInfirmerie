@@ -93,7 +93,7 @@ namespace InfirmerieBLL
             return VisiteDAO.GetVisites();
         }
 
-        public static int Ajouterament(Visite unVisite)
+        public static int AjouterVisite(Visite unVisite)
         {
             return VisiteDAO.InsertVisite(unVisite);
         }
