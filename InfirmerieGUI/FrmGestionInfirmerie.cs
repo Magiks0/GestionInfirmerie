@@ -423,7 +423,7 @@ namespace InfirmerieGUI
             cbModifMedicamentVisite.DataSource = lesMedicaments;
 
             int indexRow = e.RowIndex;
-            if (indexRow >= 0)
+            if (indexRow >= 0 && indexRow < dgvVisites.Rows.Count -1)
             {
                 DataGridViewRow row = dgvVisites.Rows[indexRow];
                 //get the id
@@ -552,9 +552,39 @@ namespace InfirmerieGUI
         }
         private void btnSupprimerVisite_Click(object sender, EventArgs e)
         {
+            dgvVisites.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
+            // Check if any row is selected
+            if (dgvVisites.SelectedRows.Count > 0 || dgvVisites.SelectedCells.Count > 0)
+            {
+                string idSuppr = dgvVisites.SelectedRows[0].Cells["Id"].Value.ToString();
+                string nomSuppr = dgvVisites.SelectedRows[0].Cells["Nom Eleve"].Value.ToString();
+
+                var confirmation = MessageBox.Show("Voulez-vous vraiment supprimer la visite de '" + nomSuppr + "' ?", "Confirmation de Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (confirmation == DialogResult.Yes)
+                {
+                    int.TryParse(idSuppr, out int idVisiteSuppr);
+
+                    // Assuming GestionInfirmerieBL.SupprimerVisite takes a Visite object for deletion
+                    Visite visiteToDelete = new Visite(idVisiteSuppr); // Assuming there is an Id property in the Visite class
+
+                    if (GestionInfirmerieBL.SupprimerVisite(visiteToDelete) != 0)
+                    {
+                        ActualiserDataGridViewVisites();
+                        MessageBox.Show("La visite de '" + nomSuppr + "' a bien été supprimée.", "Suppression Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erreur lors de la suppression de la visite de '" + nomSuppr + "'.", "Erreur de Suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez sélectionner une visite à supprimer.", "Aucune Visite Sélectionnée", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
-
         #endregion
 
         #region ToolStripMenu

@@ -9,4 +9,3 @@ C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBO\bin\Debug\InfirmerieB
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBO\obj\Debug\InfirmerieBO.csproj.CoreCompileInputs.cache
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBO\obj\Debug\InfirmerieBO.dll
 C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBO\obj\Debug\InfirmerieBO.pdb
-C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBO\obj\Debug\InfirmerieBO.csproj.AssemblyReference.cache

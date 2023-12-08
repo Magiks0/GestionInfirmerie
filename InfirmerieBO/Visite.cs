@@ -55,6 +55,13 @@ namespace InfirmerieBO
             this.Medicament = unMedicament;
             this.QuantiteMedicament = quantiteMedicament;
         }
+
+        //Constructeur Visite juste ID
+        public Visite(int id)
+        {
+            this.id = id;
+        }
+
         #endregion
 
         #region Getters/Setters
