@@ -383,8 +383,8 @@ namespace InfirmerieGUI
             {
                 // Add rows to the DataTable
                 DataRow row = datatableVisites.NewRow();
-                row["Id"] = visit.Id.ToString();
-                row["Id Eleve"] = visit.Eleve.Id.ToString();
+                row["Id"] = visit.Id;
+                row["Id Eleve"] = visit.Eleve.Id;
                 row["Nom Eleve"] = visit.Eleve.Lastname.ToString();
                 row["Prénom Eleve"] = visit.Eleve.Firstname.ToString();
                 row["Date Debut Visite"] = visit.DateVisite.ToString("dd/MM/yyyy") + " " + visit.HeureDebutVisite.ToString();
@@ -394,7 +394,7 @@ namespace InfirmerieGUI
                 row["Renvoi Domicile ?"] = visit.RenvoiDomicile.ToString();
                 row["Hospitalisation ?"] = visit.Hospitalisation.ToString();
                 row["Parents Prevenu ?"] = visit.ParentsPrevenus.ToString();
-                row["Id Médicament"] = visit.Medicament.Id.ToString();
+                row["Id Médicament"] = visit.Medicament.Id;
                 row["Médicament"] = visit.Medicament.Nom.ToString();
                 row["Quantité Médicaments"] = visit.QuantiteMedicament.ToString();
                 datatableVisites.Rows.Add(row);
@@ -429,8 +429,29 @@ namespace InfirmerieGUI
                 //get the id
                 txtModifIdVisite.Text = row.Cells["Id"].Value.ToString();
                 //get the combo boxes right
-                cbModifEleveVisite.SelectedIndex = int.Parse(row.Cells["Id Eleve"].Value.ToString()) -1;
-                cbModifMedicamentVisite.SelectedIndex = int.Parse(row.Cells["Id Médicament"].Value.ToString()) - 1;
+                //cbModifEleveVisite.SelectedItem = row.Cells["Id Eleve"].Value;
+
+
+                // Assuming that "Id Eleve" is an integer
+                int idEleve = int.Parse(row.Cells["Id Eleve"].Value.ToString());
+
+                // Find the corresponding Eleve object in the list
+                Eleve selectedEleve = lesEleves.Find(eleve => eleve.Id == idEleve);
+
+                // Set the selected item in the ComboBox
+                cbModifEleveVisite.SelectedItem = selectedEleve;
+
+                // Assuming that "Id Médicament" is an integer
+                int idMedicament = int.Parse(row.Cells["Id Médicament"].Value.ToString());
+
+                // Find the corresponding Medicament object in the list
+                Medicament selectedMedicament = lesMedicaments.Find(medicament => medicament.Id == idMedicament);
+
+                // Set the selected item in the ComboBox
+                cbModifMedicamentVisite.SelectedItem = selectedMedicament;
+
+
+                //cbModifMedicamentVisite.SelectedIndex = int.Parse(row.Cells["Id Médicament"].Value.ToString()) -1;
                 //txt
                 txtModifCommentaireVisite.Text = row.Cells["Commentaire"].Value.ToString();
                 txtModifMotifVisite.Text = row.Cells["Motif"].Value.ToString();
@@ -528,6 +549,10 @@ namespace InfirmerieGUI
                 // Optionally, clear the value in the TextBox
                 txtAjoutQuantiteMedicamentVisite.Text = string.Empty;
             }
+        }
+        private void btnSupprimerVisite_Click(object sender, EventArgs e)
+        {
+
         }
 
         #endregion

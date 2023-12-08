@@ -1282,6 +1282,7 @@ namespace InfirmerieGUI
             this.btnSupprimerVisite.TabIndex = 2;
             this.btnSupprimerVisite.Text = "Supprimer";
             this.btnSupprimerVisite.UseVisualStyleBackColor = false;
+            this.btnSupprimerVisite.Click += new System.EventHandler(this.btnSupprimerVisite_Click);
             // 
             // btnConfirmerVisite
             // 
