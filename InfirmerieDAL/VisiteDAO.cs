@@ -45,7 +45,9 @@ namespace InfirmerieDAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
             // select pour avoir toute les informations de Visite ainsi que le nom de sa classe (pour la création d'objet classe)
-            cmd.CommandText = "SELECT * FROM Visite V, Eleve E, Medicament M WHERE V.id_eleve_visite = E.id_eleve AND V.id_medicament_visite = M.id_medicament";
+            cmd.CommandText = "SELECT * FROM Visite V LEFT JOIN Eleve E ON V.id_eleve_visite = E.id_eleve LEFT JOIN Medicament M ON V.id_medicament_visite = M.id_medicament";
+            //cmd.CommandText = "SELECT * FROM Visite V, Eleve E, Medicament M WHERE V.id_eleve_visite = E.id_eleve AND V.id_medicament_visite = M.id_medicament";
+
 
             SqlDataReader monReader = cmd.ExecuteReader();
 
@@ -65,7 +67,22 @@ namespace InfirmerieDAL
                 renvoiDomicile = bool.Parse(monReader["renvoi_domicile_visite"].ToString());
                 hospitalisation = bool.Parse(monReader["hospitalisation_visite"].ToString());
                 parentsPrevenus = bool.Parse(monReader["parents_prevenus_visite"].ToString());
-                medicament = new Medicament(Int32.Parse(monReader["id_medicament_visite"].ToString()), monReader["nom_medicament"].ToString());
+
+                // Check if id_medicament_visite is NULL, if yes, create a default Medicament
+                if (monReader["id_medicament_visite"] == DBNull.Value)
+                {
+                    medicament = new Medicament(0, string.Empty);
+                }
+                else
+                {
+                    // Create Medicament using existing data
+                    medicament = new Medicament(
+                        Int32.Parse(monReader["id_medicament_visite"].ToString()),
+                        monReader["nom_medicament"].ToString()
+                    );
+                }
+
+                //medicament = new Medicament(Int32.Parse(monReader["id_medicament_visite"].ToString()), monReader["nom_medicament"].ToString());
                 quantiteMeidcament = monReader["quantite_medicament_visite"].ToString();
                 uneVisite = new Visite(id, eleve, dateVisite, heureDebutVisite, heureFinVisite, motifVisite, commentaireVisite, renvoiDomicile, hospitalisation, parentsPrevenus, medicament, quantiteMeidcament);
                 lesVisites.Add(uneVisite);
@@ -77,7 +94,6 @@ namespace InfirmerieDAL
             return lesVisites;
         }
 
-        // Cette méthode insère un nouvel Eleve passé en paramètre dans la BD
         public static int InsertVisite(Visite uneVisite)
         {
             int nbLignes;
@@ -101,8 +117,19 @@ namespace InfirmerieDAL
                     cmd.Parameters.AddWithValue("@renvoiDomicile", uneVisite.RenvoiDomicile);
                     cmd.Parameters.AddWithValue("@hospitalisation", uneVisite.Hospitalisation);
                     cmd.Parameters.AddWithValue("@parentsPrevenus", uneVisite.ParentsPrevenus);
-                    cmd.Parameters.AddWithValue("@idMedicament", uneVisite.Medicament.Id);
-                    cmd.Parameters.AddWithValue("@quantiteMedicament", uneVisite.QuantiteMedicament);
+
+                    // Check if medicament is linked
+                    if (uneVisite.Medicament != null)
+                    {
+                        cmd.Parameters.AddWithValue("@idMedicament", uneVisite.Medicament.Id);
+                        cmd.Parameters.AddWithValue("@quantiteMedicament", uneVisite.QuantiteMedicament);
+                    }
+                    else
+                    {
+                        // Set to NULL or a default value depending on your database schema
+                        cmd.Parameters.AddWithValue("@idMedicament", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@quantiteMedicament", DBNull.Value);
+                    }
 
                     nbLignes = cmd.ExecuteNonQuery();
                 }
@@ -112,7 +139,6 @@ namespace InfirmerieDAL
                 Console.WriteLine($"Error: {e.Message}");
                 return 0;
             }
-
             return nbLignes;
         }
 
@@ -132,8 +158,8 @@ namespace InfirmerieDAL
                                       "quantite_medicament_visite = @quantiteMedicament WHERE id_visite = @idVisite";
 
                     // Use parameters to avoid SQL injection
-                    cmd.Parameters.AddWithValue("@idVisite", uneVisite.Id); ;
-                    cmd.Parameters.AddWithValue("@idEleve", uneVisite.Eleve.GetId()); ;
+                    cmd.Parameters.AddWithValue("@idVisite", uneVisite.Id);
+                    cmd.Parameters.AddWithValue("@idEleve", uneVisite.Eleve.GetId());
                     cmd.Parameters.AddWithValue("@dateVisite", uneVisite.DateVisite);
                     cmd.Parameters.AddWithValue("@heureDebutVisite", uneVisite.HeureDebutVisite);
                     cmd.Parameters.AddWithValue("@heureFinVisite", uneVisite.HeureFinVisite);
@@ -142,8 +168,19 @@ namespace InfirmerieDAL
                     cmd.Parameters.AddWithValue("@renvoiDomicile", uneVisite.RenvoiDomicile);
                     cmd.Parameters.AddWithValue("@hospitalisation", uneVisite.Hospitalisation);
                     cmd.Parameters.AddWithValue("@parentsPrevenus", uneVisite.ParentsPrevenus);
-                    cmd.Parameters.AddWithValue("@idMedicament", uneVisite.Medicament.GetId());
-                    cmd.Parameters.AddWithValue("@quantiteMedicament", uneVisite.QuantiteMedicament);
+
+                    // Check if medicament is linked
+                    if (uneVisite.Medicament != null)
+                    {
+                        cmd.Parameters.AddWithValue("@idMedicament", uneVisite.Medicament.GetId());
+                        cmd.Parameters.AddWithValue("@quantiteMedicament", uneVisite.QuantiteMedicament);
+                    }
+                    else
+                    {
+                        // Set to NULL or a default value depending on your database schema
+                        cmd.Parameters.AddWithValue("@idMedicament", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@quantiteMedicament", DBNull.Value);
+                    }
 
                     nbLignes = cmd.ExecuteNonQuery();
                 }
@@ -155,6 +192,7 @@ namespace InfirmerieDAL
 
             return nbLignes;
         }
+
 
         public static int DeleteVisite(Visite uneVisite)
         {

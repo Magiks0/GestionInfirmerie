@@ -364,20 +364,20 @@ namespace InfirmerieGUI
             listeVisites = GestionInfirmerieBL.ToutesLesVisites();
 
             // Add columns to the DataTable
-            datatableVisites.Columns.Add("Id");
-            datatableVisites.Columns.Add("Id Eleve");
-            datatableVisites.Columns.Add("Nom Eleve");
-            datatableVisites.Columns.Add("Prénom Eleve");
-            datatableVisites.Columns.Add("Date Debut Visite");
-            datatableVisites.Columns.Add("Date Fin Visite");
-            datatableVisites.Columns.Add("Motif");
-            datatableVisites.Columns.Add("Commentaire");
-            datatableVisites.Columns.Add("Renvoi Domicile ?");
-            datatableVisites.Columns.Add("Hospitalisation ?");
-            datatableVisites.Columns.Add("Parents Prevenu ?");
-            datatableVisites.Columns.Add("Id Médicament");
-            datatableVisites.Columns.Add("Médicament");
-            datatableVisites.Columns.Add("Quantité Médicaments");
+            datatableVisites.Columns.Add("Id").AllowDBNull = true;
+            datatableVisites.Columns.Add("Id Eleve").AllowDBNull = true;
+            datatableVisites.Columns.Add("Nom Eleve").AllowDBNull = true;
+            datatableVisites.Columns.Add("Prénom Eleve").AllowDBNull = true;
+            datatableVisites.Columns.Add("Date Debut Visite").AllowDBNull = true;
+            datatableVisites.Columns.Add("Date Fin Visite").AllowDBNull = true;
+            datatableVisites.Columns.Add("Motif").AllowDBNull = true;
+            datatableVisites.Columns.Add("Commentaire").AllowDBNull = true;
+            datatableVisites.Columns.Add("Renvoi Domicile ?").AllowDBNull = true;
+            datatableVisites.Columns.Add("Hospitalisation ?").AllowDBNull = true;
+            datatableVisites.Columns.Add("Parents Prevenu ?").AllowDBNull = true;
+            datatableVisites.Columns.Add("Id Médicament").AllowDBNull = true;
+            datatableVisites.Columns.Add("Médicament").AllowDBNull = true;
+            datatableVisites.Columns.Add("Quantité Médicaments").AllowDBNull = true;
 
             foreach (Visite visit in listeVisites)
             {
@@ -394,9 +394,21 @@ namespace InfirmerieGUI
                 row["Renvoi Domicile ?"] = visit.RenvoiDomicile.ToString();
                 row["Hospitalisation ?"] = visit.Hospitalisation.ToString();
                 row["Parents Prevenu ?"] = visit.ParentsPrevenus.ToString();
-                row["Id Médicament"] = visit.Medicament.Id;
-                row["Médicament"] = visit.Medicament.Nom.ToString();
-                row["Quantité Médicaments"] = visit.QuantiteMedicament.ToString();
+
+                // Handle DBNull.Value for Id Médicament, Médicament, and Quantité Médicaments
+                if (visit.Medicament != null)
+                {
+                    row["Id Médicament"] = visit.Medicament.Id;
+                    row["Médicament"] = visit.Medicament.Nom.ToString();
+                    row["Quantité Médicaments"] = visit.QuantiteMedicament.ToString();
+                }
+                else
+                {
+                    row["Id Médicament"] = DBNull.Value;
+                    row["Médicament"] = DBNull.Value;
+                    row["Quantité Médicaments"] = DBNull.Value;
+                }
+
                 datatableVisites.Rows.Add(row);
             }
             //rattacher au dgv le datatable
@@ -429,8 +441,6 @@ namespace InfirmerieGUI
                 //get the id
                 txtModifIdVisite.Text = row.Cells["Id"].Value.ToString();
                 //get the combo boxes right
-                //cbModifEleveVisite.SelectedItem = row.Cells["Id Eleve"].Value;
-
 
                 // Assuming that "Id Eleve" is an integer
                 int idEleve = int.Parse(row.Cells["Id Eleve"].Value.ToString());
@@ -450,25 +460,23 @@ namespace InfirmerieGUI
                 // Set the selected item in the ComboBox
                 cbModifMedicamentVisite.SelectedItem = selectedMedicament;
 
-
-                //cbModifMedicamentVisite.SelectedIndex = int.Parse(row.Cells["Id Médicament"].Value.ToString()) -1;
-                //txt
+                //On remplit les txt
                 txtModifCommentaireVisite.Text = row.Cells["Commentaire"].Value.ToString();
                 txtModifMotifVisite.Text = row.Cells["Motif"].Value.ToString();
                 txtModifQuantiteMedicamentVisite.Text = row.Cells["Quantité Médicaments"].Value.ToString();
-                //check-box
+                //On remplit les check-box
                 chkbModifHospitalisationVisite.Checked = bool.Parse(row.Cells["Hospitalisation ?"].Value.ToString());
                 chkbModifParentsPrevenusVisite.Checked = bool.Parse(row.Cells["Parents Prevenu ?"].Value.ToString());
                 chkbModifRenvoiDomicileVisite.Checked = bool.Parse(row.Cells["Renvoi Domicile ?"].Value.ToString());
-                //dtp
+                //On remplit les dtp
                 dtpModifDateDebutVisite.Value = DateTime.Parse(row.Cells["Date Debut Visite"].Value.ToString());
                 dtpModifDateFinVisite.Value = DateTime.Parse(row.Cells["Date Fin Visite"].Value.ToString());
             }
-
-            //DataGridViewRow newRow = dgvVisites.SelectedRows[0];
-            //txtModifIdVisite.Text = dgvVisites.SelectedRows[0].Cells["Id"].Value.ToString();
-            //cbModifEleveVisite.SelectedIndex = int.Parse(dgvVisites.SelectedRows[0].Cells["Id Eleve"].Value.ToString());
-
+            else
+            {
+                pnlModifVisite.Visible = false;
+                pnlAjoutVisite.Visible = false;
+            }
         }
 
         private void btnConfirmerVisite_Click(object sender, EventArgs e)
@@ -536,14 +544,10 @@ namespace InfirmerieGUI
                 txtAjoutQuantiteMedicamentVisite.Visible = true;
                 lblAjoutQuantiteMedicamentVisite.Visible = true;
 
-                // You can set the initial value of the TextBox based on the selected item
-                // For example, if your Medicament class has a property Quantity, you can do:
-                // txtAjoutQuantiteMedicamentVisite.Text = lesMedicaments[cbAjoutMedicamentVisite.SelectedIndex].Quantity.ToString();
             }
             else
             {
                 // No item is selected, make the TextBox invisible
-
                 txtAjoutQuantiteMedicamentVisite.Visible = false;
                 lblAjoutQuantiteMedicamentVisite.Visible = false;
                 // Optionally, clear the value in the TextBox
@@ -567,7 +571,7 @@ namespace InfirmerieGUI
                     int.TryParse(idSuppr, out int idVisiteSuppr);
 
                     // Assuming GestionInfirmerieBL.SupprimerVisite takes a Visite object for deletion
-                    Visite visiteToDelete = new Visite(idVisiteSuppr); // Assuming there is an Id property in the Visite class
+                    Visite visiteToDelete = new Visite(idVisiteSuppr);
 
                     if (GestionInfirmerieBL.SupprimerVisite(visiteToDelete) != 0)
                     {
@@ -614,5 +618,14 @@ namespace InfirmerieGUI
 
         #endregion
 
+        private void dgvVisites_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        {
+            //Suppose your interested column has index 1
+            if (e.Column.Index == 2)
+            {
+                e.SortResult = int.Parse(e.CellValue1.ToString()).CompareTo(int.Parse(e.CellValue2.ToString()));
+                e.Handled = true;//pass by the default sorting
+            }
+        }
     }
 }

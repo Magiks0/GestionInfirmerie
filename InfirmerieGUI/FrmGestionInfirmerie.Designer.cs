@@ -960,11 +960,11 @@ namespace InfirmerieGUI
             // 
             // txtModifCommentaireVisite
             // 
-            this.txtModifCommentaireVisite.Location = new System.Drawing.Point(532, 111);
+            this.txtModifCommentaireVisite.Location = new System.Drawing.Point(532, 127);
             this.txtModifCommentaireVisite.Margin = new System.Windows.Forms.Padding(2);
             this.txtModifCommentaireVisite.MinimumSize = new System.Drawing.Size(4, 50);
             this.txtModifCommentaireVisite.Name = "txtModifCommentaireVisite";
-            this.txtModifCommentaireVisite.Size = new System.Drawing.Size(114, 20);
+            this.txtModifCommentaireVisite.Size = new System.Drawing.Size(114, 50);
             this.txtModifCommentaireVisite.TabIndex = 13;
             // 
             // chkbModifRenvoiDomicileVisite
@@ -1054,7 +1054,7 @@ namespace InfirmerieGUI
             this.pnlAjoutVisite.Controls.Add(this.lblAjoutDateDebutVisite);
             this.pnlAjoutVisite.Controls.Add(this.lblAjoutMotifVisite);
             this.pnlAjoutVisite.Controls.Add(this.txtAjoutMotifVisite);
-            this.pnlAjoutVisite.Location = new System.Drawing.Point(114, 327);
+            this.pnlAjoutVisite.Location = new System.Drawing.Point(101, 329);
             this.pnlAjoutVisite.Margin = new System.Windows.Forms.Padding(2);
             this.pnlAjoutVisite.Name = "pnlAjoutVisite";
             this.pnlAjoutVisite.Size = new System.Drawing.Size(790, 388);
@@ -1150,11 +1150,11 @@ namespace InfirmerieGUI
             // 
             // txtAjoutCommentaireVisite
             // 
-            this.txtAjoutCommentaireVisite.Location = new System.Drawing.Point(548, 103);
+            this.txtAjoutCommentaireVisite.Location = new System.Drawing.Point(548, 119);
             this.txtAjoutCommentaireVisite.Margin = new System.Windows.Forms.Padding(2);
             this.txtAjoutCommentaireVisite.MinimumSize = new System.Drawing.Size(4, 50);
             this.txtAjoutCommentaireVisite.Name = "txtAjoutCommentaireVisite";
-            this.txtAjoutCommentaireVisite.Size = new System.Drawing.Size(114, 20);
+            this.txtAjoutCommentaireVisite.Size = new System.Drawing.Size(114, 50);
             this.txtAjoutCommentaireVisite.TabIndex = 13;
             // 
             // chkbAjoutRenvoiDomicileVisite
@@ -1268,6 +1268,7 @@ namespace InfirmerieGUI
             this.dgvVisites.Size = new System.Drawing.Size(790, 242);
             this.dgvVisites.TabIndex = 1;
             this.dgvVisites.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVisites_CellClick);
+            this.dgvVisites.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dgvVisites_SortCompare);
             // 
             // btnSupprimerVisite
             // 
