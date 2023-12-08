@@ -485,7 +485,7 @@ namespace InfirmerieGUI
                 {
                     MessageBox.Show("La visite a bien été ajouté.", "Ajout Réussi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNomMedicAjout.Text = "";
-                    ActualiserDataGridViewMedicaments();
+                    ActualiserDataGridViewVisites();
                 }
                 else
                 {
