@@ -48,6 +48,7 @@ namespace InfirmerieGUI
             ActualiserDataGridViewEleves();
             ActualiserDataGridViewMedicaments();
             ActualiserDataGridViewVisites();
+            ActualiserStats();
 
 
             dgvEleves.Controls.Add(dtp);
@@ -591,12 +592,23 @@ namespace InfirmerieGUI
         }
         #endregion
 
+        #region Statistiques
+            
+          public void ActualiserStats()
+        {
+            lblResultNbEleve.Text = "525";
+            lblResultNbVisites.Text = "420";
+        }  
+
+        #endregion 
+
         #region ToolStripMenu
         private void médicamentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlMedicaments.Visible = true;
             pnlEleves.Visible = false;
             pnlVisites.Visible = false;
+            pnlStats.Visible = false;
             ActualiserDataGridViewMedicaments();
         }
 
@@ -605,6 +617,7 @@ namespace InfirmerieGUI
             pnlEleves.Visible = true;
             pnlMedicaments.Visible = false;
             pnlVisites.Visible = false;
+            pnlStats.Visible = false;
             ActualiserDataGridViewEleves();
         }
 
@@ -613,7 +626,17 @@ namespace InfirmerieGUI
             pnlVisites.Visible = true;
             pnlEleves.Visible = false;
             pnlMedicaments.Visible = false;
+            pnlStats.Visible = false;
             ActualiserDataGridViewVisites();
+        }
+
+        private void statistiquesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlVisites.Visible = false;
+            pnlEleves.Visible = false;
+            pnlMedicaments.Visible = false;
+            pnlStats.Visible = true;
+            ActualiserStats();
         }
 
         #endregion
@@ -627,5 +650,6 @@ namespace InfirmerieGUI
                 e.Handled = true;//pass by the default sorting
             }
         }
+
     }
 }
