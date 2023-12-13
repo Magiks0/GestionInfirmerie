@@ -29,7 +29,23 @@ namespace InfirmerieGUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestionInfirmerie));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint97 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 52D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint98 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 45D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint99 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 25D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint100 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint101 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint102 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint103 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint104 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint105 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint106 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint107 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint108 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 75D);
             this.lblAccueil = new System.Windows.Forms.Label();
             this.dgvEleves = new System.Windows.Forms.DataGridView();
             this.btnSupprimerEleve = new System.Windows.Forms.Button();
@@ -132,6 +148,22 @@ namespace InfirmerieGUI
             this.dgvVisites = new System.Windows.Forms.DataGridView();
             this.btnSupprimerVisite = new System.Windows.Forms.Button();
             this.btnConfirmerVisite = new System.Windows.Forms.Button();
+            this.pnlStats = new System.Windows.Forms.Panel();
+            this.pnlGraphique = new System.Windows.Forms.Panel();
+            this.Graphique = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.pnlResults = new System.Windows.Forms.Panel();
+            this.lblResultNbVisites = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblNbTotalVisites = new System.Windows.Forms.Label();
+            this.lblResultNbEleve = new System.Windows.Forms.Label();
+            this.lblNbEleveTotal = new System.Windows.Forms.Label();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.pnlSeparator = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDebutVisite = new System.Windows.Forms.Label();
+            this.dtpDebutVisite = new System.Windows.Forms.DateTimePicker();
+            this.lblFinVisite = new System.Windows.Forms.Label();
+            this.dtpFinVisite = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEleves)).BeginInit();
             this.msMenu.SuspendLayout();
             this.pnlModif.SuspendLayout();
@@ -145,6 +177,11 @@ namespace InfirmerieGUI
             this.pnlModifVisite.SuspendLayout();
             this.pnlAjoutVisite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisites)).BeginInit();
+            this.pnlStats.SuspendLayout();
+            this.pnlGraphique.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Graphique)).BeginInit();
+            this.pnlResults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAccueil
@@ -152,10 +189,9 @@ namespace InfirmerieGUI
             this.lblAccueil.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblAccueil.AutoSize = true;
             this.lblAccueil.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
-            this.lblAccueil.Location = new System.Drawing.Point(465, 7);
-            this.lblAccueil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAccueil.Location = new System.Drawing.Point(620, 9);
             this.lblAccueil.Name = "lblAccueil";
-            this.lblAccueil.Size = new System.Drawing.Size(87, 33);
+            this.lblAccueil.Size = new System.Drawing.Size(107, 41);
             this.lblAccueil.TabIndex = 0;
             this.lblAccueil.Text = "Élèves";
             // 
@@ -166,13 +202,13 @@ namespace InfirmerieGUI
             this.dgvEleves.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEleves.BackgroundColor = System.Drawing.Color.White;
             this.dgvEleves.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEleves.Location = new System.Drawing.Point(112, 57);
-            this.dgvEleves.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvEleves.Location = new System.Drawing.Point(149, 70);
+            this.dgvEleves.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvEleves.Name = "dgvEleves";
             this.dgvEleves.ReadOnly = true;
             this.dgvEleves.RowHeadersWidth = 51;
             this.dgvEleves.RowTemplate.Height = 24;
-            this.dgvEleves.Size = new System.Drawing.Size(790, 242);
+            this.dgvEleves.Size = new System.Drawing.Size(1053, 298);
             this.dgvEleves.TabIndex = 1;
             this.dgvEleves.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvEleves.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -183,10 +219,10 @@ namespace InfirmerieGUI
             this.btnSupprimerEleve.BackColor = System.Drawing.Color.IndianRed;
             this.btnSupprimerEleve.FlatAppearance.BorderSize = 0;
             this.btnSupprimerEleve.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnSupprimerEleve.Location = new System.Drawing.Point(640, 22);
-            this.btnSupprimerEleve.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSupprimerEleve.Location = new System.Drawing.Point(853, 27);
+            this.btnSupprimerEleve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSupprimerEleve.Name = "btnSupprimerEleve";
-            this.btnSupprimerEleve.Size = new System.Drawing.Size(88, 24);
+            this.btnSupprimerEleve.Size = new System.Drawing.Size(117, 30);
             this.btnSupprimerEleve.TabIndex = 2;
             this.btnSupprimerEleve.Text = "Supprimer";
             this.btnSupprimerEleve.UseVisualStyleBackColor = false;
@@ -197,10 +233,10 @@ namespace InfirmerieGUI
             this.btnConfirmereleve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConfirmereleve.BackColor = System.Drawing.Color.LemonChiffon;
             this.btnConfirmereleve.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnConfirmereleve.Location = new System.Drawing.Point(732, 22);
-            this.btnConfirmereleve.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConfirmereleve.Location = new System.Drawing.Point(976, 27);
+            this.btnConfirmereleve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfirmereleve.Name = "btnConfirmereleve";
-            this.btnConfirmereleve.Size = new System.Drawing.Size(97, 24);
+            this.btnConfirmereleve.Size = new System.Drawing.Size(129, 30);
             this.btnConfirmereleve.TabIndex = 3;
             this.btnConfirmereleve.Text = "Confirmer";
             this.btnConfirmereleve.UseVisualStyleBackColor = false;
@@ -211,10 +247,10 @@ namespace InfirmerieGUI
             this.btnAjoutEleve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAjoutEleve.BackColor = System.Drawing.Color.LightGreen;
             this.btnAjoutEleve.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAjoutEleve.Location = new System.Drawing.Point(833, 22);
-            this.btnAjoutEleve.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAjoutEleve.Location = new System.Drawing.Point(1111, 27);
+            this.btnAjoutEleve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAjoutEleve.Name = "btnAjoutEleve";
-            this.btnAjoutEleve.Size = new System.Drawing.Size(68, 24);
+            this.btnAjoutEleve.Size = new System.Drawing.Size(91, 30);
             this.btnAjoutEleve.TabIndex = 4;
             this.btnAjoutEleve.Text = "Ajouter";
             this.btnAjoutEleve.UseVisualStyleBackColor = false;
@@ -234,9 +270,9 @@ namespace InfirmerieGUI
             this.statistiquesToolStripMenuItem});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
-            this.msMenu.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.msMenu.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.msMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.msMenu.Size = new System.Drawing.Size(226, 656);
+            this.msMenu.Size = new System.Drawing.Size(301, 807);
             this.msMenu.TabIndex = 5;
             this.msMenu.Text = "menuStrip1";
             // 
@@ -248,7 +284,7 @@ namespace InfirmerieGUI
             this.visitesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.visitesToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 45, 0, 0);
             this.visitesToolStripMenuItem.Name = "visitesToolStripMenuItem";
-            this.visitesToolStripMenuItem.Size = new System.Drawing.Size(221, 43);
+            this.visitesToolStripMenuItem.Size = new System.Drawing.Size(295, 53);
             this.visitesToolStripMenuItem.Text = "Visites";
             this.visitesToolStripMenuItem.Click += new System.EventHandler(this.visitesToolStripMenuItem_Click);
             // 
@@ -259,7 +295,7 @@ namespace InfirmerieGUI
             this.élèvesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.élèvesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.élèvesToolStripMenuItem.Name = "élèvesToolStripMenuItem";
-            this.élèvesToolStripMenuItem.Size = new System.Drawing.Size(221, 43);
+            this.élèvesToolStripMenuItem.Size = new System.Drawing.Size(295, 53);
             this.élèvesToolStripMenuItem.Text = "Élèves";
             this.élèvesToolStripMenuItem.Click += new System.EventHandler(this.élèvesToolStripMenuItem_Click);
             // 
@@ -270,7 +306,7 @@ namespace InfirmerieGUI
             this.médicamentsToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.médicamentsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.médicamentsToolStripMenuItem.Name = "médicamentsToolStripMenuItem";
-            this.médicamentsToolStripMenuItem.Size = new System.Drawing.Size(221, 43);
+            this.médicamentsToolStripMenuItem.Size = new System.Drawing.Size(295, 53);
             this.médicamentsToolStripMenuItem.Text = "Médicaments";
             this.médicamentsToolStripMenuItem.Click += new System.EventHandler(this.médicamentsToolStripMenuItem_Click);
             // 
@@ -281,8 +317,9 @@ namespace InfirmerieGUI
             this.statistiquesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.statistiquesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
-            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(221, 43);
+            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(295, 53);
             this.statistiquesToolStripMenuItem.Text = "Statistiques";
+            this.statistiquesToolStripMenuItem.Click += new System.EventHandler(this.statistiquesToolStripMenuItem_Click);
             // 
             // pnlModif
             // 
@@ -302,47 +339,47 @@ namespace InfirmerieGUI
             this.pnlModif.Controls.Add(this.txtIdModif);
             this.pnlModif.Controls.Add(this.lblNomModif);
             this.pnlModif.Controls.Add(this.txtNomModif);
-            this.pnlModif.Location = new System.Drawing.Point(112, 302);
-            this.pnlModif.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlModif.Location = new System.Drawing.Point(149, 372);
+            this.pnlModif.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlModif.Name = "pnlModif";
-            this.pnlModif.Size = new System.Drawing.Size(790, 388);
+            this.pnlModif.Size = new System.Drawing.Size(1053, 478);
             this.pnlModif.TabIndex = 6;
             this.pnlModif.Visible = false;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(308, 143);
+            this.comboBox1.Location = new System.Drawing.Point(411, 176);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 15;
             // 
             // lblComments
             // 
             this.lblComments.AutoSize = true;
-            this.lblComments.Location = new System.Drawing.Point(443, 91);
-            this.lblComments.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblComments.Location = new System.Drawing.Point(591, 112);
             this.lblComments.Name = "lblComments";
-            this.lblComments.Size = new System.Drawing.Size(107, 13);
+            this.lblComments.Size = new System.Drawing.Size(143, 17);
             this.lblComments.TabIndex = 14;
             this.lblComments.Text = "Commentaires Santé:";
             // 
             // txtComments
             // 
-            this.txtComments.Location = new System.Drawing.Point(555, 91);
-            this.txtComments.Margin = new System.Windows.Forms.Padding(2);
+            this.txtComments.Location = new System.Drawing.Point(740, 112);
+            this.txtComments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtComments.MinimumSize = new System.Drawing.Size(4, 50);
             this.txtComments.Name = "txtComments";
-            this.txtComments.Size = new System.Drawing.Size(114, 20);
+            this.txtComments.Size = new System.Drawing.Size(151, 22);
             this.txtComments.TabIndex = 13;
             // 
             // chkExtraTime
             // 
             this.chkExtraTime.AutoSize = true;
-            this.chkExtraTime.Location = new System.Drawing.Point(473, 34);
-            this.chkExtraTime.Margin = new System.Windows.Forms.Padding(2);
+            this.chkExtraTime.Location = new System.Drawing.Point(631, 42);
+            this.chkExtraTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkExtraTime.Name = "chkExtraTime";
-            this.chkExtraTime.Size = new System.Drawing.Size(79, 17);
+            this.chkExtraTime.Size = new System.Drawing.Size(103, 21);
             this.chkExtraTime.TabIndex = 12;
             this.chkExtraTime.Text = "Tier-Temps";
             this.chkExtraTime.UseVisualStyleBackColor = true;
@@ -350,99 +387,93 @@ namespace InfirmerieGUI
             // lblNumeroTelParentModif
             // 
             this.lblNumeroTelParentModif.AutoSize = true;
-            this.lblNumeroTelParentModif.Location = new System.Drawing.Point(194, 91);
-            this.lblNumeroTelParentModif.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNumeroTelParentModif.Location = new System.Drawing.Point(259, 112);
             this.lblNumeroTelParentModif.Name = "lblNumeroTelParentModif";
-            this.lblNumeroTelParentModif.Size = new System.Drawing.Size(111, 13);
+            this.lblNumeroTelParentModif.Size = new System.Drawing.Size(147, 17);
             this.lblNumeroTelParentModif.TabIndex = 11;
             this.lblNumeroTelParentModif.Text = "Numero Parent Eleve:";
             // 
             // txtNumeroParent
             // 
-            this.txtNumeroParent.Location = new System.Drawing.Point(308, 89);
-            this.txtNumeroParent.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNumeroParent.Location = new System.Drawing.Point(411, 110);
+            this.txtNumeroParent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNumeroParent.Name = "txtNumeroParent";
-            this.txtNumeroParent.Size = new System.Drawing.Size(107, 20);
+            this.txtNumeroParent.Size = new System.Drawing.Size(141, 22);
             this.txtNumeroParent.TabIndex = 10;
             // 
             // lblTelEleveModif
             // 
             this.lblTelEleveModif.AutoSize = true;
-            this.lblTelEleveModif.Location = new System.Drawing.Point(228, 45);
-            this.lblTelEleveModif.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTelEleveModif.Location = new System.Drawing.Point(304, 55);
             this.lblTelEleveModif.Name = "lblTelEleveModif";
-            this.lblTelEleveModif.Size = new System.Drawing.Size(77, 13);
+            this.lblTelEleveModif.Size = new System.Drawing.Size(101, 17);
             this.lblTelEleveModif.TabIndex = 9;
             this.lblTelEleveModif.Text = "Numero Eleve:";
             // 
             // txtNumeroEleve
             // 
-            this.txtNumeroEleve.Location = new System.Drawing.Point(308, 42);
-            this.txtNumeroEleve.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNumeroEleve.Location = new System.Drawing.Point(411, 52);
+            this.txtNumeroEleve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNumeroEleve.Name = "txtNumeroEleve";
-            this.txtNumeroEleve.Size = new System.Drawing.Size(107, 20);
+            this.txtNumeroEleve.Size = new System.Drawing.Size(141, 22);
             this.txtNumeroEleve.TabIndex = 8;
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(4, 155);
-            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(7);
+            this.monthCalendar1.Location = new System.Drawing.Point(5, 191);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 7;
             // 
             // lblBirthdate
             // 
             this.lblBirthdate.AutoSize = true;
-            this.lblBirthdate.Location = new System.Drawing.Point(2, 134);
-            this.lblBirthdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBirthdate.Location = new System.Drawing.Point(3, 165);
             this.lblBirthdate.Name = "lblBirthdate";
-            this.lblBirthdate.Size = new System.Drawing.Size(99, 13);
+            this.lblBirthdate.Size = new System.Drawing.Size(130, 17);
             this.lblBirthdate.TabIndex = 6;
             this.lblBirthdate.Text = "Date de naissance:";
             // 
             // lblPRenomModif
             // 
             this.lblPRenomModif.AutoSize = true;
-            this.lblPRenomModif.Location = new System.Drawing.Point(2, 89);
-            this.lblPRenomModif.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPRenomModif.Location = new System.Drawing.Point(3, 110);
             this.lblPRenomModif.Name = "lblPRenomModif";
-            this.lblPRenomModif.Size = new System.Drawing.Size(43, 13);
+            this.lblPRenomModif.Size = new System.Drawing.Size(57, 17);
             this.lblPRenomModif.TabIndex = 4;
             this.lblPRenomModif.Text = "Prenom";
             // 
             // txtPrenomModif
             // 
-            this.txtPrenomModif.Location = new System.Drawing.Point(50, 89);
-            this.txtPrenomModif.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPrenomModif.Location = new System.Drawing.Point(67, 110);
+            this.txtPrenomModif.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrenomModif.Name = "txtPrenomModif";
-            this.txtPrenomModif.Size = new System.Drawing.Size(107, 20);
+            this.txtPrenomModif.Size = new System.Drawing.Size(141, 22);
             this.txtPrenomModif.TabIndex = 3;
             // 
             // txtIdModif
             // 
             this.txtIdModif.Location = new System.Drawing.Point(0, 2);
-            this.txtIdModif.Margin = new System.Windows.Forms.Padding(2);
+            this.txtIdModif.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIdModif.Name = "txtIdModif";
-            this.txtIdModif.Size = new System.Drawing.Size(76, 20);
+            this.txtIdModif.Size = new System.Drawing.Size(100, 22);
             this.txtIdModif.TabIndex = 2;
             this.txtIdModif.Visible = false;
             // 
             // lblNomModif
             // 
             this.lblNomModif.AutoSize = true;
-            this.lblNomModif.Location = new System.Drawing.Point(2, 45);
-            this.lblNomModif.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNomModif.Location = new System.Drawing.Point(3, 55);
             this.lblNomModif.Name = "lblNomModif";
-            this.lblNomModif.Size = new System.Drawing.Size(32, 13);
+            this.lblNomModif.Size = new System.Drawing.Size(41, 17);
             this.lblNomModif.TabIndex = 1;
             this.lblNomModif.Text = "Nom:";
             // 
             // txtNomModif
             // 
-            this.txtNomModif.Location = new System.Drawing.Point(50, 45);
-            this.txtNomModif.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNomModif.Location = new System.Drawing.Point(67, 55);
+            this.txtNomModif.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNomModif.Name = "txtNomModif";
-            this.txtNomModif.Size = new System.Drawing.Size(107, 20);
+            this.txtNomModif.Size = new System.Drawing.Size(141, 22);
             this.txtNomModif.TabIndex = 0;
             // 
             // pnlEleves
@@ -455,10 +486,10 @@ namespace InfirmerieGUI
             this.pnlEleves.Controls.Add(this.dgvEleves);
             this.pnlEleves.Controls.Add(this.btnSupprimerEleve);
             this.pnlEleves.Controls.Add(this.btnConfirmereleve);
-            this.pnlEleves.Location = new System.Drawing.Point(258, 22);
-            this.pnlEleves.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlEleves.Location = new System.Drawing.Point(323, 23);
+            this.pnlEleves.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlEleves.Name = "pnlEleves";
-            this.pnlEleves.Size = new System.Drawing.Size(1034, 634);
+            this.pnlEleves.Size = new System.Drawing.Size(1379, 780);
             this.pnlEleves.TabIndex = 7;
             // 
             // pnlAjoutEleve
@@ -479,48 +510,48 @@ namespace InfirmerieGUI
             this.pnlAjoutEleve.Controls.Add(this.txtIdEleveAjout);
             this.pnlAjoutEleve.Controls.Add(this.lblNomEleveAjout);
             this.pnlAjoutEleve.Controls.Add(this.txtNomEleveAjout);
-            this.pnlAjoutEleve.Location = new System.Drawing.Point(112, 304);
-            this.pnlAjoutEleve.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlAjoutEleve.Location = new System.Drawing.Point(149, 374);
+            this.pnlAjoutEleve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlAjoutEleve.Name = "pnlAjoutEleve";
-            this.pnlAjoutEleve.Size = new System.Drawing.Size(790, 388);
+            this.pnlAjoutEleve.Size = new System.Drawing.Size(1053, 478);
             this.pnlAjoutEleve.TabIndex = 16;
             this.pnlAjoutEleve.Visible = false;
             // 
             // cboxClasseEleveAjout
             // 
             this.cboxClasseEleveAjout.FormattingEnabled = true;
-            this.cboxClasseEleveAjout.Location = new System.Drawing.Point(308, 143);
+            this.cboxClasseEleveAjout.Location = new System.Drawing.Point(411, 176);
+            this.cboxClasseEleveAjout.Margin = new System.Windows.Forms.Padding(4);
             this.cboxClasseEleveAjout.Name = "cboxClasseEleveAjout";
-            this.cboxClasseEleveAjout.Size = new System.Drawing.Size(121, 21);
+            this.cboxClasseEleveAjout.Size = new System.Drawing.Size(160, 24);
             this.cboxClasseEleveAjout.TabIndex = 15;
             this.cboxClasseEleveAjout.Visible = false;
             // 
             // lblCommentaireEleveAjout
             // 
             this.lblCommentaireEleveAjout.AutoSize = true;
-            this.lblCommentaireEleveAjout.Location = new System.Drawing.Point(443, 91);
-            this.lblCommentaireEleveAjout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCommentaireEleveAjout.Location = new System.Drawing.Point(591, 112);
             this.lblCommentaireEleveAjout.Name = "lblCommentaireEleveAjout";
-            this.lblCommentaireEleveAjout.Size = new System.Drawing.Size(107, 13);
+            this.lblCommentaireEleveAjout.Size = new System.Drawing.Size(143, 17);
             this.lblCommentaireEleveAjout.TabIndex = 14;
             this.lblCommentaireEleveAjout.Text = "Commentaires Santé:";
             // 
             // txtCommentaireEleveAjout
             // 
-            this.txtCommentaireEleveAjout.Location = new System.Drawing.Point(555, 91);
-            this.txtCommentaireEleveAjout.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCommentaireEleveAjout.Location = new System.Drawing.Point(740, 112);
+            this.txtCommentaireEleveAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCommentaireEleveAjout.MinimumSize = new System.Drawing.Size(4, 50);
             this.txtCommentaireEleveAjout.Name = "txtCommentaireEleveAjout";
-            this.txtCommentaireEleveAjout.Size = new System.Drawing.Size(114, 20);
+            this.txtCommentaireEleveAjout.Size = new System.Drawing.Size(151, 22);
             this.txtCommentaireEleveAjout.TabIndex = 13;
             // 
             // chkExtraTimeEleveAjout
             // 
             this.chkExtraTimeEleveAjout.AutoSize = true;
-            this.chkExtraTimeEleveAjout.Location = new System.Drawing.Point(473, 34);
-            this.chkExtraTimeEleveAjout.Margin = new System.Windows.Forms.Padding(2);
+            this.chkExtraTimeEleveAjout.Location = new System.Drawing.Point(631, 42);
+            this.chkExtraTimeEleveAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkExtraTimeEleveAjout.Name = "chkExtraTimeEleveAjout";
-            this.chkExtraTimeEleveAjout.Size = new System.Drawing.Size(79, 17);
+            this.chkExtraTimeEleveAjout.Size = new System.Drawing.Size(103, 21);
             this.chkExtraTimeEleveAjout.TabIndex = 12;
             this.chkExtraTimeEleveAjout.Text = "Tier-Temps";
             this.chkExtraTimeEleveAjout.UseVisualStyleBackColor = true;
@@ -528,43 +559,40 @@ namespace InfirmerieGUI
             // lblNumeroParentEleveAjout
             // 
             this.lblNumeroParentEleveAjout.AutoSize = true;
-            this.lblNumeroParentEleveAjout.Location = new System.Drawing.Point(194, 91);
-            this.lblNumeroParentEleveAjout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNumeroParentEleveAjout.Location = new System.Drawing.Point(259, 112);
             this.lblNumeroParentEleveAjout.Name = "lblNumeroParentEleveAjout";
-            this.lblNumeroParentEleveAjout.Size = new System.Drawing.Size(111, 13);
+            this.lblNumeroParentEleveAjout.Size = new System.Drawing.Size(147, 17);
             this.lblNumeroParentEleveAjout.TabIndex = 11;
             this.lblNumeroParentEleveAjout.Text = "Numero Parent Eleve:";
             // 
             // txtNumeroParentEleveAjout
             // 
-            this.txtNumeroParentEleveAjout.Location = new System.Drawing.Point(308, 89);
-            this.txtNumeroParentEleveAjout.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNumeroParentEleveAjout.Location = new System.Drawing.Point(411, 110);
+            this.txtNumeroParentEleveAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNumeroParentEleveAjout.Name = "txtNumeroParentEleveAjout";
-            this.txtNumeroParentEleveAjout.Size = new System.Drawing.Size(107, 20);
+            this.txtNumeroParentEleveAjout.Size = new System.Drawing.Size(141, 22);
             this.txtNumeroParentEleveAjout.TabIndex = 10;
             // 
             // lblNumeroEleveAjout
             // 
             this.lblNumeroEleveAjout.AutoSize = true;
-            this.lblNumeroEleveAjout.Location = new System.Drawing.Point(228, 45);
-            this.lblNumeroEleveAjout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNumeroEleveAjout.Location = new System.Drawing.Point(304, 55);
             this.lblNumeroEleveAjout.Name = "lblNumeroEleveAjout";
-            this.lblNumeroEleveAjout.Size = new System.Drawing.Size(77, 13);
+            this.lblNumeroEleveAjout.Size = new System.Drawing.Size(101, 17);
             this.lblNumeroEleveAjout.TabIndex = 9;
             this.lblNumeroEleveAjout.Text = "Numero Eleve:";
             // 
             // txtNumeroEleveAjout
             // 
-            this.txtNumeroEleveAjout.Location = new System.Drawing.Point(308, 42);
-            this.txtNumeroEleveAjout.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNumeroEleveAjout.Location = new System.Drawing.Point(411, 52);
+            this.txtNumeroEleveAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNumeroEleveAjout.Name = "txtNumeroEleveAjout";
-            this.txtNumeroEleveAjout.Size = new System.Drawing.Size(107, 20);
+            this.txtNumeroEleveAjout.Size = new System.Drawing.Size(141, 22);
             this.txtNumeroEleveAjout.TabIndex = 8;
             // 
             // mcBirthdateEleveAjout
             // 
-            this.mcBirthdateEleveAjout.Location = new System.Drawing.Point(4, 155);
-            this.mcBirthdateEleveAjout.Margin = new System.Windows.Forms.Padding(7);
+            this.mcBirthdateEleveAjout.Location = new System.Drawing.Point(5, 191);
             this.mcBirthdateEleveAjout.MaxSelectionCount = 1;
             this.mcBirthdateEleveAjout.Name = "mcBirthdateEleveAjout";
             this.mcBirthdateEleveAjout.TabIndex = 7;
@@ -572,56 +600,53 @@ namespace InfirmerieGUI
             // lblBirthdateEleveAjout
             // 
             this.lblBirthdateEleveAjout.AutoSize = true;
-            this.lblBirthdateEleveAjout.Location = new System.Drawing.Point(2, 134);
-            this.lblBirthdateEleveAjout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBirthdateEleveAjout.Location = new System.Drawing.Point(3, 165);
             this.lblBirthdateEleveAjout.Name = "lblBirthdateEleveAjout";
-            this.lblBirthdateEleveAjout.Size = new System.Drawing.Size(99, 13);
+            this.lblBirthdateEleveAjout.Size = new System.Drawing.Size(130, 17);
             this.lblBirthdateEleveAjout.TabIndex = 6;
             this.lblBirthdateEleveAjout.Text = "Date de naissance:";
             // 
             // lblPrenomEleveAjout
             // 
             this.lblPrenomEleveAjout.AutoSize = true;
-            this.lblPrenomEleveAjout.Location = new System.Drawing.Point(2, 89);
-            this.lblPrenomEleveAjout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPrenomEleveAjout.Location = new System.Drawing.Point(3, 110);
             this.lblPrenomEleveAjout.Name = "lblPrenomEleveAjout";
-            this.lblPrenomEleveAjout.Size = new System.Drawing.Size(43, 13);
+            this.lblPrenomEleveAjout.Size = new System.Drawing.Size(57, 17);
             this.lblPrenomEleveAjout.TabIndex = 4;
             this.lblPrenomEleveAjout.Text = "Prenom";
             // 
             // txtPrenomEleveAjout
             // 
-            this.txtPrenomEleveAjout.Location = new System.Drawing.Point(50, 89);
-            this.txtPrenomEleveAjout.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPrenomEleveAjout.Location = new System.Drawing.Point(67, 110);
+            this.txtPrenomEleveAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrenomEleveAjout.Name = "txtPrenomEleveAjout";
-            this.txtPrenomEleveAjout.Size = new System.Drawing.Size(107, 20);
+            this.txtPrenomEleveAjout.Size = new System.Drawing.Size(141, 22);
             this.txtPrenomEleveAjout.TabIndex = 3;
             // 
             // txtIdEleveAjout
             // 
             this.txtIdEleveAjout.Location = new System.Drawing.Point(0, 2);
-            this.txtIdEleveAjout.Margin = new System.Windows.Forms.Padding(2);
+            this.txtIdEleveAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIdEleveAjout.Name = "txtIdEleveAjout";
-            this.txtIdEleveAjout.Size = new System.Drawing.Size(76, 20);
+            this.txtIdEleveAjout.Size = new System.Drawing.Size(100, 22);
             this.txtIdEleveAjout.TabIndex = 2;
             this.txtIdEleveAjout.Visible = false;
             // 
             // lblNomEleveAjout
             // 
             this.lblNomEleveAjout.AutoSize = true;
-            this.lblNomEleveAjout.Location = new System.Drawing.Point(2, 45);
-            this.lblNomEleveAjout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNomEleveAjout.Location = new System.Drawing.Point(3, 55);
             this.lblNomEleveAjout.Name = "lblNomEleveAjout";
-            this.lblNomEleveAjout.Size = new System.Drawing.Size(32, 13);
+            this.lblNomEleveAjout.Size = new System.Drawing.Size(41, 17);
             this.lblNomEleveAjout.TabIndex = 1;
             this.lblNomEleveAjout.Text = "Nom:";
             // 
             // txtNomEleveAjout
             // 
-            this.txtNomEleveAjout.Location = new System.Drawing.Point(50, 45);
-            this.txtNomEleveAjout.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNomEleveAjout.Location = new System.Drawing.Point(67, 55);
+            this.txtNomEleveAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNomEleveAjout.Name = "txtNomEleveAjout";
-            this.txtNomEleveAjout.Size = new System.Drawing.Size(107, 20);
+            this.txtNomEleveAjout.Size = new System.Drawing.Size(141, 22);
             this.txtNomEleveAjout.TabIndex = 0;
             // 
             // pnlMedicaments
@@ -634,10 +659,10 @@ namespace InfirmerieGUI
             this.pnlMedicaments.Controls.Add(this.dgvMedicaments);
             this.pnlMedicaments.Controls.Add(this.btnSupprimerMedic);
             this.pnlMedicaments.Controls.Add(this.btnConfirmerMedic);
-            this.pnlMedicaments.Location = new System.Drawing.Point(240, 34);
-            this.pnlMedicaments.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlMedicaments.Location = new System.Drawing.Point(320, 42);
+            this.pnlMedicaments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlMedicaments.Name = "pnlMedicaments";
-            this.pnlMedicaments.Size = new System.Drawing.Size(1028, 843);
+            this.pnlMedicaments.Size = new System.Drawing.Size(1371, 1038);
             this.pnlMedicaments.TabIndex = 8;
             this.pnlMedicaments.Visible = false;
             // 
@@ -646,10 +671,9 @@ namespace InfirmerieGUI
             this.lblMedicaments.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMedicaments.AutoSize = true;
             this.lblMedicaments.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
-            this.lblMedicaments.Location = new System.Drawing.Point(422, 13);
-            this.lblMedicaments.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMedicaments.Location = new System.Drawing.Point(563, 16);
             this.lblMedicaments.Name = "lblMedicaments";
-            this.lblMedicaments.Size = new System.Drawing.Size(168, 33);
+            this.lblMedicaments.Size = new System.Drawing.Size(211, 41);
             this.lblMedicaments.TabIndex = 0;
             this.lblMedicaments.Text = "Médicaments";
             // 
@@ -660,10 +684,10 @@ namespace InfirmerieGUI
             this.pnlAjoutMedic.Controls.Add(this.txtIdMedicAjout);
             this.pnlAjoutMedic.Controls.Add(this.lblNomMedicAjout);
             this.pnlAjoutMedic.Controls.Add(this.txtNomMedicAjout);
-            this.pnlAjoutMedic.Location = new System.Drawing.Point(114, 302);
-            this.pnlAjoutMedic.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlAjoutMedic.Location = new System.Drawing.Point(152, 372);
+            this.pnlAjoutMedic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlAjoutMedic.Name = "pnlAjoutMedic";
-            this.pnlAjoutMedic.Size = new System.Drawing.Size(782, 390);
+            this.pnlAjoutMedic.Size = new System.Drawing.Size(1043, 480);
             this.pnlAjoutMedic.TabIndex = 7;
             this.pnlAjoutMedic.Visible = false;
             // 
@@ -671,38 +695,36 @@ namespace InfirmerieGUI
             // 
             this.lblAjoutMedic.AutoSize = true;
             this.lblAjoutMedic.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAjoutMedic.Location = new System.Drawing.Point(2, 0);
-            this.lblAjoutMedic.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAjoutMedic.Location = new System.Drawing.Point(3, 0);
             this.lblAjoutMedic.Name = "lblAjoutMedic";
-            this.lblAjoutMedic.Size = new System.Drawing.Size(231, 27);
+            this.lblAjoutMedic.Size = new System.Drawing.Size(292, 35);
             this.lblAjoutMedic.TabIndex = 3;
             this.lblAjoutMedic.Text = "Ajouter un médicament";
             // 
             // txtIdMedicAjout
             // 
             this.txtIdMedicAjout.Location = new System.Drawing.Point(0, 2);
-            this.txtIdMedicAjout.Margin = new System.Windows.Forms.Padding(2);
+            this.txtIdMedicAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIdMedicAjout.Name = "txtIdMedicAjout";
-            this.txtIdMedicAjout.Size = new System.Drawing.Size(76, 20);
+            this.txtIdMedicAjout.Size = new System.Drawing.Size(100, 22);
             this.txtIdMedicAjout.TabIndex = 2;
             this.txtIdMedicAjout.Visible = false;
             // 
             // lblNomMedicAjout
             // 
             this.lblNomMedicAjout.AutoSize = true;
-            this.lblNomMedicAjout.Location = new System.Drawing.Point(15, 43);
-            this.lblNomMedicAjout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNomMedicAjout.Location = new System.Drawing.Point(20, 53);
             this.lblNomMedicAjout.Name = "lblNomMedicAjout";
-            this.lblNomMedicAjout.Size = new System.Drawing.Size(32, 13);
+            this.lblNomMedicAjout.Size = new System.Drawing.Size(41, 17);
             this.lblNomMedicAjout.TabIndex = 1;
             this.lblNomMedicAjout.Text = "Nom:";
             // 
             // txtNomMedicAjout
             // 
-            this.txtNomMedicAjout.Location = new System.Drawing.Point(60, 41);
-            this.txtNomMedicAjout.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNomMedicAjout.Location = new System.Drawing.Point(80, 50);
+            this.txtNomMedicAjout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNomMedicAjout.Name = "txtNomMedicAjout";
-            this.txtNomMedicAjout.Size = new System.Drawing.Size(107, 20);
+            this.txtNomMedicAjout.Size = new System.Drawing.Size(141, 22);
             this.txtNomMedicAjout.TabIndex = 0;
             // 
             // pnlMedicModif
@@ -712,10 +734,10 @@ namespace InfirmerieGUI
             this.pnlMedicModif.Controls.Add(this.txtIdMedicModif);
             this.pnlMedicModif.Controls.Add(this.lblNomMedicModif);
             this.pnlMedicModif.Controls.Add(this.txtNomMedicModif);
-            this.pnlMedicModif.Location = new System.Drawing.Point(112, 304);
-            this.pnlMedicModif.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlMedicModif.Location = new System.Drawing.Point(149, 374);
+            this.pnlMedicModif.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlMedicModif.Name = "pnlMedicModif";
-            this.pnlMedicModif.Size = new System.Drawing.Size(786, 390);
+            this.pnlMedicModif.Size = new System.Drawing.Size(1048, 480);
             this.pnlMedicModif.TabIndex = 6;
             this.pnlMedicModif.Visible = false;
             // 
@@ -724,37 +746,35 @@ namespace InfirmerieGUI
             this.lblModifMedic.AutoSize = true;
             this.lblModifMedic.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModifMedic.Location = new System.Drawing.Point(0, 2);
-            this.lblModifMedic.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblModifMedic.Name = "lblModifMedic";
-            this.lblModifMedic.Size = new System.Drawing.Size(240, 27);
+            this.lblModifMedic.Size = new System.Drawing.Size(305, 35);
             this.lblModifMedic.TabIndex = 8;
             this.lblModifMedic.Text = "Modifier un médicament";
             // 
             // txtIdMedicModif
             // 
             this.txtIdMedicModif.Location = new System.Drawing.Point(0, 2);
-            this.txtIdMedicModif.Margin = new System.Windows.Forms.Padding(2);
+            this.txtIdMedicModif.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIdMedicModif.Name = "txtIdMedicModif";
-            this.txtIdMedicModif.Size = new System.Drawing.Size(76, 20);
+            this.txtIdMedicModif.Size = new System.Drawing.Size(100, 22);
             this.txtIdMedicModif.TabIndex = 2;
             this.txtIdMedicModif.Visible = false;
             // 
             // lblNomMedicModif
             // 
             this.lblNomMedicModif.AutoSize = true;
-            this.lblNomMedicModif.Location = new System.Drawing.Point(15, 43);
-            this.lblNomMedicModif.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNomMedicModif.Location = new System.Drawing.Point(20, 53);
             this.lblNomMedicModif.Name = "lblNomMedicModif";
-            this.lblNomMedicModif.Size = new System.Drawing.Size(32, 13);
+            this.lblNomMedicModif.Size = new System.Drawing.Size(41, 17);
             this.lblNomMedicModif.TabIndex = 1;
             this.lblNomMedicModif.Text = "Nom:";
             // 
             // txtNomMedicModif
             // 
-            this.txtNomMedicModif.Location = new System.Drawing.Point(60, 41);
-            this.txtNomMedicModif.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNomMedicModif.Location = new System.Drawing.Point(80, 50);
+            this.txtNomMedicModif.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNomMedicModif.Name = "txtNomMedicModif";
-            this.txtNomMedicModif.Size = new System.Drawing.Size(107, 20);
+            this.txtNomMedicModif.Size = new System.Drawing.Size(141, 22);
             this.txtNomMedicModif.TabIndex = 0;
             // 
             // btnAjoutMEdic
@@ -762,10 +782,10 @@ namespace InfirmerieGUI
             this.btnAjoutMEdic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAjoutMEdic.BackColor = System.Drawing.Color.LightGreen;
             this.btnAjoutMEdic.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAjoutMEdic.Location = new System.Drawing.Point(827, 22);
-            this.btnAjoutMEdic.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAjoutMEdic.Location = new System.Drawing.Point(1103, 27);
+            this.btnAjoutMEdic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAjoutMEdic.Name = "btnAjoutMEdic";
-            this.btnAjoutMEdic.Size = new System.Drawing.Size(68, 24);
+            this.btnAjoutMEdic.Size = new System.Drawing.Size(91, 30);
             this.btnAjoutMEdic.TabIndex = 4;
             this.btnAjoutMEdic.Text = "Ajouter";
             this.btnAjoutMEdic.UseVisualStyleBackColor = false;
@@ -779,14 +799,14 @@ namespace InfirmerieGUI
             this.dgvMedicaments.BackgroundColor = System.Drawing.Color.White;
             this.dgvMedicaments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMedicaments.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dgvMedicaments.Location = new System.Drawing.Point(112, 58);
-            this.dgvMedicaments.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvMedicaments.Location = new System.Drawing.Point(149, 71);
+            this.dgvMedicaments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvMedicaments.Name = "dgvMedicaments";
             this.dgvMedicaments.ReadOnly = true;
             this.dgvMedicaments.RowHeadersWidth = 51;
             this.dgvMedicaments.RowTemplate.Height = 24;
             this.dgvMedicaments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedicaments.Size = new System.Drawing.Size(784, 244);
+            this.dgvMedicaments.Size = new System.Drawing.Size(1045, 300);
             this.dgvMedicaments.TabIndex = 1;
             this.dgvMedicaments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedicaments_CellClick);
             // 
@@ -796,10 +816,10 @@ namespace InfirmerieGUI
             this.btnSupprimerMedic.BackColor = System.Drawing.Color.IndianRed;
             this.btnSupprimerMedic.FlatAppearance.BorderSize = 0;
             this.btnSupprimerMedic.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnSupprimerMedic.Location = new System.Drawing.Point(634, 22);
-            this.btnSupprimerMedic.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSupprimerMedic.Location = new System.Drawing.Point(845, 27);
+            this.btnSupprimerMedic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSupprimerMedic.Name = "btnSupprimerMedic";
-            this.btnSupprimerMedic.Size = new System.Drawing.Size(88, 24);
+            this.btnSupprimerMedic.Size = new System.Drawing.Size(117, 30);
             this.btnSupprimerMedic.TabIndex = 2;
             this.btnSupprimerMedic.Text = "Supprimer";
             this.btnSupprimerMedic.UseVisualStyleBackColor = false;
@@ -810,10 +830,10 @@ namespace InfirmerieGUI
             this.btnConfirmerMedic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConfirmerMedic.BackColor = System.Drawing.Color.LemonChiffon;
             this.btnConfirmerMedic.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnConfirmerMedic.Location = new System.Drawing.Point(726, 22);
-            this.btnConfirmerMedic.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConfirmerMedic.Location = new System.Drawing.Point(968, 27);
+            this.btnConfirmerMedic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfirmerMedic.Name = "btnConfirmerMedic";
-            this.btnConfirmerMedic.Size = new System.Drawing.Size(97, 24);
+            this.btnConfirmerMedic.Size = new System.Drawing.Size(129, 30);
             this.btnConfirmerMedic.TabIndex = 3;
             this.btnConfirmerMedic.Text = "Confirmer";
             this.btnConfirmerMedic.UseVisualStyleBackColor = false;
@@ -829,10 +849,10 @@ namespace InfirmerieGUI
             this.pnlVisites.Controls.Add(this.dgvVisites);
             this.pnlVisites.Controls.Add(this.btnSupprimerVisite);
             this.pnlVisites.Controls.Add(this.btnConfirmerVisite);
-            this.pnlVisites.Location = new System.Drawing.Point(274, 11);
-            this.pnlVisites.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlVisites.Location = new System.Drawing.Point(326, 13);
+            this.pnlVisites.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlVisites.Name = "pnlVisites";
-            this.pnlVisites.Size = new System.Drawing.Size(1034, 634);
+            this.pnlVisites.Size = new System.Drawing.Size(1379, 780);
             this.pnlVisites.TabIndex = 17;
             // 
             // pnlModifVisite
@@ -856,47 +876,46 @@ namespace InfirmerieGUI
             this.pnlModifVisite.Controls.Add(this.lblModifDateDebutVisite);
             this.pnlModifVisite.Controls.Add(this.lblModifMotifVisite);
             this.pnlModifVisite.Controls.Add(this.txtModifMotifVisite);
-            this.pnlModifVisite.Location = new System.Drawing.Point(112, 341);
-            this.pnlModifVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlModifVisite.Location = new System.Drawing.Point(149, 420);
+            this.pnlModifVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlModifVisite.Name = "pnlModifVisite";
-            this.pnlModifVisite.Size = new System.Drawing.Size(790, 388);
+            this.pnlModifVisite.Size = new System.Drawing.Size(1053, 478);
             this.pnlModifVisite.TabIndex = 22;
             this.pnlModifVisite.Visible = false;
             // 
             // txtModifIdVisite
             // 
-            this.txtModifIdVisite.Location = new System.Drawing.Point(17, 7);
-            this.txtModifIdVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.txtModifIdVisite.Location = new System.Drawing.Point(23, 9);
+            this.txtModifIdVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtModifIdVisite.Name = "txtModifIdVisite";
-            this.txtModifIdVisite.Size = new System.Drawing.Size(107, 20);
+            this.txtModifIdVisite.Size = new System.Drawing.Size(141, 22);
             this.txtModifIdVisite.TabIndex = 24;
             this.txtModifIdVisite.Visible = false;
             // 
             // lblModifEleveVisite
             // 
             this.lblModifEleveVisite.AutoSize = true;
-            this.lblModifEleveVisite.Location = new System.Drawing.Point(14, 40);
-            this.lblModifEleveVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblModifEleveVisite.Location = new System.Drawing.Point(19, 49);
             this.lblModifEleveVisite.Name = "lblModifEleveVisite";
-            this.lblModifEleveVisite.Size = new System.Drawing.Size(40, 13);
+            this.lblModifEleveVisite.Size = new System.Drawing.Size(51, 17);
             this.lblModifEleveVisite.TabIndex = 23;
             this.lblModifEleveVisite.Text = "Eleve :";
             // 
             // cbModifEleveVisite
             // 
             this.cbModifEleveVisite.FormattingEnabled = true;
-            this.cbModifEleveVisite.Location = new System.Drawing.Point(59, 36);
+            this.cbModifEleveVisite.Location = new System.Drawing.Point(79, 44);
+            this.cbModifEleveVisite.Margin = new System.Windows.Forms.Padding(4);
             this.cbModifEleveVisite.Name = "cbModifEleveVisite";
-            this.cbModifEleveVisite.Size = new System.Drawing.Size(187, 21);
+            this.cbModifEleveVisite.Size = new System.Drawing.Size(248, 24);
             this.cbModifEleveVisite.TabIndex = 22;
             // 
             // lblModifMedicamentVisite
             // 
             this.lblModifMedicamentVisite.AutoSize = true;
-            this.lblModifMedicamentVisite.Location = new System.Drawing.Point(280, 257);
-            this.lblModifMedicamentVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblModifMedicamentVisite.Location = new System.Drawing.Point(373, 316);
             this.lblModifMedicamentVisite.Name = "lblModifMedicamentVisite";
-            this.lblModifMedicamentVisite.Size = new System.Drawing.Size(74, 13);
+            this.lblModifMedicamentVisite.Size = new System.Drawing.Size(96, 17);
             this.lblModifMedicamentVisite.TabIndex = 21;
             this.lblModifMedicamentVisite.Text = "Medicament ?";
             // 
@@ -904,18 +923,18 @@ namespace InfirmerieGUI
             // 
             this.dtpModifDateFinVisite.CustomFormat = "dd MMMM, yyyy  |  HH:mm";
             this.dtpModifDateFinVisite.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpModifDateFinVisite.Location = new System.Drawing.Point(496, 56);
+            this.dtpModifDateFinVisite.Location = new System.Drawing.Point(661, 69);
+            this.dtpModifDateFinVisite.Margin = new System.Windows.Forms.Padding(4);
             this.dtpModifDateFinVisite.Name = "dtpModifDateFinVisite";
-            this.dtpModifDateFinVisite.Size = new System.Drawing.Size(200, 20);
+            this.dtpModifDateFinVisite.Size = new System.Drawing.Size(265, 22);
             this.dtpModifDateFinVisite.TabIndex = 20;
             // 
             // lblModifDateFinVisite
             // 
             this.lblModifDateFinVisite.AutoSize = true;
-            this.lblModifDateFinVisite.Location = new System.Drawing.Point(493, 32);
-            this.lblModifDateFinVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblModifDateFinVisite.Location = new System.Drawing.Point(657, 39);
             this.lblModifDateFinVisite.Name = "lblModifDateFinVisite";
-            this.lblModifDateFinVisite.Size = new System.Drawing.Size(130, 13);
+            this.lblModifDateFinVisite.Size = new System.Drawing.Size(171, 17);
             this.lblModifDateFinVisite.TabIndex = 19;
             this.lblModifDateFinVisite.Text = "Heure / Jour début visite :";
             // 
@@ -923,18 +942,19 @@ namespace InfirmerieGUI
             // 
             this.dtpModifDateDebutVisite.CustomFormat = "dd MMMM, yyyy  |  HH:mm";
             this.dtpModifDateDebutVisite.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpModifDateDebutVisite.Location = new System.Drawing.Point(272, 55);
+            this.dtpModifDateDebutVisite.Location = new System.Drawing.Point(363, 68);
+            this.dtpModifDateDebutVisite.Margin = new System.Windows.Forms.Padding(4);
             this.dtpModifDateDebutVisite.Name = "dtpModifDateDebutVisite";
-            this.dtpModifDateDebutVisite.Size = new System.Drawing.Size(200, 20);
+            this.dtpModifDateDebutVisite.Size = new System.Drawing.Size(265, 22);
             this.dtpModifDateDebutVisite.TabIndex = 18;
             // 
             // chkbModifParentsPrevenusVisite
             // 
             this.chkbModifParentsPrevenusVisite.AutoSize = true;
-            this.chkbModifParentsPrevenusVisite.Location = new System.Drawing.Point(527, 205);
-            this.chkbModifParentsPrevenusVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.chkbModifParentsPrevenusVisite.Location = new System.Drawing.Point(703, 252);
+            this.chkbModifParentsPrevenusVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkbModifParentsPrevenusVisite.Name = "chkbModifParentsPrevenusVisite";
-            this.chkbModifParentsPrevenusVisite.Size = new System.Drawing.Size(119, 17);
+            this.chkbModifParentsPrevenusVisite.Size = new System.Drawing.Size(155, 21);
             this.chkbModifParentsPrevenusVisite.TabIndex = 17;
             this.chkbModifParentsPrevenusVisite.Text = "Parents Prevenus ?";
             this.chkbModifParentsPrevenusVisite.UseVisualStyleBackColor = true;
@@ -942,10 +962,10 @@ namespace InfirmerieGUI
             // chkbModifHospitalisationVisite
             // 
             this.chkbModifHospitalisationVisite.AutoSize = true;
-            this.chkbModifHospitalisationVisite.Location = new System.Drawing.Point(283, 205);
-            this.chkbModifHospitalisationVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.chkbModifHospitalisationVisite.Location = new System.Drawing.Point(377, 252);
+            this.chkbModifHospitalisationVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkbModifHospitalisationVisite.Name = "chkbModifHospitalisationVisite";
-            this.chkbModifHospitalisationVisite.Size = new System.Drawing.Size(103, 17);
+            this.chkbModifHospitalisationVisite.Size = new System.Drawing.Size(134, 21);
             this.chkbModifHospitalisationVisite.TabIndex = 16;
             this.chkbModifHospitalisationVisite.Text = "Hospitalisation ?";
             this.chkbModifHospitalisationVisite.UseVisualStyleBackColor = true;
@@ -953,27 +973,28 @@ namespace InfirmerieGUI
             // cbModifMedicamentVisite
             // 
             this.cbModifMedicamentVisite.FormattingEnabled = true;
-            this.cbModifMedicamentVisite.Location = new System.Drawing.Point(365, 253);
+            this.cbModifMedicamentVisite.Location = new System.Drawing.Point(487, 311);
+            this.cbModifMedicamentVisite.Margin = new System.Windows.Forms.Padding(4);
             this.cbModifMedicamentVisite.Name = "cbModifMedicamentVisite";
-            this.cbModifMedicamentVisite.Size = new System.Drawing.Size(107, 21);
+            this.cbModifMedicamentVisite.Size = new System.Drawing.Size(141, 24);
             this.cbModifMedicamentVisite.TabIndex = 15;
             // 
             // txtModifCommentaireVisite
             // 
-            this.txtModifCommentaireVisite.Location = new System.Drawing.Point(532, 127);
-            this.txtModifCommentaireVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.txtModifCommentaireVisite.Location = new System.Drawing.Point(709, 156);
+            this.txtModifCommentaireVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtModifCommentaireVisite.MinimumSize = new System.Drawing.Size(4, 50);
             this.txtModifCommentaireVisite.Name = "txtModifCommentaireVisite";
-            this.txtModifCommentaireVisite.Size = new System.Drawing.Size(114, 50);
+            this.txtModifCommentaireVisite.Size = new System.Drawing.Size(151, 22);
             this.txtModifCommentaireVisite.TabIndex = 13;
             // 
             // chkbModifRenvoiDomicileVisite
             // 
             this.chkbModifRenvoiDomicileVisite.AutoSize = true;
-            this.chkbModifRenvoiDomicileVisite.Location = new System.Drawing.Point(402, 205);
-            this.chkbModifRenvoiDomicileVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.chkbModifRenvoiDomicileVisite.Location = new System.Drawing.Point(536, 252);
+            this.chkbModifRenvoiDomicileVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkbModifRenvoiDomicileVisite.Name = "chkbModifRenvoiDomicileVisite";
-            this.chkbModifRenvoiDomicileVisite.Size = new System.Drawing.Size(112, 17);
+            this.chkbModifRenvoiDomicileVisite.Size = new System.Drawing.Size(143, 21);
             this.chkbModifRenvoiDomicileVisite.TabIndex = 12;
             this.chkbModifRenvoiDomicileVisite.Text = "Renvoi Domicile ?";
             this.chkbModifRenvoiDomicileVisite.UseVisualStyleBackColor = true;
@@ -981,57 +1002,53 @@ namespace InfirmerieGUI
             // lblModifQuantiteMedicamentVisite
             // 
             this.lblModifQuantiteMedicamentVisite.AutoSize = true;
-            this.lblModifQuantiteMedicamentVisite.Location = new System.Drawing.Point(506, 256);
-            this.lblModifQuantiteMedicamentVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblModifQuantiteMedicamentVisite.Location = new System.Drawing.Point(675, 315);
             this.lblModifQuantiteMedicamentVisite.Name = "lblModifQuantiteMedicamentVisite";
-            this.lblModifQuantiteMedicamentVisite.Size = new System.Drawing.Size(117, 13);
+            this.lblModifQuantiteMedicamentVisite.Size = new System.Drawing.Size(154, 17);
             this.lblModifQuantiteMedicamentVisite.TabIndex = 11;
             this.lblModifQuantiteMedicamentVisite.Text = "Quantité Medicament ?";
             // 
             // txtModifQuantiteMedicamentVisite
             // 
-            this.txtModifQuantiteMedicamentVisite.Location = new System.Drawing.Point(627, 253);
-            this.txtModifQuantiteMedicamentVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.txtModifQuantiteMedicamentVisite.Location = new System.Drawing.Point(836, 311);
+            this.txtModifQuantiteMedicamentVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtModifQuantiteMedicamentVisite.Name = "txtModifQuantiteMedicamentVisite";
-            this.txtModifQuantiteMedicamentVisite.Size = new System.Drawing.Size(107, 20);
+            this.txtModifQuantiteMedicamentVisite.Size = new System.Drawing.Size(141, 22);
             this.txtModifQuantiteMedicamentVisite.TabIndex = 10;
             // 
             // lblModifCommentaireVisite
             // 
             this.lblModifCommentaireVisite.AutoSize = true;
-            this.lblModifCommentaireVisite.Location = new System.Drawing.Point(454, 130);
-            this.lblModifCommentaireVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblModifCommentaireVisite.Location = new System.Drawing.Point(605, 160);
             this.lblModifCommentaireVisite.Name = "lblModifCommentaireVisite";
-            this.lblModifCommentaireVisite.Size = new System.Drawing.Size(74, 13);
+            this.lblModifCommentaireVisite.Size = new System.Drawing.Size(99, 17);
             this.lblModifCommentaireVisite.TabIndex = 9;
             this.lblModifCommentaireVisite.Text = "Commentaire :";
             // 
             // lblModifDateDebutVisite
             // 
             this.lblModifDateDebutVisite.AutoSize = true;
-            this.lblModifDateDebutVisite.Location = new System.Drawing.Point(269, 31);
-            this.lblModifDateDebutVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblModifDateDebutVisite.Location = new System.Drawing.Point(359, 38);
             this.lblModifDateDebutVisite.Name = "lblModifDateDebutVisite";
-            this.lblModifDateDebutVisite.Size = new System.Drawing.Size(130, 13);
+            this.lblModifDateDebutVisite.Size = new System.Drawing.Size(171, 17);
             this.lblModifDateDebutVisite.TabIndex = 6;
             this.lblModifDateDebutVisite.Text = "Heure / Jour début visite :";
             // 
             // lblModifMotifVisite
             // 
             this.lblModifMotifVisite.AutoSize = true;
-            this.lblModifMotifVisite.Location = new System.Drawing.Point(272, 130);
-            this.lblModifMotifVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblModifMotifVisite.Location = new System.Drawing.Point(363, 160);
             this.lblModifMotifVisite.Name = "lblModifMotifVisite";
-            this.lblModifMotifVisite.Size = new System.Drawing.Size(36, 13);
+            this.lblModifMotifVisite.Size = new System.Drawing.Size(46, 17);
             this.lblModifMotifVisite.TabIndex = 1;
             this.lblModifMotifVisite.Text = "Motif :";
             // 
             // txtModifMotifVisite
             // 
-            this.txtModifMotifVisite.Location = new System.Drawing.Point(312, 125);
-            this.txtModifMotifVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.txtModifMotifVisite.Location = new System.Drawing.Point(416, 154);
+            this.txtModifMotifVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtModifMotifVisite.Name = "txtModifMotifVisite";
-            this.txtModifMotifVisite.Size = new System.Drawing.Size(107, 20);
+            this.txtModifMotifVisite.Size = new System.Drawing.Size(141, 22);
             this.txtModifMotifVisite.TabIndex = 0;
             // 
             // pnlAjoutVisite
@@ -1054,38 +1071,37 @@ namespace InfirmerieGUI
             this.pnlAjoutVisite.Controls.Add(this.lblAjoutDateDebutVisite);
             this.pnlAjoutVisite.Controls.Add(this.lblAjoutMotifVisite);
             this.pnlAjoutVisite.Controls.Add(this.txtAjoutMotifVisite);
-            this.pnlAjoutVisite.Location = new System.Drawing.Point(101, 329);
-            this.pnlAjoutVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlAjoutVisite.Location = new System.Drawing.Point(135, 405);
+            this.pnlAjoutVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlAjoutVisite.Name = "pnlAjoutVisite";
-            this.pnlAjoutVisite.Size = new System.Drawing.Size(790, 388);
+            this.pnlAjoutVisite.Size = new System.Drawing.Size(1053, 478);
             this.pnlAjoutVisite.TabIndex = 16;
             this.pnlAjoutVisite.Visible = false;
             // 
             // lblAjoutEleveVisite
             // 
             this.lblAjoutEleveVisite.AutoSize = true;
-            this.lblAjoutEleveVisite.Location = new System.Drawing.Point(36, 47);
-            this.lblAjoutEleveVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAjoutEleveVisite.Location = new System.Drawing.Point(48, 58);
             this.lblAjoutEleveVisite.Name = "lblAjoutEleveVisite";
-            this.lblAjoutEleveVisite.Size = new System.Drawing.Size(40, 13);
+            this.lblAjoutEleveVisite.Size = new System.Drawing.Size(51, 17);
             this.lblAjoutEleveVisite.TabIndex = 25;
             this.lblAjoutEleveVisite.Text = "Eleve :";
             // 
             // cbAjoutEleveVisite
             // 
             this.cbAjoutEleveVisite.FormattingEnabled = true;
-            this.cbAjoutEleveVisite.Location = new System.Drawing.Point(81, 43);
+            this.cbAjoutEleveVisite.Location = new System.Drawing.Point(108, 53);
+            this.cbAjoutEleveVisite.Margin = new System.Windows.Forms.Padding(4);
             this.cbAjoutEleveVisite.Name = "cbAjoutEleveVisite";
-            this.cbAjoutEleveVisite.Size = new System.Drawing.Size(187, 21);
+            this.cbAjoutEleveVisite.Size = new System.Drawing.Size(248, 24);
             this.cbAjoutEleveVisite.TabIndex = 24;
             // 
             // lblAjoutMedicamentVisite
             // 
             this.lblAjoutMedicamentVisite.AutoSize = true;
-            this.lblAjoutMedicamentVisite.Location = new System.Drawing.Point(301, 257);
-            this.lblAjoutMedicamentVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAjoutMedicamentVisite.Location = new System.Drawing.Point(401, 316);
             this.lblAjoutMedicamentVisite.Name = "lblAjoutMedicamentVisite";
-            this.lblAjoutMedicamentVisite.Size = new System.Drawing.Size(74, 13);
+            this.lblAjoutMedicamentVisite.Size = new System.Drawing.Size(96, 17);
             this.lblAjoutMedicamentVisite.TabIndex = 21;
             this.lblAjoutMedicamentVisite.Text = "Medicament ?";
             // 
@@ -1093,18 +1109,18 @@ namespace InfirmerieGUI
             // 
             this.dtpAjoutDateFinVisite.CustomFormat = "dd MMMM, yyyy  |  HH:mm";
             this.dtpAjoutDateFinVisite.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpAjoutDateFinVisite.Location = new System.Drawing.Point(512, 48);
+            this.dtpAjoutDateFinVisite.Location = new System.Drawing.Point(683, 59);
+            this.dtpAjoutDateFinVisite.Margin = new System.Windows.Forms.Padding(4);
             this.dtpAjoutDateFinVisite.Name = "dtpAjoutDateFinVisite";
-            this.dtpAjoutDateFinVisite.Size = new System.Drawing.Size(200, 20);
+            this.dtpAjoutDateFinVisite.Size = new System.Drawing.Size(265, 22);
             this.dtpAjoutDateFinVisite.TabIndex = 20;
             // 
             // lblAjoutDateFinVisite
             // 
             this.lblAjoutDateFinVisite.AutoSize = true;
-            this.lblAjoutDateFinVisite.Location = new System.Drawing.Point(509, 24);
-            this.lblAjoutDateFinVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAjoutDateFinVisite.Location = new System.Drawing.Point(679, 30);
             this.lblAjoutDateFinVisite.Name = "lblAjoutDateFinVisite";
-            this.lblAjoutDateFinVisite.Size = new System.Drawing.Size(130, 13);
+            this.lblAjoutDateFinVisite.Size = new System.Drawing.Size(171, 17);
             this.lblAjoutDateFinVisite.TabIndex = 19;
             this.lblAjoutDateFinVisite.Text = "Heure / Jour début visite :";
             // 
@@ -1112,18 +1128,19 @@ namespace InfirmerieGUI
             // 
             this.dtpAjoutDateDebutVisite.CustomFormat = "dd MMMM, yyyy  |  HH:mm";
             this.dtpAjoutDateDebutVisite.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpAjoutDateDebutVisite.Location = new System.Drawing.Point(288, 47);
+            this.dtpAjoutDateDebutVisite.Location = new System.Drawing.Point(384, 58);
+            this.dtpAjoutDateDebutVisite.Margin = new System.Windows.Forms.Padding(4);
             this.dtpAjoutDateDebutVisite.Name = "dtpAjoutDateDebutVisite";
-            this.dtpAjoutDateDebutVisite.Size = new System.Drawing.Size(200, 20);
+            this.dtpAjoutDateDebutVisite.Size = new System.Drawing.Size(265, 22);
             this.dtpAjoutDateDebutVisite.TabIndex = 18;
             // 
             // chkbAjoutParentsPrevenusVisite
             // 
             this.chkbAjoutParentsPrevenusVisite.AutoSize = true;
-            this.chkbAjoutParentsPrevenusVisite.Location = new System.Drawing.Point(543, 197);
-            this.chkbAjoutParentsPrevenusVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.chkbAjoutParentsPrevenusVisite.Location = new System.Drawing.Point(724, 242);
+            this.chkbAjoutParentsPrevenusVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkbAjoutParentsPrevenusVisite.Name = "chkbAjoutParentsPrevenusVisite";
-            this.chkbAjoutParentsPrevenusVisite.Size = new System.Drawing.Size(119, 17);
+            this.chkbAjoutParentsPrevenusVisite.Size = new System.Drawing.Size(155, 21);
             this.chkbAjoutParentsPrevenusVisite.TabIndex = 17;
             this.chkbAjoutParentsPrevenusVisite.Text = "Parents Prevenus ?";
             this.chkbAjoutParentsPrevenusVisite.UseVisualStyleBackColor = true;
@@ -1131,10 +1148,10 @@ namespace InfirmerieGUI
             // chkbAjoutHospitalisationVisite
             // 
             this.chkbAjoutHospitalisationVisite.AutoSize = true;
-            this.chkbAjoutHospitalisationVisite.Location = new System.Drawing.Point(299, 197);
-            this.chkbAjoutHospitalisationVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.chkbAjoutHospitalisationVisite.Location = new System.Drawing.Point(399, 242);
+            this.chkbAjoutHospitalisationVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkbAjoutHospitalisationVisite.Name = "chkbAjoutHospitalisationVisite";
-            this.chkbAjoutHospitalisationVisite.Size = new System.Drawing.Size(103, 17);
+            this.chkbAjoutHospitalisationVisite.Size = new System.Drawing.Size(134, 21);
             this.chkbAjoutHospitalisationVisite.TabIndex = 16;
             this.chkbAjoutHospitalisationVisite.Text = "Hospitalisation ?";
             this.chkbAjoutHospitalisationVisite.UseVisualStyleBackColor = true;
@@ -1142,28 +1159,29 @@ namespace InfirmerieGUI
             // cbAjoutMedicamentVisite
             // 
             this.cbAjoutMedicamentVisite.FormattingEnabled = true;
-            this.cbAjoutMedicamentVisite.Location = new System.Drawing.Point(386, 254);
+            this.cbAjoutMedicamentVisite.Location = new System.Drawing.Point(515, 313);
+            this.cbAjoutMedicamentVisite.Margin = new System.Windows.Forms.Padding(4);
             this.cbAjoutMedicamentVisite.Name = "cbAjoutMedicamentVisite";
-            this.cbAjoutMedicamentVisite.Size = new System.Drawing.Size(107, 21);
+            this.cbAjoutMedicamentVisite.Size = new System.Drawing.Size(141, 24);
             this.cbAjoutMedicamentVisite.TabIndex = 15;
             this.cbAjoutMedicamentVisite.TextChanged += new System.EventHandler(this.cbAjoutMedicamentVisite_TextChanged);
             // 
             // txtAjoutCommentaireVisite
             // 
-            this.txtAjoutCommentaireVisite.Location = new System.Drawing.Point(548, 119);
-            this.txtAjoutCommentaireVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAjoutCommentaireVisite.Location = new System.Drawing.Point(731, 146);
+            this.txtAjoutCommentaireVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAjoutCommentaireVisite.MinimumSize = new System.Drawing.Size(4, 50);
             this.txtAjoutCommentaireVisite.Name = "txtAjoutCommentaireVisite";
-            this.txtAjoutCommentaireVisite.Size = new System.Drawing.Size(114, 50);
+            this.txtAjoutCommentaireVisite.Size = new System.Drawing.Size(151, 22);
             this.txtAjoutCommentaireVisite.TabIndex = 13;
             // 
             // chkbAjoutRenvoiDomicileVisite
             // 
             this.chkbAjoutRenvoiDomicileVisite.AutoSize = true;
-            this.chkbAjoutRenvoiDomicileVisite.Location = new System.Drawing.Point(418, 197);
-            this.chkbAjoutRenvoiDomicileVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.chkbAjoutRenvoiDomicileVisite.Location = new System.Drawing.Point(557, 242);
+            this.chkbAjoutRenvoiDomicileVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkbAjoutRenvoiDomicileVisite.Name = "chkbAjoutRenvoiDomicileVisite";
-            this.chkbAjoutRenvoiDomicileVisite.Size = new System.Drawing.Size(112, 17);
+            this.chkbAjoutRenvoiDomicileVisite.Size = new System.Drawing.Size(143, 21);
             this.chkbAjoutRenvoiDomicileVisite.TabIndex = 12;
             this.chkbAjoutRenvoiDomicileVisite.Text = "Renvoi Domicile ?";
             this.chkbAjoutRenvoiDomicileVisite.UseVisualStyleBackColor = true;
@@ -1171,59 +1189,55 @@ namespace InfirmerieGUI
             // lblAjoutQuantiteMedicamentVisite
             // 
             this.lblAjoutQuantiteMedicamentVisite.AutoSize = true;
-            this.lblAjoutQuantiteMedicamentVisite.Location = new System.Drawing.Point(509, 257);
-            this.lblAjoutQuantiteMedicamentVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAjoutQuantiteMedicamentVisite.Location = new System.Drawing.Point(679, 316);
             this.lblAjoutQuantiteMedicamentVisite.Name = "lblAjoutQuantiteMedicamentVisite";
-            this.lblAjoutQuantiteMedicamentVisite.Size = new System.Drawing.Size(117, 13);
+            this.lblAjoutQuantiteMedicamentVisite.Size = new System.Drawing.Size(154, 17);
             this.lblAjoutQuantiteMedicamentVisite.TabIndex = 11;
             this.lblAjoutQuantiteMedicamentVisite.Text = "Quantité Medicament ?";
             this.lblAjoutQuantiteMedicamentVisite.Visible = false;
             // 
             // txtAjoutQuantiteMedicamentVisite
             // 
-            this.txtAjoutQuantiteMedicamentVisite.Location = new System.Drawing.Point(630, 254);
-            this.txtAjoutQuantiteMedicamentVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAjoutQuantiteMedicamentVisite.Location = new System.Drawing.Point(840, 313);
+            this.txtAjoutQuantiteMedicamentVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAjoutQuantiteMedicamentVisite.Name = "txtAjoutQuantiteMedicamentVisite";
-            this.txtAjoutQuantiteMedicamentVisite.Size = new System.Drawing.Size(107, 20);
+            this.txtAjoutQuantiteMedicamentVisite.Size = new System.Drawing.Size(141, 22);
             this.txtAjoutQuantiteMedicamentVisite.TabIndex = 10;
             this.txtAjoutQuantiteMedicamentVisite.Visible = false;
             // 
             // lblAjoutCommentaireVisite
             // 
             this.lblAjoutCommentaireVisite.AutoSize = true;
-            this.lblAjoutCommentaireVisite.Location = new System.Drawing.Point(470, 122);
-            this.lblAjoutCommentaireVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAjoutCommentaireVisite.Location = new System.Drawing.Point(627, 150);
             this.lblAjoutCommentaireVisite.Name = "lblAjoutCommentaireVisite";
-            this.lblAjoutCommentaireVisite.Size = new System.Drawing.Size(74, 13);
+            this.lblAjoutCommentaireVisite.Size = new System.Drawing.Size(99, 17);
             this.lblAjoutCommentaireVisite.TabIndex = 9;
             this.lblAjoutCommentaireVisite.Text = "Commentaire :";
             // 
             // lblAjoutDateDebutVisite
             // 
             this.lblAjoutDateDebutVisite.AutoSize = true;
-            this.lblAjoutDateDebutVisite.Location = new System.Drawing.Point(285, 23);
-            this.lblAjoutDateDebutVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAjoutDateDebutVisite.Location = new System.Drawing.Point(380, 28);
             this.lblAjoutDateDebutVisite.Name = "lblAjoutDateDebutVisite";
-            this.lblAjoutDateDebutVisite.Size = new System.Drawing.Size(130, 13);
+            this.lblAjoutDateDebutVisite.Size = new System.Drawing.Size(171, 17);
             this.lblAjoutDateDebutVisite.TabIndex = 6;
             this.lblAjoutDateDebutVisite.Text = "Heure / Jour début visite :";
             // 
             // lblAjoutMotifVisite
             // 
             this.lblAjoutMotifVisite.AutoSize = true;
-            this.lblAjoutMotifVisite.Location = new System.Drawing.Point(288, 122);
-            this.lblAjoutMotifVisite.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAjoutMotifVisite.Location = new System.Drawing.Point(384, 150);
             this.lblAjoutMotifVisite.Name = "lblAjoutMotifVisite";
-            this.lblAjoutMotifVisite.Size = new System.Drawing.Size(36, 13);
+            this.lblAjoutMotifVisite.Size = new System.Drawing.Size(46, 17);
             this.lblAjoutMotifVisite.TabIndex = 1;
             this.lblAjoutMotifVisite.Text = "Motif :";
             // 
             // txtAjoutMotifVisite
             // 
-            this.txtAjoutMotifVisite.Location = new System.Drawing.Point(328, 117);
-            this.txtAjoutMotifVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAjoutMotifVisite.Location = new System.Drawing.Point(437, 144);
+            this.txtAjoutMotifVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAjoutMotifVisite.Name = "txtAjoutMotifVisite";
-            this.txtAjoutMotifVisite.Size = new System.Drawing.Size(107, 20);
+            this.txtAjoutMotifVisite.Size = new System.Drawing.Size(141, 22);
             this.txtAjoutMotifVisite.TabIndex = 0;
             // 
             // lblVisites
@@ -1231,10 +1245,9 @@ namespace InfirmerieGUI
             this.lblVisites.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblVisites.AutoSize = true;
             this.lblVisites.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
-            this.lblVisites.Location = new System.Drawing.Point(465, 7);
-            this.lblVisites.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVisites.Location = new System.Drawing.Point(620, 9);
             this.lblVisites.Name = "lblVisites";
-            this.lblVisites.Size = new System.Drawing.Size(90, 33);
+            this.lblVisites.Size = new System.Drawing.Size(111, 41);
             this.lblVisites.TabIndex = 0;
             this.lblVisites.Text = "Visites";
             // 
@@ -1243,10 +1256,10 @@ namespace InfirmerieGUI
             this.btnAjouterVisite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAjouterVisite.BackColor = System.Drawing.Color.LightGreen;
             this.btnAjouterVisite.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnAjouterVisite.Location = new System.Drawing.Point(833, 22);
-            this.btnAjouterVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAjouterVisite.Location = new System.Drawing.Point(1111, 27);
+            this.btnAjouterVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAjouterVisite.Name = "btnAjouterVisite";
-            this.btnAjouterVisite.Size = new System.Drawing.Size(68, 24);
+            this.btnAjouterVisite.Size = new System.Drawing.Size(91, 30);
             this.btnAjouterVisite.TabIndex = 4;
             this.btnAjouterVisite.Text = "Ajouter";
             this.btnAjouterVisite.UseVisualStyleBackColor = false;
@@ -1259,13 +1272,13 @@ namespace InfirmerieGUI
             this.dgvVisites.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvVisites.BackgroundColor = System.Drawing.Color.White;
             this.dgvVisites.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVisites.Location = new System.Drawing.Point(112, 57);
-            this.dgvVisites.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvVisites.Location = new System.Drawing.Point(149, 70);
+            this.dgvVisites.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvVisites.Name = "dgvVisites";
             this.dgvVisites.ReadOnly = true;
             this.dgvVisites.RowHeadersWidth = 51;
             this.dgvVisites.RowTemplate.Height = 24;
-            this.dgvVisites.Size = new System.Drawing.Size(790, 242);
+            this.dgvVisites.Size = new System.Drawing.Size(1053, 298);
             this.dgvVisites.TabIndex = 1;
             this.dgvVisites.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVisites_CellClick);
             this.dgvVisites.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dgvVisites_SortCompare);
@@ -1276,10 +1289,10 @@ namespace InfirmerieGUI
             this.btnSupprimerVisite.BackColor = System.Drawing.Color.IndianRed;
             this.btnSupprimerVisite.FlatAppearance.BorderSize = 0;
             this.btnSupprimerVisite.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnSupprimerVisite.Location = new System.Drawing.Point(640, 22);
-            this.btnSupprimerVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSupprimerVisite.Location = new System.Drawing.Point(853, 27);
+            this.btnSupprimerVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSupprimerVisite.Name = "btnSupprimerVisite";
-            this.btnSupprimerVisite.Size = new System.Drawing.Size(88, 24);
+            this.btnSupprimerVisite.Size = new System.Drawing.Size(117, 30);
             this.btnSupprimerVisite.TabIndex = 2;
             this.btnSupprimerVisite.Text = "Supprimer";
             this.btnSupprimerVisite.UseVisualStyleBackColor = false;
@@ -1290,27 +1303,204 @@ namespace InfirmerieGUI
             this.btnConfirmerVisite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConfirmerVisite.BackColor = System.Drawing.Color.LemonChiffon;
             this.btnConfirmerVisite.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btnConfirmerVisite.Location = new System.Drawing.Point(732, 22);
-            this.btnConfirmerVisite.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConfirmerVisite.Location = new System.Drawing.Point(976, 27);
+            this.btnConfirmerVisite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfirmerVisite.Name = "btnConfirmerVisite";
-            this.btnConfirmerVisite.Size = new System.Drawing.Size(97, 24);
+            this.btnConfirmerVisite.Size = new System.Drawing.Size(129, 30);
             this.btnConfirmerVisite.TabIndex = 3;
             this.btnConfirmerVisite.Text = "Confirmer";
             this.btnConfirmerVisite.UseVisualStyleBackColor = false;
             this.btnConfirmerVisite.Click += new System.EventHandler(this.btnConfirmerVisite_Click);
             // 
+            // pnlStats
+            // 
+            this.pnlStats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlStats.Controls.Add(this.panel1);
+            this.pnlStats.Controls.Add(this.pnlGraphique);
+            this.pnlStats.Controls.Add(this.pnlResults);
+            this.pnlStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlStats.Location = new System.Drawing.Point(329, 0);
+            this.pnlStats.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlStats.Name = "pnlStats";
+            this.pnlStats.Size = new System.Drawing.Size(1379, 780);
+            this.pnlStats.TabIndex = 23;
+            // 
+            // pnlGraphique
+            // 
+            this.pnlGraphique.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphique.Controls.Add(this.Graphique);
+            this.pnlGraphique.Location = new System.Drawing.Point(10, 372);
+            this.pnlGraphique.Name = "pnlGraphique";
+            this.pnlGraphique.Size = new System.Drawing.Size(1062, 360);
+            this.pnlGraphique.TabIndex = 1;
+            // 
+            // Graphique
+            // 
+            this.Graphique.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea9.Name = "ChartArea1";
+            this.Graphique.ChartAreas.Add(chartArea9);
+            legend9.Name = "Legend1";
+            this.Graphique.Legends.Add(legend9);
+            this.Graphique.Location = new System.Drawing.Point(14, 11);
+            this.Graphique.Name = "Graphique";
+            this.Graphique.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Nombre de visites par mois";
+            series9.Points.Add(dataPoint97);
+            series9.Points.Add(dataPoint98);
+            series9.Points.Add(dataPoint99);
+            series9.Points.Add(dataPoint100);
+            series9.Points.Add(dataPoint101);
+            series9.Points.Add(dataPoint102);
+            series9.Points.Add(dataPoint103);
+            series9.Points.Add(dataPoint104);
+            series9.Points.Add(dataPoint105);
+            series9.Points.Add(dataPoint106);
+            series9.Points.Add(dataPoint107);
+            series9.Points.Add(dataPoint108);
+            this.Graphique.Series.Add(series9);
+            this.Graphique.Size = new System.Drawing.Size(1030, 342);
+            this.Graphique.TabIndex = 0;
+            this.Graphique.Text = "chart1";
+            // 
+            // pnlResults
+            // 
+            this.pnlResults.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlResults.Controls.Add(this.dtpFinVisite);
+            this.pnlResults.Controls.Add(this.lblFinVisite);
+            this.pnlResults.Controls.Add(this.dtpDebutVisite);
+            this.pnlResults.Controls.Add(this.lblDebutVisite);
+            this.pnlResults.Controls.Add(this.lblNbEleveTotal);
+            this.pnlResults.Controls.Add(this.lblResultNbVisites);
+            this.pnlResults.Controls.Add(this.pnlSeparator);
+            this.pnlResults.Controls.Add(this.lblResultNbEleve);
+            this.pnlResults.Controls.Add(this.lblNbTotalVisites);
+            this.pnlResults.Controls.Add(this.label1);
+            this.pnlResults.Location = new System.Drawing.Point(10, 30);
+            this.pnlResults.Name = "pnlResults";
+            this.pnlResults.Size = new System.Drawing.Size(1113, 300);
+            this.pnlResults.TabIndex = 0;
+            // 
+            // lblResultNbVisites
+            // 
+            this.lblResultNbVisites.AutoSize = true;
+            this.lblResultNbVisites.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResultNbVisites.Location = new System.Drawing.Point(304, 131);
+            this.lblResultNbVisites.Name = "lblResultNbVisites";
+            this.lblResultNbVisites.Size = new System.Drawing.Size(0, 29);
+            this.lblResultNbVisites.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(293, 131);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 29);
+            this.label1.TabIndex = 5;
+            // 
+            // lblNbTotalVisites
+            // 
+            this.lblNbTotalVisites.AutoSize = true;
+            this.lblNbTotalVisites.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNbTotalVisites.Location = new System.Drawing.Point(10, 131);
+            this.lblNbTotalVisites.Name = "lblNbTotalVisites";
+            this.lblNbTotalVisites.Size = new System.Drawing.Size(286, 29);
+            this.lblNbTotalVisites.TabIndex = 4;
+            this.lblNbTotalVisites.Text = " Nombre total de visites:";
+            // 
+            // lblResultNbEleve
+            // 
+            this.lblResultNbEleve.AutoSize = true;
+            this.lblResultNbEleve.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResultNbEleve.Location = new System.Drawing.Point(293, 28);
+            this.lblResultNbEleve.Name = "lblResultNbEleve";
+            this.lblResultNbEleve.Size = new System.Drawing.Size(0, 29);
+            this.lblResultNbEleve.TabIndex = 3;
+            // 
+            // lblNbEleveTotal
+            // 
+            this.lblNbEleveTotal.AutoSize = true;
+            this.lblNbEleveTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNbEleveTotal.Location = new System.Drawing.Point(9, 28);
+            this.lblNbEleveTotal.Name = "lblNbEleveTotal";
+            this.lblNbEleveTotal.Size = new System.Drawing.Size(272, 29);
+            this.lblNbEleveTotal.TabIndex = 2;
+            this.lblNbEleveTotal.Text = " Nombre total d\'élèves:";
+            // 
+            // pnlSeparator
+            // 
+            this.pnlSeparator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSeparator.Location = new System.Drawing.Point(403, 6);
+            this.pnlSeparator.Name = "pnlSeparator";
+            this.pnlSeparator.Size = new System.Drawing.Size(2, 234);
+            this.pnlSeparator.TabIndex = 7;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(34, 336);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1000, 2);
+            this.panel1.TabIndex = 8;
+            // 
+            // lblDebutVisite
+            // 
+            this.lblDebutVisite.AutoSize = true;
+            this.lblDebutVisite.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDebutVisite.Location = new System.Drawing.Point(411, 9);
+            this.lblDebutVisite.Name = "lblDebutVisite";
+            this.lblDebutVisite.Size = new System.Drawing.Size(52, 26);
+            this.lblDebutVisite.TabIndex = 8;
+            this.lblDebutVisite.Text = "Du :";
+            // 
+            // dtpDebutVisite
+            // 
+            this.dtpDebutVisite.CustomFormat = "dd MMMM yyyy";
+            this.dtpDebutVisite.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDebutVisite.Location = new System.Drawing.Point(469, 5);
+            this.dtpDebutVisite.Name = "dtpDebutVisite";
+            this.dtpDebutVisite.Size = new System.Drawing.Size(249, 32);
+            this.dtpDebutVisite.TabIndex = 9;
+            // 
+            // lblFinVisite
+            // 
+            this.lblFinVisite.AutoSize = true;
+            this.lblFinVisite.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFinVisite.Location = new System.Drawing.Point(739, 7);
+            this.lblFinVisite.Name = "lblFinVisite";
+            this.lblFinVisite.Size = new System.Drawing.Size(51, 26);
+            this.lblFinVisite.TabIndex = 10;
+            this.lblFinVisite.Text = "Au :";
+            // 
+            // dtpFinVisite
+            // 
+            this.dtpFinVisite.CustomFormat = "dd MMMM yyyy";
+            this.dtpFinVisite.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFinVisite.Location = new System.Drawing.Point(796, 5);
+            this.dtpFinVisite.Name = "dtpFinVisite";
+            this.dtpFinVisite.Size = new System.Drawing.Size(261, 32);
+            this.dtpFinVisite.TabIndex = 11;
+            // 
             // FrmGestionInfirmerie
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 656);
+            this.ClientSize = new System.Drawing.Size(1653, 807);
+            this.Controls.Add(this.pnlStats);
             this.Controls.Add(this.pnlVisites);
             this.Controls.Add(this.pnlEleves);
             this.Controls.Add(this.pnlMedicaments);
             this.Controls.Add(this.msMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.msMenu;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmGestionInfirmerie";
             this.Text = "Gestion Infirmerie | Accueil";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEleves)).EndInit();
@@ -1336,6 +1526,12 @@ namespace InfirmerieGUI
             this.pnlAjoutVisite.ResumeLayout(false);
             this.pnlAjoutVisite.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisites)).EndInit();
+            this.pnlStats.ResumeLayout(false);
+            this.pnlGraphique.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Graphique)).EndInit();
+            this.pnlResults.ResumeLayout(false);
+            this.pnlResults.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1445,5 +1641,21 @@ namespace InfirmerieGUI
         private System.Windows.Forms.Label lblAjoutEleveVisite;
         private System.Windows.Forms.ComboBox cbAjoutEleveVisite;
         private System.Windows.Forms.TextBox txtModifIdVisite;
+        private System.Windows.Forms.Panel pnlStats;
+        private System.Windows.Forms.Panel pnlGraphique;
+        private System.Windows.Forms.Panel pnlResults;
+        private System.Windows.Forms.Label lblNbEleveTotal;
+        private System.Windows.Forms.Label lblResultNbEleve;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNbTotalVisites;
+        private System.Windows.Forms.Label lblResultNbVisites;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Graphique;
+        private System.Windows.Forms.Panel pnlSeparator;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblDebutVisite;
+        private System.Windows.Forms.DateTimePicker dtpFinVisite;
+        private System.Windows.Forms.Label lblFinVisite;
+        private System.Windows.Forms.DateTimePicker dtpDebutVisite;
     }
 }
