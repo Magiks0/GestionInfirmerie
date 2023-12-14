@@ -31,21 +31,21 @@ namespace InfirmerieGUI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestionInfirmerie));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint25 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 52D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint26 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 45D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint27 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 25D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint28 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint29 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint30 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint31 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint32 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint33 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint34 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint35 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint36 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 75D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint37 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 52D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint38 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 45D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint39 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 25D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint40 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint41 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint42 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint43 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint44 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint45 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint46 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint47 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint48 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 75D);
             this.lblAccueil = new System.Windows.Forms.Label();
             this.dgvEleves = new System.Windows.Forms.DataGridView();
             this.btnSupprimerEleve = new System.Windows.Forms.Button();
@@ -151,6 +151,7 @@ namespace InfirmerieGUI
             this.pnlStats = new System.Windows.Forms.Panel();
             this.pnlSeparatorHorizontal = new System.Windows.Forms.Panel();
             this.pnlGraphique = new System.Windows.Forms.Panel();
+            this.lblGraphNbVisite = new System.Windows.Forms.Label();
             this.Graphique = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnlResults = new System.Windows.Forms.Panel();
             this.lblVisiteParDateResult = new System.Windows.Forms.Label();
@@ -175,7 +176,8 @@ namespace InfirmerieGUI
             this.lblNbTotalVisites = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.lblGraphNbVisite = new System.Windows.Forms.Label();
+            this.dtpGraphAnnee = new System.Windows.Forms.DateTimePicker();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEleves)).BeginInit();
             this.msMenu.SuspendLayout();
             this.pnlModif.SuspendLayout();
@@ -270,7 +272,6 @@ namespace InfirmerieGUI
             // 
             // msMenu
             // 
-            this.msMenu.AutoSize = false;
             this.msMenu.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.msMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.msMenu.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -284,7 +285,7 @@ namespace InfirmerieGUI
             this.msMenu.Name = "msMenu";
             this.msMenu.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.msMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.msMenu.Size = new System.Drawing.Size(301, 807);
+            this.msMenu.Size = new System.Drawing.Size(305, 807);
             this.msMenu.TabIndex = 5;
             this.msMenu.Text = "menuStrip1";
             // 
@@ -296,7 +297,7 @@ namespace InfirmerieGUI
             this.visitesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.visitesToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 45, 0, 0);
             this.visitesToolStripMenuItem.Name = "visitesToolStripMenuItem";
-            this.visitesToolStripMenuItem.Size = new System.Drawing.Size(295, 53);
+            this.visitesToolStripMenuItem.Size = new System.Drawing.Size(294, 53);
             this.visitesToolStripMenuItem.Text = "Visites";
             this.visitesToolStripMenuItem.Click += new System.EventHandler(this.visitesToolStripMenuItem_Click);
             // 
@@ -307,7 +308,7 @@ namespace InfirmerieGUI
             this.élèvesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.élèvesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.élèvesToolStripMenuItem.Name = "élèvesToolStripMenuItem";
-            this.élèvesToolStripMenuItem.Size = new System.Drawing.Size(295, 53);
+            this.élèvesToolStripMenuItem.Size = new System.Drawing.Size(294, 53);
             this.élèvesToolStripMenuItem.Text = "Élèves";
             this.élèvesToolStripMenuItem.Click += new System.EventHandler(this.élèvesToolStripMenuItem_Click);
             // 
@@ -318,7 +319,7 @@ namespace InfirmerieGUI
             this.médicamentsToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.médicamentsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.médicamentsToolStripMenuItem.Name = "médicamentsToolStripMenuItem";
-            this.médicamentsToolStripMenuItem.Size = new System.Drawing.Size(295, 53);
+            this.médicamentsToolStripMenuItem.Size = new System.Drawing.Size(294, 53);
             this.médicamentsToolStripMenuItem.Text = "Médicaments";
             this.médicamentsToolStripMenuItem.Click += new System.EventHandler(this.médicamentsToolStripMenuItem_Click);
             // 
@@ -329,7 +330,7 @@ namespace InfirmerieGUI
             this.statistiquesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.statistiquesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
-            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(295, 53);
+            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(294, 53);
             this.statistiquesToolStripMenuItem.Text = "Statistiques";
             this.statistiquesToolStripMenuItem.Click += new System.EventHandler(this.statistiquesToolStripMenuItem_Click);
             // 
@@ -498,7 +499,7 @@ namespace InfirmerieGUI
             this.pnlEleves.Controls.Add(this.dgvEleves);
             this.pnlEleves.Controls.Add(this.btnSupprimerEleve);
             this.pnlEleves.Controls.Add(this.btnConfirmereleve);
-            this.pnlEleves.Location = new System.Drawing.Point(323, 23);
+            this.pnlEleves.Location = new System.Drawing.Point(320, 27);
             this.pnlEleves.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlEleves.Name = "pnlEleves";
             this.pnlEleves.Size = new System.Drawing.Size(1379, 780);
@@ -861,7 +862,7 @@ namespace InfirmerieGUI
             this.pnlVisites.Controls.Add(this.dgvVisites);
             this.pnlVisites.Controls.Add(this.btnSupprimerVisite);
             this.pnlVisites.Controls.Add(this.btnConfirmerVisite);
-            this.pnlVisites.Location = new System.Drawing.Point(326, 13);
+            this.pnlVisites.Location = new System.Drawing.Point(320, 11);
             this.pnlVisites.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlVisites.Name = "pnlVisites";
             this.pnlVisites.Size = new System.Drawing.Size(1379, 780);
@@ -1333,7 +1334,7 @@ namespace InfirmerieGUI
             this.pnlStats.Controls.Add(this.pnlGraphique);
             this.pnlStats.Controls.Add(this.pnlResults);
             this.pnlStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlStats.Location = new System.Drawing.Point(329, 0);
+            this.pnlStats.Location = new System.Drawing.Point(320, 0);
             this.pnlStats.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlStats.Name = "pnlStats";
             this.pnlStats.Size = new System.Drawing.Size(1379, 780);
@@ -1354,6 +1355,7 @@ namespace InfirmerieGUI
             this.pnlGraphique.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphique.Controls.Add(this.dtpGraphAnnee);
             this.pnlGraphique.Controls.Add(this.lblGraphNbVisite);
             this.pnlGraphique.Controls.Add(this.Graphique);
             this.pnlGraphique.Location = new System.Drawing.Point(10, 369);
@@ -1361,34 +1363,44 @@ namespace InfirmerieGUI
             this.pnlGraphique.Size = new System.Drawing.Size(1062, 408);
             this.pnlGraphique.TabIndex = 1;
             // 
+            // lblGraphNbVisite
+            // 
+            this.lblGraphNbVisite.AutoSize = true;
+            this.lblGraphNbVisite.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGraphNbVisite.Location = new System.Drawing.Point(24, 2);
+            this.lblGraphNbVisite.Name = "lblGraphNbVisite";
+            this.lblGraphNbVisite.Size = new System.Drawing.Size(353, 29);
+            this.lblGraphNbVisite.TabIndex = 1;
+            this.lblGraphNbVisite.Text = "Visites par mois pour l\'année :";
+            // 
             // Graphique
             // 
             this.Graphique.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.Name = "ChartArea1";
-            this.Graphique.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.Graphique.Legends.Add(legend3);
+            chartArea4.Name = "ChartArea1";
+            this.Graphique.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.Graphique.Legends.Add(legend4);
             this.Graphique.Location = new System.Drawing.Point(24, 45);
             this.Graphique.Name = "Graphique";
             this.Graphique.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Nombre de visites par mois";
-            series3.Points.Add(dataPoint25);
-            series3.Points.Add(dataPoint26);
-            series3.Points.Add(dataPoint27);
-            series3.Points.Add(dataPoint28);
-            series3.Points.Add(dataPoint29);
-            series3.Points.Add(dataPoint30);
-            series3.Points.Add(dataPoint31);
-            series3.Points.Add(dataPoint32);
-            series3.Points.Add(dataPoint33);
-            series3.Points.Add(dataPoint34);
-            series3.Points.Add(dataPoint35);
-            series3.Points.Add(dataPoint36);
-            this.Graphique.Series.Add(series3);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Nombre de visites par mois";
+            series4.Points.Add(dataPoint37);
+            series4.Points.Add(dataPoint38);
+            series4.Points.Add(dataPoint39);
+            series4.Points.Add(dataPoint40);
+            series4.Points.Add(dataPoint41);
+            series4.Points.Add(dataPoint42);
+            series4.Points.Add(dataPoint43);
+            series4.Points.Add(dataPoint44);
+            series4.Points.Add(dataPoint45);
+            series4.Points.Add(dataPoint46);
+            series4.Points.Add(dataPoint47);
+            series4.Points.Add(dataPoint48);
+            this.Graphique.Series.Add(series4);
             this.Graphique.Size = new System.Drawing.Size(1030, 349);
             this.Graphique.TabIndex = 0;
             this.Graphique.Text = "chart1";
@@ -1426,7 +1438,7 @@ namespace InfirmerieGUI
             // lblVisiteParDateResult
             // 
             this.lblVisiteParDateResult.AutoSize = true;
-            this.lblVisiteParDateResult.Location = new System.Drawing.Point(919, 63);
+            this.lblVisiteParDateResult.Location = new System.Drawing.Point(1000, 63);
             this.lblVisiteParDateResult.Name = "lblVisiteParDateResult";
             this.lblVisiteParDateResult.Size = new System.Drawing.Size(24, 26);
             this.lblVisiteParDateResult.TabIndex = 22;
@@ -1444,7 +1456,7 @@ namespace InfirmerieGUI
             // lblNbMedicamentDonnesParVisiteResult
             // 
             this.lblNbMedicamentDonnesParVisiteResult.AutoSize = true;
-            this.lblNbMedicamentDonnesParVisiteResult.Location = new System.Drawing.Point(919, 261);
+            this.lblNbMedicamentDonnesParVisiteResult.Location = new System.Drawing.Point(1000, 261);
             this.lblNbMedicamentDonnesParVisiteResult.Name = "lblNbMedicamentDonnesParVisiteResult";
             this.lblNbMedicamentDonnesParVisiteResult.Size = new System.Drawing.Size(24, 26);
             this.lblNbMedicamentDonnesParVisiteResult.TabIndex = 20;
@@ -1455,14 +1467,14 @@ namespace InfirmerieGUI
             this.lblNbMedicamentDonnesParVisite.AutoSize = true;
             this.lblNbMedicamentDonnesParVisite.Location = new System.Drawing.Point(413, 261);
             this.lblNbMedicamentDonnesParVisite.Name = "lblNbMedicamentDonnesParVisite";
-            this.lblNbMedicamentDonnesParVisite.Size = new System.Drawing.Size(437, 26);
+            this.lblNbMedicamentDonnesParVisite.Size = new System.Drawing.Size(509, 26);
             this.lblNbMedicamentDonnesParVisite.TabIndex = 19;
-            this.lblNbMedicamentDonnesParVisite.Text = "Nombre de médicaments donnés pas visite:";
+            this.lblNbMedicamentDonnesParVisite.Text = "Nombre moyen de médicaments donnés pas visite:";
             // 
             // lblMinutes
             // 
             this.lblMinutes.AutoSize = true;
-            this.lblMinutes.Location = new System.Drawing.Point(949, 212);
+            this.lblMinutes.Location = new System.Drawing.Point(1030, 212);
             this.lblMinutes.Name = "lblMinutes";
             this.lblMinutes.Size = new System.Drawing.Size(48, 26);
             this.lblMinutes.TabIndex = 18;
@@ -1471,7 +1483,7 @@ namespace InfirmerieGUI
             // lblTempsMoyenParVisiteResult
             // 
             this.lblTempsMoyenParVisiteResult.AutoSize = true;
-            this.lblTempsMoyenParVisiteResult.Location = new System.Drawing.Point(919, 212);
+            this.lblTempsMoyenParVisiteResult.Location = new System.Drawing.Point(1000, 212);
             this.lblTempsMoyenParVisiteResult.Name = "lblTempsMoyenParVisiteResult";
             this.lblTempsMoyenParVisiteResult.Size = new System.Drawing.Size(24, 26);
             this.lblTempsMoyenParVisiteResult.TabIndex = 17;
@@ -1489,7 +1501,7 @@ namespace InfirmerieGUI
             // lblNbVisiteParEleveResult
             // 
             this.lblNbVisiteParEleveResult.AutoSize = true;
-            this.lblNbVisiteParEleveResult.Location = new System.Drawing.Point(919, 160);
+            this.lblNbVisiteParEleveResult.Location = new System.Drawing.Point(1000, 160);
             this.lblNbVisiteParEleveResult.Name = "lblNbVisiteParEleveResult";
             this.lblNbVisiteParEleveResult.Size = new System.Drawing.Size(24, 26);
             this.lblNbVisiteParEleveResult.TabIndex = 15;
@@ -1507,7 +1519,7 @@ namespace InfirmerieGUI
             // lblNbMedicamentDonnesResult
             // 
             this.lblNbMedicamentDonnesResult.AutoSize = true;
-            this.lblNbMedicamentDonnesResult.Location = new System.Drawing.Point(919, 112);
+            this.lblNbMedicamentDonnesResult.Location = new System.Drawing.Point(1000, 112);
             this.lblNbMedicamentDonnesResult.Name = "lblNbMedicamentDonnesResult";
             this.lblNbMedicamentDonnesResult.Size = new System.Drawing.Size(24, 26);
             this.lblNbMedicamentDonnesResult.TabIndex = 13;
@@ -1530,6 +1542,7 @@ namespace InfirmerieGUI
             this.dtpFinVisite.Name = "dtpFinVisite";
             this.dtpFinVisite.Size = new System.Drawing.Size(261, 32);
             this.dtpFinVisite.TabIndex = 11;
+            this.dtpFinVisite.ValueChanged += new System.EventHandler(this.dtpFinVisite_ValueChanged);
             // 
             // lblFinVisite
             // 
@@ -1549,6 +1562,8 @@ namespace InfirmerieGUI
             this.dtpDebutVisite.Name = "dtpDebutVisite";
             this.dtpDebutVisite.Size = new System.Drawing.Size(249, 32);
             this.dtpDebutVisite.TabIndex = 9;
+            this.dtpDebutVisite.Value = new System.DateTime(2022, 12, 14, 10, 5, 0, 0);
+            this.dtpDebutVisite.ValueChanged += new System.EventHandler(this.dtpDebutVisite_ValueChanged);
             // 
             // lblDebutVisite
             // 
@@ -1617,15 +1632,17 @@ namespace InfirmerieGUI
             this.label1.Size = new System.Drawing.Size(0, 29);
             this.label1.TabIndex = 5;
             // 
-            // lblGraphNbVisite
+            // dtpGraphAnnee
             // 
-            this.lblGraphNbVisite.AutoSize = true;
-            this.lblGraphNbVisite.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGraphNbVisite.Location = new System.Drawing.Point(24, 2);
-            this.lblGraphNbVisite.Name = "lblGraphNbVisite";
-            this.lblGraphNbVisite.Size = new System.Drawing.Size(194, 29);
-            this.lblGraphNbVisite.TabIndex = 1;
-            this.lblGraphNbVisite.Text = "Visites par mois";
+            this.dtpGraphAnnee.CustomFormat = "yyyy";
+            this.dtpGraphAnnee.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpGraphAnnee.Location = new System.Drawing.Point(383, 2);
+            this.dtpGraphAnnee.Name = "dtpGraphAnnee";
+            this.dtpGraphAnnee.ShowUpDown = true;
+            this.dtpGraphAnnee.Size = new System.Drawing.Size(108, 32);
+            this.dtpGraphAnnee.TabIndex = 23;
+            this.dtpGraphAnnee.Value = new System.DateTime(2023, 12, 14, 10, 28, 47, 0);
+            this.dtpGraphAnnee.ValueChanged += new System.EventHandler(this.dtpGraphAnnee_ValueChanged);
             // 
             // FrmGestionInfirmerie
             // 
@@ -1673,6 +1690,7 @@ namespace InfirmerieGUI
             this.pnlResults.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1809,5 +1827,7 @@ namespace InfirmerieGUI
         private System.Windows.Forms.Label lblNbVisiteParDate;
         private System.Windows.Forms.Label lblVisiteParDateResult;
         private System.Windows.Forms.Label lblGraphNbVisite;
+        private System.Windows.Forms.DateTimePicker dtpGraphAnnee;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

@@ -56,30 +56,47 @@ namespace InfirmerieDAL
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
                 command.CommandText = @"
-                    SELECT 
-                        (SELECT COUNT([id_visite]) FROM [GestionInfirmerie].[dbo].[Visite] WHERE [date_visite] > @DateDebut AND [date_visite] < @DateFin) AS NbTotalVisitesSurPeriode,
-                        (SELECT SUM(quantite_medicament_visite) FROM [GestionInfirmerie].[dbo].[Visite] WHERE [date_visite] > @DateDebut AND [date_visite] < @DateFin) AS NbTotalMedicamentsParVisiteSurPeriode,
-                        (SELECT AVG(DATEDIFF(MINUTE, v.heure_debut_visite, v.heure_fin_visite)) FROM Visite v WHERE [date_visite] > @DateDebut AND [date_visite] < @DateFin) AS DureeAvgParVisiteSurPeriode,
-                        (SELECT (CAST(COUNT(*) AS DECIMAL) / CAST((SELECT COUNT(*) FROM Eleve) AS DECIMAL)) FROM Visite WHERE [date_visite] > @DateDebut AND [date_visite] < @DateFin) AS NbVisitesMoyenParEleveParVisiteSurPeriode,
-                        (SELECT AVG(quantite_medicament_visite) FROM Visite WHERE [date_visite] > @DateDebut AND [date_visite] < @DateFin) AS MbAvgMedicParVisiteSurPeriode;
-                ";
+        SELECT 
+            (SELECT COUNT([id_visite]) FROM [GestionInfirmerie].[dbo].[Visite] WHERE CONVERT(DATE, [date_visite]) BETWEEN @DateDebut AND @DateFin) AS NbTotalVisitesSurPeriode,
+            (SELECT SUM(quantite_medicament_visite) FROM [GestionInfirmerie].[dbo].[Visite] WHERE CONVERT(DATE, [date_visite]) BETWEEN @DateDebut AND @DateFin) AS NbTotalMedicamentsParVisiteSurPeriode,
+            (SELECT AVG(DATEDIFF(MINUTE, v.heure_debut_visite, v.heure_fin_visite)) FROM Visite v WHERE CONVERT(DATE, [date_visite]) BETWEEN @DateDebut AND @DateFin) AS DureeAvgParVisiteSurPeriode,
+            (SELECT (CAST(COUNT(*) AS DECIMAL) / CAST((SELECT COUNT(*) FROM Eleve) AS DECIMAL)) FROM Visite WHERE CONVERT(DATE, [date_visite]) BETWEEN @DateDebut AND @DateFin) AS NbVisitesMoyenParEleveParVisiteSurPeriode,
+            (SELECT AVG(quantite_medicament_visite) FROM Visite WHERE CONVERT(DATE, [date_visite]) BETWEEN @DateDebut AND @DateFin) AS MbAvgMedicParVisiteSurPeriode;
+    ";
 
-                // ajout des paramètres pour parametrer notre requête
+                // ajout des paramètres pour paramétrer notre requête
                 command.Parameters.AddWithValue("@DateDebut", dateDebut);
                 command.Parameters.AddWithValue("@DateFin", dateFin);
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                // Remplisage du dictionnaire
+                // Remplissage du dictionnaire
                 while (reader.Read())
                 {
                     resultDictionary["NbTotalVisitesSurPeriode"] = Convert.ToInt32(reader["NbTotalVisitesSurPeriode"]);
-                    resultDictionary["NbTotalMedicamentsParVisiteSurPeriode"] = Convert.ToInt32(reader["NbTotalMedicamentsParVisiteSurPeriode"]);
-                    resultDictionary["DureeAvgParVisiteSurPeriode"] = Convert.ToInt32(reader["DureeAvgParVisiteSurPeriode"]);
-                    resultDictionary["NbVisitesMoyenParEleveParVisiteSurPeriode"] = (float)Convert.ToDecimal(reader["NbVisitesMoyenParEleveParVisiteSurPeriode"]);
-                    resultDictionary["MbAvgMedicParVisiteSurPeriode"] = (float)Convert.ToDecimal(reader["MbAvgMedicParVisiteSurPeriode"]);
+
+                    // Vérification si la valeur est DBNull avant la conversion
+                    resultDictionary["NbTotalMedicamentsParVisiteSurPeriode"] = reader["NbTotalMedicamentsParVisiteSurPeriode"] != DBNull.Value
+                        ? Convert.ToInt32(reader["NbTotalMedicamentsParVisiteSurPeriode"])
+                        : 0; // Vous pouvez remplacer 0 par une valeur par défaut appropriée
+
+                    // Vérification si la valeur est DBNull avant la conversion
+                    resultDictionary["DureeAvgParVisiteSurPeriode"] = reader["DureeAvgParVisiteSurPeriode"] != DBNull.Value
+                        ? Convert.ToInt32(reader["DureeAvgParVisiteSurPeriode"])
+                        : 0; // Vous pouvez remplacer 0 par une valeur par défaut appropriée
+
+                    resultDictionary["NbVisitesMoyenParEleveParVisiteSurPeriode"] = reader["NbVisitesMoyenParEleveParVisiteSurPeriode"] != DBNull.Value
+                        ? (float)Convert.ToDecimal(reader["NbVisitesMoyenParEleveParVisiteSurPeriode"])
+                        : 0; // Vous pouvez remplacer 0 par une valeur par défaut appropriée
+
+                    resultDictionary["MbAvgMedicParVisiteSurPeriode"] = reader["MbAvgMedicParVisiteSurPeriode"] != DBNull.Value
+                        ? (float)Convert.ToDecimal(reader["MbAvgMedicParVisiteSurPeriode"])
+                        : 0; // Vous pouvez remplacer 0 par une valeur par défaut appropriée
                 }
+
+
             }
+
             return resultDictionary;
         }
 

@@ -49,6 +49,7 @@ namespace InfirmerieGUI
             ActualiserDataGridViewMedicaments();
             ActualiserDataGridViewVisites();
             ActualiserStats();
+            ActualiserGraphe();
 
 
             dgvEleves.Controls.Add(dtp);
@@ -593,14 +594,53 @@ namespace InfirmerieGUI
         #endregion
 
         #region Statistiques
-            
-          public void ActualiserStats()
-        {
-            lblResultNbEleve.Text = "525";
-            lblResultNbVisites.Text = "420";
-        }  
 
-        #endregion 
+        public void ActualiserStats()
+        {
+            //Affichage des données sur la partie gauche de la page statistiques
+            Dictionary<string, int> infos = GestionInfirmerieBL.GetNombreTotalVisitesEtEleves();
+            lblResultNbEleve.Text = infos["NbTotalEleves"].ToString();
+            lblResultNbVisites.Text = infos["NbTotalVisites"].ToString();
+
+
+            //Affichage des données sur la partie droite de la page statistiques en fonction de deux dates
+            DateTime dateDebut = dtpDebutVisite.Value;
+            DateTime dateFin = dtpFinVisite.Value;
+            Dictionary<string, float> infosParDate = GestionInfirmerieBL.GetInformationsVisitesPourPeriode(dateDebut, dateFin);
+            lblVisiteParDateResult.Text = infosParDate["NbTotalVisitesSurPeriode"].ToString();
+            lblNbMedicamentDonnesResult.Text = infosParDate["NbTotalMedicamentsParVisiteSurPeriode"].ToString();
+            lblTempsMoyenParVisiteResult.Text = infosParDate["DureeAvgParVisiteSurPeriode"].ToString();
+            lblNbVisiteParEleveResult.Text = infosParDate["NbVisitesMoyenParEleveParVisiteSurPeriode"].ToString();
+            lblNbMedicamentDonnesParVisiteResult.Text = infosParDate["MbAvgMedicParVisiteSurPeriode"].ToString();
+
+        }
+
+        public void ActualiserGraphe()
+        {
+            int annee = int.Parse(dtpGraphAnnee.Value.Year.ToString());
+            
+            // Obtenez le dictionnaire avec les données
+            Dictionary<string, int> dataDictionary = GestionInfirmerieBL.GetNombreVisitesParMoisPourAnnee( annee ); // Remplacez 2023 par l'année de votre choix
+
+            // Effacez les points existants dans la série du graphique
+            Graphique.Series["Nombre de visites par mois"].Points.Clear();
+
+            // Parcours du dictionnaire et ajout des points au graphique
+            foreach (var entry in dataDictionary)
+            {
+                string mois = entry.Key;
+                int nombreVisites = entry.Value;
+
+                // Ajoutez le point au graphique
+                Graphique.Series["Nombre de visites par mois"].Points.AddXY(mois, nombreVisites);
+            }
+
+            // Actualisez le graphique
+            Graphique.Update();
+        }
+
+
+        #endregion
 
         #region ToolStripMenu
         private void médicamentsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -637,6 +677,7 @@ namespace InfirmerieGUI
             pnlMedicaments.Visible = false;
             pnlStats.Visible = true;
             ActualiserStats();
+            ActualiserGraphe();
         }
 
         #endregion
@@ -651,5 +692,19 @@ namespace InfirmerieGUI
             }
         }
 
+        private void dtpDebutVisite_ValueChanged(object sender, EventArgs e)
+        {
+            ActualiserStats();
+        }
+
+        private void dtpFinVisite_ValueChanged(object sender, EventArgs e)
+        {
+            ActualiserStats();
+        }
+
+        private void dtpGraphAnnee_ValueChanged(object sender, EventArgs e)
+        {
+            ActualiserGraphe();
+        }
     }
 }
