@@ -109,5 +109,29 @@ namespace InfirmerieBLL
         }
 
         #endregion
+
+        #region Gestion Statistiques
+
+        public static Dictionary<string, int> GetNombreTotalVisitesEtEleves()
+        {
+            return StatistiqueDAO.GetNbVisitesEtNbEleves();
+        }
+
+        // Obtient des informations sur les visites pour une période donnée
+        public static Dictionary<string, float> GetInformationsVisitesPourPeriode(DateTime dateDebut, DateTime dateFin)
+        {
+
+            return StatistiqueDAO.GetInfoVisiteParPeriode(dateDebut, dateFin);
+        }
+
+        // Obtient le nombre de visites par mois pour une année donnée
+        public static Dictionary<string, int> GetNombreVisitesParMoisPourAnnee(int annee)
+        {
+            
+            return StatistiqueDAO.GetNbMoisParAnnee(annee);
+        }
+
+
+        #endregion
     }
 } 
