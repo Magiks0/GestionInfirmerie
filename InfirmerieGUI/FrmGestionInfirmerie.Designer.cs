@@ -31,21 +31,21 @@ namespace InfirmerieGUI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestionInfirmerie));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint97 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 52D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint98 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 45D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint99 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 25D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint100 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint101 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint102 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint103 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint104 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint105 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint106 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint107 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint108 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 75D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint25 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 52D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint26 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 45D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint27 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 25D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint28 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint29 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint30 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint31 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint32 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint33 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint34 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint35 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 5D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint36 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 75D);
             this.lblAccueil = new System.Windows.Forms.Label();
             this.dgvEleves = new System.Windows.Forms.DataGridView();
             this.btnSupprimerEleve = new System.Windows.Forms.Button();
@@ -149,21 +149,33 @@ namespace InfirmerieGUI
             this.btnSupprimerVisite = new System.Windows.Forms.Button();
             this.btnConfirmerVisite = new System.Windows.Forms.Button();
             this.pnlStats = new System.Windows.Forms.Panel();
+            this.pnlSeparatorHorizontal = new System.Windows.Forms.Panel();
             this.pnlGraphique = new System.Windows.Forms.Panel();
             this.Graphique = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnlResults = new System.Windows.Forms.Panel();
-            this.lblResultNbVisites = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblNbTotalVisites = new System.Windows.Forms.Label();
-            this.lblResultNbEleve = new System.Windows.Forms.Label();
-            this.lblNbEleveTotal = new System.Windows.Forms.Label();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.pnlSeparator = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblDebutVisite = new System.Windows.Forms.Label();
-            this.dtpDebutVisite = new System.Windows.Forms.DateTimePicker();
-            this.lblFinVisite = new System.Windows.Forms.Label();
+            this.lblVisiteParDateResult = new System.Windows.Forms.Label();
+            this.lblNbVisiteParDate = new System.Windows.Forms.Label();
+            this.lblNbMedicamentDonnesParVisiteResult = new System.Windows.Forms.Label();
+            this.lblNbMedicamentDonnesParVisite = new System.Windows.Forms.Label();
+            this.lblMinutes = new System.Windows.Forms.Label();
+            this.lblTempsMoyenParVisiteResult = new System.Windows.Forms.Label();
+            this.lblTempsMoyenDeVisite = new System.Windows.Forms.Label();
+            this.lblNbVisiteParEleveResult = new System.Windows.Forms.Label();
+            this.lblNbVisiteParEleve = new System.Windows.Forms.Label();
+            this.lblNbMedicamentDonnesResult = new System.Windows.Forms.Label();
+            this.lblNbMedicamentsDonnes = new System.Windows.Forms.Label();
             this.dtpFinVisite = new System.Windows.Forms.DateTimePicker();
+            this.lblFinVisite = new System.Windows.Forms.Label();
+            this.dtpDebutVisite = new System.Windows.Forms.DateTimePicker();
+            this.lblDebutVisite = new System.Windows.Forms.Label();
+            this.lblNbEleveTotal = new System.Windows.Forms.Label();
+            this.lblResultNbVisites = new System.Windows.Forms.Label();
+            this.pnlSeparator = new System.Windows.Forms.Panel();
+            this.lblResultNbEleve = new System.Windows.Forms.Label();
+            this.lblNbTotalVisites = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.lblGraphNbVisite = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEleves)).BeginInit();
             this.msMenu.SuspendLayout();
             this.pnlModif.SuspendLayout();
@@ -1314,9 +1326,10 @@ namespace InfirmerieGUI
             // 
             // pnlStats
             // 
-            this.pnlStats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnlStats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlStats.Controls.Add(this.panel1);
+            this.pnlStats.Controls.Add(this.pnlSeparatorHorizontal);
             this.pnlStats.Controls.Add(this.pnlGraphique);
             this.pnlStats.Controls.Add(this.pnlResults);
             this.pnlStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1326,44 +1339,57 @@ namespace InfirmerieGUI
             this.pnlStats.Size = new System.Drawing.Size(1379, 780);
             this.pnlStats.TabIndex = 23;
             // 
+            // pnlSeparatorHorizontal
+            // 
+            this.pnlSeparatorHorizontal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlSeparatorHorizontal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSeparatorHorizontal.Location = new System.Drawing.Point(34, 352);
+            this.pnlSeparatorHorizontal.Name = "pnlSeparatorHorizontal";
+            this.pnlSeparatorHorizontal.Size = new System.Drawing.Size(1000, 2);
+            this.pnlSeparatorHorizontal.TabIndex = 8;
+            // 
             // pnlGraphique
             // 
-            this.pnlGraphique.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnlGraphique.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlGraphique.Controls.Add(this.lblGraphNbVisite);
             this.pnlGraphique.Controls.Add(this.Graphique);
-            this.pnlGraphique.Location = new System.Drawing.Point(10, 372);
+            this.pnlGraphique.Location = new System.Drawing.Point(10, 369);
             this.pnlGraphique.Name = "pnlGraphique";
-            this.pnlGraphique.Size = new System.Drawing.Size(1062, 360);
+            this.pnlGraphique.Size = new System.Drawing.Size(1062, 408);
             this.pnlGraphique.TabIndex = 1;
             // 
             // Graphique
             // 
-            this.Graphique.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Graphique.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea9.Name = "ChartArea1";
-            this.Graphique.ChartAreas.Add(chartArea9);
-            legend9.Name = "Legend1";
-            this.Graphique.Legends.Add(legend9);
-            this.Graphique.Location = new System.Drawing.Point(14, 11);
+            chartArea3.Name = "ChartArea1";
+            this.Graphique.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.Graphique.Legends.Add(legend3);
+            this.Graphique.Location = new System.Drawing.Point(24, 45);
             this.Graphique.Name = "Graphique";
             this.Graphique.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.Name = "Nombre de visites par mois";
-            series9.Points.Add(dataPoint97);
-            series9.Points.Add(dataPoint98);
-            series9.Points.Add(dataPoint99);
-            series9.Points.Add(dataPoint100);
-            series9.Points.Add(dataPoint101);
-            series9.Points.Add(dataPoint102);
-            series9.Points.Add(dataPoint103);
-            series9.Points.Add(dataPoint104);
-            series9.Points.Add(dataPoint105);
-            series9.Points.Add(dataPoint106);
-            series9.Points.Add(dataPoint107);
-            series9.Points.Add(dataPoint108);
-            this.Graphique.Series.Add(series9);
-            this.Graphique.Size = new System.Drawing.Size(1030, 342);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Nombre de visites par mois";
+            series3.Points.Add(dataPoint25);
+            series3.Points.Add(dataPoint26);
+            series3.Points.Add(dataPoint27);
+            series3.Points.Add(dataPoint28);
+            series3.Points.Add(dataPoint29);
+            series3.Points.Add(dataPoint30);
+            series3.Points.Add(dataPoint31);
+            series3.Points.Add(dataPoint32);
+            series3.Points.Add(dataPoint33);
+            series3.Points.Add(dataPoint34);
+            series3.Points.Add(dataPoint35);
+            series3.Points.Add(dataPoint36);
+            this.Graphique.Series.Add(series3);
+            this.Graphique.Size = new System.Drawing.Size(1030, 349);
             this.Graphique.TabIndex = 0;
             this.Graphique.Text = "chart1";
             // 
@@ -1371,6 +1397,17 @@ namespace InfirmerieGUI
             // 
             this.pnlResults.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlResults.Controls.Add(this.lblVisiteParDateResult);
+            this.pnlResults.Controls.Add(this.lblNbVisiteParDate);
+            this.pnlResults.Controls.Add(this.lblNbMedicamentDonnesParVisiteResult);
+            this.pnlResults.Controls.Add(this.lblNbMedicamentDonnesParVisite);
+            this.pnlResults.Controls.Add(this.lblMinutes);
+            this.pnlResults.Controls.Add(this.lblTempsMoyenParVisiteResult);
+            this.pnlResults.Controls.Add(this.lblTempsMoyenDeVisite);
+            this.pnlResults.Controls.Add(this.lblNbVisiteParEleveResult);
+            this.pnlResults.Controls.Add(this.lblNbVisiteParEleve);
+            this.pnlResults.Controls.Add(this.lblNbMedicamentDonnesResult);
+            this.pnlResults.Controls.Add(this.lblNbMedicamentsDonnes);
             this.pnlResults.Controls.Add(this.dtpFinVisite);
             this.pnlResults.Controls.Add(this.lblFinVisite);
             this.pnlResults.Controls.Add(this.dtpDebutVisite);
@@ -1383,91 +1420,116 @@ namespace InfirmerieGUI
             this.pnlResults.Controls.Add(this.label1);
             this.pnlResults.Location = new System.Drawing.Point(10, 30);
             this.pnlResults.Name = "pnlResults";
-            this.pnlResults.Size = new System.Drawing.Size(1113, 300);
+            this.pnlResults.Size = new System.Drawing.Size(1113, 316);
             this.pnlResults.TabIndex = 0;
             // 
-            // lblResultNbVisites
+            // lblVisiteParDateResult
             // 
-            this.lblResultNbVisites.AutoSize = true;
-            this.lblResultNbVisites.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResultNbVisites.Location = new System.Drawing.Point(304, 131);
-            this.lblResultNbVisites.Name = "lblResultNbVisites";
-            this.lblResultNbVisites.Size = new System.Drawing.Size(0, 29);
-            this.lblResultNbVisites.TabIndex = 6;
+            this.lblVisiteParDateResult.AutoSize = true;
+            this.lblVisiteParDateResult.Location = new System.Drawing.Point(919, 63);
+            this.lblVisiteParDateResult.Name = "lblVisiteParDateResult";
+            this.lblVisiteParDateResult.Size = new System.Drawing.Size(24, 26);
+            this.lblVisiteParDateResult.TabIndex = 22;
+            this.lblVisiteParDateResult.Text = "0";
             // 
-            // label1
+            // lblNbVisiteParDate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(293, 131);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 29);
-            this.label1.TabIndex = 5;
+            this.lblNbVisiteParDate.AutoSize = true;
+            this.lblNbVisiteParDate.Location = new System.Drawing.Point(413, 63);
+            this.lblNbVisiteParDate.Name = "lblNbVisiteParDate";
+            this.lblNbVisiteParDate.Size = new System.Drawing.Size(193, 26);
+            this.lblNbVisiteParDate.TabIndex = 21;
+            this.lblNbVisiteParDate.Text = "Nombre de visites:";
             // 
-            // lblNbTotalVisites
+            // lblNbMedicamentDonnesParVisiteResult
             // 
-            this.lblNbTotalVisites.AutoSize = true;
-            this.lblNbTotalVisites.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNbTotalVisites.Location = new System.Drawing.Point(10, 131);
-            this.lblNbTotalVisites.Name = "lblNbTotalVisites";
-            this.lblNbTotalVisites.Size = new System.Drawing.Size(286, 29);
-            this.lblNbTotalVisites.TabIndex = 4;
-            this.lblNbTotalVisites.Text = " Nombre total de visites:";
+            this.lblNbMedicamentDonnesParVisiteResult.AutoSize = true;
+            this.lblNbMedicamentDonnesParVisiteResult.Location = new System.Drawing.Point(919, 261);
+            this.lblNbMedicamentDonnesParVisiteResult.Name = "lblNbMedicamentDonnesParVisiteResult";
+            this.lblNbMedicamentDonnesParVisiteResult.Size = new System.Drawing.Size(24, 26);
+            this.lblNbMedicamentDonnesParVisiteResult.TabIndex = 20;
+            this.lblNbMedicamentDonnesParVisiteResult.Text = "0";
             // 
-            // lblResultNbEleve
+            // lblNbMedicamentDonnesParVisite
             // 
-            this.lblResultNbEleve.AutoSize = true;
-            this.lblResultNbEleve.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResultNbEleve.Location = new System.Drawing.Point(293, 28);
-            this.lblResultNbEleve.Name = "lblResultNbEleve";
-            this.lblResultNbEleve.Size = new System.Drawing.Size(0, 29);
-            this.lblResultNbEleve.TabIndex = 3;
+            this.lblNbMedicamentDonnesParVisite.AutoSize = true;
+            this.lblNbMedicamentDonnesParVisite.Location = new System.Drawing.Point(413, 261);
+            this.lblNbMedicamentDonnesParVisite.Name = "lblNbMedicamentDonnesParVisite";
+            this.lblNbMedicamentDonnesParVisite.Size = new System.Drawing.Size(437, 26);
+            this.lblNbMedicamentDonnesParVisite.TabIndex = 19;
+            this.lblNbMedicamentDonnesParVisite.Text = "Nombre de médicaments donnés pas visite:";
             // 
-            // lblNbEleveTotal
+            // lblMinutes
             // 
-            this.lblNbEleveTotal.AutoSize = true;
-            this.lblNbEleveTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNbEleveTotal.Location = new System.Drawing.Point(9, 28);
-            this.lblNbEleveTotal.Name = "lblNbEleveTotal";
-            this.lblNbEleveTotal.Size = new System.Drawing.Size(272, 29);
-            this.lblNbEleveTotal.TabIndex = 2;
-            this.lblNbEleveTotal.Text = " Nombre total d\'élèves:";
+            this.lblMinutes.AutoSize = true;
+            this.lblMinutes.Location = new System.Drawing.Point(949, 212);
+            this.lblMinutes.Name = "lblMinutes";
+            this.lblMinutes.Size = new System.Drawing.Size(48, 26);
+            this.lblMinutes.TabIndex = 18;
+            this.lblMinutes.Text = "min";
             // 
-            // pnlSeparator
+            // lblTempsMoyenParVisiteResult
             // 
-            this.pnlSeparator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlSeparator.Location = new System.Drawing.Point(403, 6);
-            this.pnlSeparator.Name = "pnlSeparator";
-            this.pnlSeparator.Size = new System.Drawing.Size(2, 234);
-            this.pnlSeparator.TabIndex = 7;
+            this.lblTempsMoyenParVisiteResult.AutoSize = true;
+            this.lblTempsMoyenParVisiteResult.Location = new System.Drawing.Point(919, 212);
+            this.lblTempsMoyenParVisiteResult.Name = "lblTempsMoyenParVisiteResult";
+            this.lblTempsMoyenParVisiteResult.Size = new System.Drawing.Size(24, 26);
+            this.lblTempsMoyenParVisiteResult.TabIndex = 17;
+            this.lblTempsMoyenParVisiteResult.Text = "0";
             // 
-            // panel1
+            // lblTempsMoyenDeVisite
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(34, 336);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 2);
-            this.panel1.TabIndex = 8;
+            this.lblTempsMoyenDeVisite.AutoSize = true;
+            this.lblTempsMoyenDeVisite.Location = new System.Drawing.Point(413, 212);
+            this.lblTempsMoyenDeVisite.Name = "lblTempsMoyenDeVisite";
+            this.lblTempsMoyenDeVisite.Size = new System.Drawing.Size(249, 26);
+            this.lblTempsMoyenDeVisite.TabIndex = 16;
+            this.lblTempsMoyenDeVisite.Text = "Temps moyen par visite:";
             // 
-            // lblDebutVisite
+            // lblNbVisiteParEleveResult
             // 
-            this.lblDebutVisite.AutoSize = true;
-            this.lblDebutVisite.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDebutVisite.Location = new System.Drawing.Point(411, 9);
-            this.lblDebutVisite.Name = "lblDebutVisite";
-            this.lblDebutVisite.Size = new System.Drawing.Size(52, 26);
-            this.lblDebutVisite.TabIndex = 8;
-            this.lblDebutVisite.Text = "Du :";
+            this.lblNbVisiteParEleveResult.AutoSize = true;
+            this.lblNbVisiteParEleveResult.Location = new System.Drawing.Point(919, 160);
+            this.lblNbVisiteParEleveResult.Name = "lblNbVisiteParEleveResult";
+            this.lblNbVisiteParEleveResult.Size = new System.Drawing.Size(24, 26);
+            this.lblNbVisiteParEleveResult.TabIndex = 15;
+            this.lblNbVisiteParEleveResult.Text = "0";
             // 
-            // dtpDebutVisite
+            // lblNbVisiteParEleve
             // 
-            this.dtpDebutVisite.CustomFormat = "dd MMMM yyyy";
-            this.dtpDebutVisite.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDebutVisite.Location = new System.Drawing.Point(469, 5);
-            this.dtpDebutVisite.Name = "dtpDebutVisite";
-            this.dtpDebutVisite.Size = new System.Drawing.Size(249, 32);
-            this.dtpDebutVisite.TabIndex = 9;
+            this.lblNbVisiteParEleve.AutoSize = true;
+            this.lblNbVisiteParEleve.Location = new System.Drawing.Point(413, 160);
+            this.lblNbVisiteParEleve.Name = "lblNbVisiteParEleve";
+            this.lblNbVisiteParEleve.Size = new System.Drawing.Size(299, 26);
+            this.lblNbVisiteParEleve.TabIndex = 14;
+            this.lblNbVisiteParEleve.Text = "Nombre de visites par élèves:";
+            // 
+            // lblNbMedicamentDonnesResult
+            // 
+            this.lblNbMedicamentDonnesResult.AutoSize = true;
+            this.lblNbMedicamentDonnesResult.Location = new System.Drawing.Point(919, 112);
+            this.lblNbMedicamentDonnesResult.Name = "lblNbMedicamentDonnesResult";
+            this.lblNbMedicamentDonnesResult.Size = new System.Drawing.Size(24, 26);
+            this.lblNbMedicamentDonnesResult.TabIndex = 13;
+            this.lblNbMedicamentDonnesResult.Text = "0";
+            // 
+            // lblNbMedicamentsDonnes
+            // 
+            this.lblNbMedicamentsDonnes.AutoSize = true;
+            this.lblNbMedicamentsDonnes.Location = new System.Drawing.Point(413, 112);
+            this.lblNbMedicamentsDonnes.Name = "lblNbMedicamentsDonnes";
+            this.lblNbMedicamentsDonnes.Size = new System.Drawing.Size(340, 26);
+            this.lblNbMedicamentsDonnes.TabIndex = 12;
+            this.lblNbMedicamentsDonnes.Text = "Nombre de médicaments donnés:";
+            // 
+            // dtpFinVisite
+            // 
+            this.dtpFinVisite.CustomFormat = "dd MMMM yyyy";
+            this.dtpFinVisite.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFinVisite.Location = new System.Drawing.Point(796, 5);
+            this.dtpFinVisite.Name = "dtpFinVisite";
+            this.dtpFinVisite.Size = new System.Drawing.Size(261, 32);
+            this.dtpFinVisite.TabIndex = 11;
             // 
             // lblFinVisite
             // 
@@ -1479,14 +1541,91 @@ namespace InfirmerieGUI
             this.lblFinVisite.TabIndex = 10;
             this.lblFinVisite.Text = "Au :";
             // 
-            // dtpFinVisite
+            // dtpDebutVisite
             // 
-            this.dtpFinVisite.CustomFormat = "dd MMMM yyyy";
-            this.dtpFinVisite.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFinVisite.Location = new System.Drawing.Point(796, 5);
-            this.dtpFinVisite.Name = "dtpFinVisite";
-            this.dtpFinVisite.Size = new System.Drawing.Size(261, 32);
-            this.dtpFinVisite.TabIndex = 11;
+            this.dtpDebutVisite.CustomFormat = "dd MMMM yyyy";
+            this.dtpDebutVisite.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDebutVisite.Location = new System.Drawing.Point(469, 5);
+            this.dtpDebutVisite.Name = "dtpDebutVisite";
+            this.dtpDebutVisite.Size = new System.Drawing.Size(249, 32);
+            this.dtpDebutVisite.TabIndex = 9;
+            // 
+            // lblDebutVisite
+            // 
+            this.lblDebutVisite.AutoSize = true;
+            this.lblDebutVisite.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDebutVisite.Location = new System.Drawing.Point(411, 9);
+            this.lblDebutVisite.Name = "lblDebutVisite";
+            this.lblDebutVisite.Size = new System.Drawing.Size(52, 26);
+            this.lblDebutVisite.TabIndex = 8;
+            this.lblDebutVisite.Text = "Du :";
+            // 
+            // lblNbEleveTotal
+            // 
+            this.lblNbEleveTotal.AutoSize = true;
+            this.lblNbEleveTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNbEleveTotal.Location = new System.Drawing.Point(35, 97);
+            this.lblNbEleveTotal.Name = "lblNbEleveTotal";
+            this.lblNbEleveTotal.Size = new System.Drawing.Size(265, 29);
+            this.lblNbEleveTotal.TabIndex = 2;
+            this.lblNbEleveTotal.Text = "Nombre total d\'élèves:";
+            // 
+            // lblResultNbVisites
+            // 
+            this.lblResultNbVisites.AutoSize = true;
+            this.lblResultNbVisites.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResultNbVisites.Location = new System.Drawing.Point(313, 169);
+            this.lblResultNbVisites.Name = "lblResultNbVisites";
+            this.lblResultNbVisites.Size = new System.Drawing.Size(27, 29);
+            this.lblResultNbVisites.TabIndex = 6;
+            this.lblResultNbVisites.Text = "0";
+            // 
+            // pnlSeparator
+            // 
+            this.pnlSeparator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSeparator.Location = new System.Drawing.Point(403, 6);
+            this.pnlSeparator.Name = "pnlSeparator";
+            this.pnlSeparator.Size = new System.Drawing.Size(2, 300);
+            this.pnlSeparator.TabIndex = 7;
+            // 
+            // lblResultNbEleve
+            // 
+            this.lblResultNbEleve.AutoSize = true;
+            this.lblResultNbEleve.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResultNbEleve.Location = new System.Drawing.Point(313, 97);
+            this.lblResultNbEleve.Name = "lblResultNbEleve";
+            this.lblResultNbEleve.Size = new System.Drawing.Size(27, 29);
+            this.lblResultNbEleve.TabIndex = 3;
+            this.lblResultNbEleve.Text = "0";
+            // 
+            // lblNbTotalVisites
+            // 
+            this.lblNbTotalVisites.AutoSize = true;
+            this.lblNbTotalVisites.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNbTotalVisites.Location = new System.Drawing.Point(35, 169);
+            this.lblNbTotalVisites.Name = "lblNbTotalVisites";
+            this.lblNbTotalVisites.Size = new System.Drawing.Size(279, 29);
+            this.lblNbTotalVisites.TabIndex = 4;
+            this.lblNbTotalVisites.Text = "Nombre total de visites:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(319, 188);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 29);
+            this.label1.TabIndex = 5;
+            // 
+            // lblGraphNbVisite
+            // 
+            this.lblGraphNbVisite.AutoSize = true;
+            this.lblGraphNbVisite.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGraphNbVisite.Location = new System.Drawing.Point(24, 2);
+            this.lblGraphNbVisite.Name = "lblGraphNbVisite";
+            this.lblGraphNbVisite.Size = new System.Drawing.Size(194, 29);
+            this.lblGraphNbVisite.TabIndex = 1;
+            this.lblGraphNbVisite.Text = "Visites par mois";
             // 
             // FrmGestionInfirmerie
             // 
@@ -1528,6 +1667,7 @@ namespace InfirmerieGUI
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisites)).EndInit();
             this.pnlStats.ResumeLayout(false);
             this.pnlGraphique.ResumeLayout(false);
+            this.pnlGraphique.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Graphique)).EndInit();
             this.pnlResults.ResumeLayout(false);
             this.pnlResults.PerformLayout();
@@ -1652,10 +1792,22 @@ namespace InfirmerieGUI
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.DataVisualization.Charting.Chart Graphique;
         private System.Windows.Forms.Panel pnlSeparator;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlSeparatorHorizontal;
         private System.Windows.Forms.Label lblDebutVisite;
         private System.Windows.Forms.DateTimePicker dtpFinVisite;
         private System.Windows.Forms.Label lblFinVisite;
         private System.Windows.Forms.DateTimePicker dtpDebutVisite;
+        private System.Windows.Forms.Label lblNbVisiteParEleve;
+        private System.Windows.Forms.Label lblNbMedicamentDonnesResult;
+        private System.Windows.Forms.Label lblNbMedicamentsDonnes;
+        private System.Windows.Forms.Label lblNbVisiteParEleveResult;
+        private System.Windows.Forms.Label lblNbMedicamentDonnesParVisiteResult;
+        private System.Windows.Forms.Label lblNbMedicamentDonnesParVisite;
+        private System.Windows.Forms.Label lblMinutes;
+        private System.Windows.Forms.Label lblTempsMoyenParVisiteResult;
+        private System.Windows.Forms.Label lblTempsMoyenDeVisite;
+        private System.Windows.Forms.Label lblNbVisiteParDate;
+        private System.Windows.Forms.Label lblVisiteParDateResult;
+        private System.Windows.Forms.Label lblGraphNbVisite;
     }
 }
