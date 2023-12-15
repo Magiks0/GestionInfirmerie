@@ -1,0 +1,9 @@
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieDAL\bin\Release\InfirmerieDAL.dll
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieDAL\bin\Release\InfirmerieDAL.pdb
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieDAL\bin\Release\InfirmerieBO.dll
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieDAL\bin\Release\InfirmerieBO.pdb
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieDAL\obj\Release\InfirmerieDAL.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieDAL\obj\Release\InfirmerieDAL.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieDAL\obj\Release\InfirmerieDAL.csproj.CopyComplete
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieDAL\obj\Release\InfirmerieDAL.dll
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieDAL\obj\Release\InfirmerieDAL.pdb

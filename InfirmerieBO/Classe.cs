@@ -47,5 +47,10 @@ namespace InfirmerieBO
         {
             this.name = nom;
         }
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }

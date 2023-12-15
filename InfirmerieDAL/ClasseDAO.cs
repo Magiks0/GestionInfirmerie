@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace InfirmerieDAL
 {
-    class ClasseDAO
+    public class ClasseDAO
     {
         static ClasseDAO classeDAO;
         public static ClasseDAO GetClasseDAO()
@@ -42,7 +42,7 @@ namespace InfirmerieDAL
             while (monReader.Read())
             {
                 id = Int32.Parse(monReader["id_classe"].ToString());
-                name = monReader["nom_eleve"].ToString();
+                name = monReader["nom_classe"].ToString();
                 uneClasse = new Classe(id, name);
                 lesClasses.Add(uneClasse);
             }

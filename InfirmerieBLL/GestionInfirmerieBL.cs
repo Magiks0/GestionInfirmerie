@@ -40,6 +40,12 @@ namespace InfirmerieBLL
 
         #region Gestion Eleve
 
+        //récupérer les classes des élèves
+        public static List<Classe> ToutLesClasses()
+        {
+            return ClasseDAO.GetClasses();
+        }
+
         public static List<Eleve> ToutLesEleves()
         {
             return EleveDAO.GetEleves();

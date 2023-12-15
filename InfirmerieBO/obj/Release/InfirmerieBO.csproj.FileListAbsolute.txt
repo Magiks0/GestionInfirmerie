@@ -1,0 +1,6 @@
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBO\bin\Release\InfirmerieBO.dll
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBO\bin\Release\InfirmerieBO.pdb
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBO\obj\Release\InfirmerieBO.csproj.AssemblyReference.cache
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBO\obj\Release\InfirmerieBO.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBO\obj\Release\InfirmerieBO.dll
+C:\Users\admin\source\repos\GestionInfirmerie\InfirmerieBO\obj\Release\InfirmerieBO.pdb

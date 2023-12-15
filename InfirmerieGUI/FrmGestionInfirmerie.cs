@@ -57,6 +57,11 @@ namespace InfirmerieGUI
             dtp.Visible = false;
             dtp.Format = DateTimePickerFormat.Custom;
             dtp.TextChanged += new EventHandler(dtp_TextChange);
+
+            pnlEleves.Visible = false;
+            pnlMedicaments.Visible = false;
+            pnlVisites.Visible = false;
+            pnlStats.Visible = true;
         }
 
         #region Elèves
@@ -153,7 +158,6 @@ namespace InfirmerieGUI
         }
 
 
-        #region A FAIRE
         private void AjouterEleve()
         {
             // Collecte des informations à partir des champs de saisie
@@ -182,11 +186,11 @@ namespace InfirmerieGUI
         {
             AjouterEleve();
         }
-        #endregion
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             pnlModif.Visible = true;
+            pnlAjoutEleve.Visible = false;
 
 
             int.TryParse(txtIdModif.Text = dgvEleves.SelectedCells[0].Value.ToString(), out idModif);
@@ -207,16 +211,20 @@ namespace InfirmerieGUI
 
             comments = txtComments.Text = dgvEleves.SelectedCells[9].Value.ToString();
 
-        }
+            //CLASSE COMBO BOX
+            List<Classe> lesClasses = GestionInfirmerieBL.ToutLesClasses();
+            comboBox1.DataSource = lesClasses;
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Classe uneClasse = new Classe(1, "Seconde1");
-            Eleve updateEleve = new Eleve(idModif, txtNomModif.Text, txtPrenomModif.Text, monthCalendar1.SelectionStart, txtNumeroEleve.Text, uneClasse, txtNumeroParent.Text, chkExtraTime.Checked, txtComments.Text);
-            GestionInfirmerieBL.UpdateEleve(updateEleve);
-            ActualiserDataGridViewEleves();
-        }
+            // Assuming that "Id Classe" is an integer
+            int idClasse = int.Parse(dgvEleves.SelectedCells[5].Value.ToString());
 
+            // Find the corresponding Classe object in the list
+            Classe selectedClasse = lesClasses.Find(element => element.GetId() == idClasse);
+
+            // Set the selected item in the ComboBox
+            comboBox1.SelectedItem = selectedClasse;
+
+        }
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvEleves.Columns[e.ColumnIndex].HeaderText == "Classe Élève" && e.RowIndex >= 0)
@@ -229,17 +237,63 @@ namespace InfirmerieGUI
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            int indexNouvelleLigne = dgvEleves.Rows.Add();
-
-            // Initialisation des valeurs de la nouvelle ligne (facultatif)
-            dgvEleves.Rows[indexNouvelleLigne].Cells["NomColonne"].Value = "Valeur par défaut"; // Remplacez "NomColonne" et "Valeur par défaut" comme nécessaire
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             SupprimerEleve();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (pnlAjoutEleve.Visible)
+            {
+
+                Classe nouClasse = cboxClasseEleveAjout.SelectedItem as Classe;
+                Eleve newEleve = new Eleve(txtNomEleveAjout.Text, txtPrenomEleveAjout.Text, mcBirthdateEleveAjout.SelectionStart, txtNumeroEleveAjout.Text, nouClasse, txtNumeroParentEleveAjout.Text, chkExtraTimeEleveAjout.Checked, txtCommentaireEleveAjout.Text);
+
+                if (GestionInfirmerieBL.AjouterEleve(newEleve) != 0)
+                {
+                    MessageBox.Show("L'élève a bien été ajouté.", "Ajout Réussi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNomMedicAjout.Text = "";
+                    ActualiserDataGridViewEleves();
+                }
+                else
+                {
+                    MessageBox.Show("Erreur lors de l'ajout de l'élève.", "Erreur d'Ajout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (pnlModif.Visible)
+            {
+
+                Classe nouClasse = comboBox1.SelectedItem as Classe;
+
+                Eleve updateEleve = new Eleve(idModif, txtNomModif.Text, txtPrenomModif.Text, monthCalendar1.SelectionStart, txtNumeroEleve.Text, nouClasse, txtNumeroParent.Text, chkExtraTime.Checked, txtComments.Text);
+                
+                if (GestionInfirmerieBL.UpdateEleve(updateEleve) != 0)
+                {
+                    MessageBox.Show("Les modifications de l'élève ont bien été prises en compte.", "Modifications Réussies", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActualiserDataGridViewEleves();
+                }
+                else
+                {
+                    MessageBox.Show("Erreur lors de la modification des données de l'élève.\nAucune modification n'a été apportée.", "Erreur Modifications", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            
+        }
+
+
+
+        private void btnAjoutEleve_Click(object sender, EventArgs e)
+        {
+            pnlAjoutEleve.Visible = true;
+            pnlModif.Visible = false;
+            txtPrenomModif.Text = "";
+            txtNomModif.Text = "";
+
+            //CLASSE COMBO BOX
+            List<Classe> lesClasses = GestionInfirmerieBL.ToutLesClasses();
+            cboxClasseEleveAjout.DataSource = lesClasses;
         }
         #endregion
 
@@ -645,6 +699,7 @@ namespace InfirmerieGUI
         #region ToolStripMenu
         private void médicamentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Text = "Gestion Infirmerie | Médicaments";
             pnlMedicaments.Visible = true;
             pnlEleves.Visible = false;
             pnlVisites.Visible = false;
@@ -654,6 +709,7 @@ namespace InfirmerieGUI
 
         private void élèvesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Text = "Gestion Infirmerie | Elèves";
             pnlEleves.Visible = true;
             pnlMedicaments.Visible = false;
             pnlVisites.Visible = false;
@@ -663,6 +719,7 @@ namespace InfirmerieGUI
 
         private void visitesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Text = "Gestion Infirmerie | Visites";
             pnlVisites.Visible = true;
             pnlEleves.Visible = false;
             pnlMedicaments.Visible = false;
@@ -672,6 +729,7 @@ namespace InfirmerieGUI
 
         private void statistiquesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Text = "Gestion Infirmerie | Statistiques";
             pnlVisites.Visible = false;
             pnlEleves.Visible = false;
             pnlMedicaments.Visible = false;
@@ -706,5 +764,6 @@ namespace InfirmerieGUI
         {
             ActualiserGraphe();
         }
+
     }
 }
